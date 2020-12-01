@@ -36,6 +36,7 @@ DerivedData
 
 # Swift Package Manager
 .build
+.swiftpm
 
 Example/Pods/
 Pods/
