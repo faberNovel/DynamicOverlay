@@ -1,0 +1,61 @@
+# OS X
+.DS_Store
+
+# Xcode
+
+## Build generated
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+*.xccheckout
+profile
+## Other
+*.moved-aside
+*.xccheckout
+DerivedData
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Bundler
+.bundle
+
+# Swift Package Manager
+.build
+
+Example/Pods/
+Pods/
+
+.idea/
+
+# fastlane specific
+fastlane/report.xml
+
+# deliver temporary files
+fastlane/Preview.html
+
+# snapshot generated screenshots
+fastlane/screenshots/**/*.png
+fastlane/screenshots/screenshots.html
+
+# scan temporary files
+fastlane/test_output
+test_output
+fastlane/.env
+pre-change.yml
+.build
+fastlane/README.md
