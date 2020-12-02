@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import SwiftUI
+import DynamicOverlay
 
-class ViewController: UIViewController {
+class ViewController: UIHostingController<ContentView> {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // MARK: - Life Cycle
+
+    init() {
+        super.init(rootView: ContentView())
     }
 
-
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
+struct ContentView: View {
+
+    var body: some View {
+        Color.red
+            .dynamicOverlay(Color.green)
+    }
+}
