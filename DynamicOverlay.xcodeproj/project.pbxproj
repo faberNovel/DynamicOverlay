@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
 		E741EE902577BF2A0073FF6B /* DynamicOverlayNotchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8F2577BF2A0073FF6B /* DynamicOverlayNotchTransition.swift */; };
 		E741EE962577BFBF0073FF6B /* DynamicOverlayNotchTransition+Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE952577BFBF0073FF6B /* DynamicOverlayNotchTransition+Transition.swift */; };
+		E741EEA32577C3950073FF6B /* OverlayContainer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E741EEA22577C3950073FF6B /* OverlayContainer.framework */; platformFilter = ios; };
+		E741EEA42577C3950073FF6B /* OverlayContainer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E741EEA22577C3950073FF6B /* OverlayContainer.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */; };
 		E7691587222EA93F00FDEE7F /* DynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = E7691585222EA93F00FDEE7F /* DynamicOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E769158D222EA95100FDEE7F /* DynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7691589222EA94800FDEE7F /* DynamicOverlayTests.swift */; };
@@ -28,12 +30,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E741EEA52577C3950073FF6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E741EEA42577C3950073FF6B /* OverlayContainer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E741EE5C2576AA240073FF6B /* PassThroughContentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughContentModifier.swift; sourceTree = "<group>"; };
 		E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayModifier.swift; sourceTree = "<group>"; };
 		E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+CaseIterable.swift"; sourceTree = "<group>"; };
 		E741EE8F2577BF2A0073FF6B /* DynamicOverlayNotchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayNotchTransition.swift; sourceTree = "<group>"; };
 		E741EE952577BFBF0073FF6B /* DynamicOverlayNotchTransition+Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DynamicOverlayNotchTransition+Transition.swift"; sourceTree = "<group>"; };
+		E741EEA22577C3950073FF6B /* OverlayContainer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OverlayContainer.framework; path = Carthage/Build/iOS/OverlayContainer.framework; sourceTree = "<group>"; };
 		E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7691584222EA93F00FDEE7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E741EEA32577C3950073FF6B /* OverlayContainer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +100,21 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		E741EEA12577C3950073FF6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E741EEA22577C3950073FF6B /* OverlayContainer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E769153C222EA71F00FDEE7F = {
 			isa = PBXGroup;
 			children = (
 				E7691583222EA93F00FDEE7F /* Source */,
 				E7691588222EA94800FDEE7F /* Tests */,
 				E7691547222EA71F00FDEE7F /* Products */,
+				E741EEA12577C3950073FF6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +177,7 @@
 				E7691542222EA71F00FDEE7F /* Sources */,
 				E7691543222EA71F00FDEE7F /* Frameworks */,
 				E7691544222EA71F00FDEE7F /* Resources */,
+				E741EEA52577C3950073FF6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,6 +425,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -425,6 +457,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
