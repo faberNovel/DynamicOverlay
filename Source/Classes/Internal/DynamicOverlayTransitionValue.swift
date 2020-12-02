@@ -23,9 +23,15 @@ struct DynamicOverlayTransitionValue {
     }
 }
 
-extension DynamicOverlayTransition {
+extension DynamicOverlayTransitionValue {
 
-    func buildValue() -> DynamicOverlayTransitionValue {
-        DynamicOverlayTransitionValue()
+    static var `default`: DynamicOverlayTransitionValue {
+        DynamicOverlayTransitionValue(
+            notchDimensions: [
+                0 : .fractional(0.3),
+                1 : .fractional(0.5),
+                2 : .fractional(0.7)
+            ]
+        )
     }
 }

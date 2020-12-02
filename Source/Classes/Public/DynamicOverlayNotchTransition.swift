@@ -26,50 +26,43 @@ public extension NotchDimension {
     }
 }
 
-public protocol DynamicOverlayTransition {}
-
 public struct DynamicOverlayNotchTransition<Notch> where Notch: CaseIterable, Notch: Equatable {
 
-    public struct Value {
-        public let translation: CGFloat
-    }
-
-    public let dimensions: (Notch) -> NotchDimension
-
-    var blocks: [(Value) -> Void] = []
-    var binding: Binding<Notch>?
+    let value: Value
 
     public init(dimensions: @escaping (Notch) -> NotchDimension) {
-        self.dimensions = dimensions
+        self.value = Value(dimensions: dimensions)
     }
 
-    init(dimensions: @escaping (Notch) -> NotchDimension,
-         blocks: [(Value) -> Void],
-         binding: Binding<Notch>?) {
-        self.dimensions = dimensions
-        self.blocks = blocks
-        self.binding = binding
+    init(value: Value) {
+        self.value = value
     }
 }
 
 public extension DynamicOverlayNotchTransition {
 
-    func onChange(_ block: @escaping (Value) -> Void) -> Self {
-        DynamicOverlayNotchTransition(
-            dimensions: dimensions,
-            blocks: blocks + [block],
-            binding: binding
-        )
+    struct Translation {
+        public let height: CGFloat
+    }
+
+    func onTranslation(_ block: @escaping (Translation) -> Void) -> Self {
+        DynamicOverlayNotchTransition(value: value.appending(block))
     }
 }
 
 public extension DynamicOverlayNotchTransition {
 
     func notchChange(_ binding: Binding<Notch>) -> Self {
-        DynamicOverlayNotchTransition(
-            dimensions: dimensions,
-            blocks: blocks,
-            binding: binding
+        DynamicOverlayNotchTransition(value: value.setting(binding))
+    }
+}
+
+extension DynamicOverlayNotchTransition: DynamicOverlayTransition {
+
+    public func makeModifier(current: DynamicOverlayModifier) -> DynamicOverlayModifier {
+        DynamicOverlayModifier(
+            overlay: current.overlay,
+            transitionValue: buildValue()
         )
     }
 }

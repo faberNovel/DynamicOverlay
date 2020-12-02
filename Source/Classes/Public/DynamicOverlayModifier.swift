@@ -23,10 +23,7 @@ public extension ModifiedContent where Modifier == DynamicOverlayModifier {
     func dynamicOverlayTransition<Transition: DynamicOverlayTransition>(_ transition: Transition) -> ModifiedContent<Content, DynamicOverlayModifier> {
         ModifiedContent(
             content: content,
-            modifier: DynamicOverlayModifier(
-                overlay: modifier.overlay,
-                transitionValue: transition.buildValue()
-            )
+            modifier: transition.makeModifier(current: modifier)
         )
     }
 }
@@ -45,6 +42,11 @@ public struct DynamicOverlayModifier: ViewModifier {
     // MARK: - ViewModifier
 
     public func body(content: Content) -> some View {
-        content.overlay(overlay)
+        content.overlay(
+            OverlayContainerDynamicOverlayView(
+                content: overlay,
+                transition: transitionValue ?? .default
+            )
+        )
     }
 }

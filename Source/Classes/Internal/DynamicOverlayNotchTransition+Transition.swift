@@ -16,19 +16,19 @@ extension NotchDimension {
     }
 }
 
-extension DynamicOverlayNotchTransition: DynamicOverlayTransition {
+extension DynamicOverlayNotchTransition {
 
     // MARK: - DynamicOverlayTransition
 
     func buildValue() -> DynamicOverlayTransitionValue {
         DynamicOverlayTransitionValue(
             notchDimensions: Dictionary(
-                uniqueKeysWithValues: Notch.allCases.enumerated().map { i, notch in (i, dimensions(notch)) }
+                uniqueKeysWithValues: Notch.allCases.enumerated().map { i, notch in (i, value.dimensions(notch)) }
             ),
-            block: blocks.isEmpty ? nil : { height in
-                blocks.forEach { $0(Value(translation: height)) }
+            block: value.translationBlocks.isEmpty ? nil : { height in
+                value.translationBlocks.forEach { $0(Translation(height: height)) }
             },
-            binding: binding?.indexBinding()
+            binding: value.binding?.indexBinding()
         )
     }
 }
