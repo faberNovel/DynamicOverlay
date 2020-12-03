@@ -22,7 +22,7 @@ extension Binding where Value: Equatable, Value: CaseIterable {
     }
 }
 
-private extension CaseIterable where Self: Equatable {
+extension CaseIterable where Self: Equatable {
 
     static func index(of target: AllCases.Element) -> Int {
         var index = 0

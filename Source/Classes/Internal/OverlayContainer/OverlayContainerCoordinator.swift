@@ -15,6 +15,7 @@ struct OverlayContainerLayout: Equatable {
 
 struct OverlayContainerState: Equatable {
     let notchIndex: Int?
+    let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
 }
 
@@ -31,7 +32,7 @@ class OverlayContainerCoordinator {
     private var state: State
 
     init(layout: OverlayContainerLayout, content: UIViewController) {
-        self.state = State(notchIndex: nil, layout: layout)
+        self.state = State(notchIndex: nil, disabledNotches: [], layout: layout)
         self.content = content
     }
 
@@ -86,12 +87,18 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
                                         transitionCoordinator: OverlayContainerTransitionCoordinator) {
         translationUpdateHandler?(transitionCoordinator)
     }
+
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
+                                        canReachNotchAt index: Int,
+                                        forOverlay overlayViewController: UIViewController) -> Bool {
+        !state.disabledNotches.contains(index)
+    }
 }
 
 private extension OverlayContainerState {
 
     func withNewNotch(_ notch: Int) -> OverlayContainerState {
-        OverlayContainerState(notchIndex: notch, layout: layout)
+        OverlayContainerState(notchIndex: notch, disabledNotches: disabledNotches, layout: layout)
     }
 }
 

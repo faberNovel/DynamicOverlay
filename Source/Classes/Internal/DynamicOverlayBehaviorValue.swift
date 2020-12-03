@@ -13,13 +13,16 @@ struct DynamicOverlayBehaviorValue {
     let notchDimensions: [Int: NotchDimension]?
     let block: ((CGFloat) -> Void)?
     let binding: Binding<Int>?
+    let disabledNotchIndexes: Set<Int>
 
     init(notchDimensions: [Int: NotchDimension]? = nil,
          block: ((CGFloat) -> Void)? = nil,
-         binding: Binding<Int>? = nil) {
+         binding: Binding<Int>? = nil,
+         disabledNotchIndexes: Set<Int> = []) {
         self.notchDimensions = notchDimensions
         self.block = block
         self.binding = binding
+        self.disabledNotchIndexes = disabledNotchIndexes
     }
 }
 

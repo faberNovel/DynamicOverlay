@@ -28,7 +28,8 @@ extension MagneticNotchOverlayBehavior {
             block: value.translationBlocks.isEmpty ? nil : { height in
                 value.translationBlocks.forEach { $0(Translation(height: height)) }
             },
-            binding: value.binding?.indexBinding()
+            binding: value.binding?.indexBinding(),
+            disabledNotchIndexes: Set(value.disabledNotches.map { Notch.index(of: $0) })
         )
     }
 }

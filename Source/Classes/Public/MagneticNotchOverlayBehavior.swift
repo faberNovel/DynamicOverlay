@@ -57,6 +57,13 @@ public extension MagneticNotchOverlayBehavior {
     }
 }
 
+public extension MagneticNotchOverlayBehavior {
+
+    func disable(_ notch: Notch, _ isDisabled: Bool = true) -> Self {
+        MagneticNotchOverlayBehavior(value: value.disabling(isDisabled, notch))
+    }
+}
+
 extension MagneticNotchOverlayBehavior: DynamicOverlayBehavior {
 
     public func makeModifier<Overlay>(overlay: Overlay) -> DynamicOverlayModifier<Overlay> where Overlay : View {

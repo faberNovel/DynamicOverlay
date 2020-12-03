@@ -15,13 +15,23 @@ extension MagneticNotchOverlayBehavior {
         let dimensions: (Notch) -> NotchDimension
         let translationBlocks: [(Translation) -> Void]
         let binding: Binding<Notch>?
+        let disabledNotches: [Notch]
 
         init(dimensions: @escaping (Notch) -> NotchDimension,
-             translationBlocks: [(Translation) -> Void] = [],
-             binding: Binding<Notch>? = nil) {
+             translationBlocks: [(Translation) -> Void],
+             binding: Binding<Notch>?,
+             disabledNotches: [Notch]) {
             self.dimensions = dimensions
             self.translationBlocks = translationBlocks
             self.binding = binding
+            self.disabledNotches = disabledNotches
+        }
+
+        init(dimensions: @escaping (Notch) -> NotchDimension) {
+            self.dimensions = dimensions
+            self.translationBlocks = []
+            self.binding = nil
+            self.disabledNotches = []
         }
 
         // MARK: - Public
@@ -30,7 +40,8 @@ extension MagneticNotchOverlayBehavior {
             Value(
                 dimensions: dimensions,
                 translationBlocks: translationBlocks + [block],
-                binding: binding
+                binding: binding,
+                disabledNotches: disabledNotches
             )
         }
 
@@ -38,7 +49,17 @@ extension MagneticNotchOverlayBehavior {
             Value(
                 dimensions: dimensions,
                 translationBlocks: translationBlocks,
-                binding: binding
+                binding: binding,
+                disabledNotches: disabledNotches
+            )
+        }
+
+        func disabling(_ isDisabled: Bool, _ notch: Notch) -> Self {
+            Value(
+                dimensions: dimensions,
+                translationBlocks: translationBlocks,
+                binding: binding,
+                disabledNotches: isDisabled ? disabledNotches + [notch] : disabledNotches
             )
         }
     }

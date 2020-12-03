@@ -30,6 +30,7 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
     private var containerState: OverlayContainerState {
         OverlayContainerState(
             notchIndex: behavior.binding?.wrappedValue,
+            disabledNotches: behavior.disabledNotchIndexes,
             layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
         )
     }
