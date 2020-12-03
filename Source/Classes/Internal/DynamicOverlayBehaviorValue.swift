@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct DynamicOverlayTransitionValue {
+struct DynamicOverlayBehaviorValue {
 
     let notchDimensions: [Int: NotchDimension]?
     let block: ((CGFloat) -> Void)?
@@ -23,10 +23,10 @@ struct DynamicOverlayTransitionValue {
     }
 }
 
-extension DynamicOverlayTransitionValue {
+extension DynamicOverlayBehaviorValue {
 
-    static var `default`: DynamicOverlayTransitionValue {
-        DynamicOverlayTransitionValue(
+    static var `default`: DynamicOverlayBehaviorValue {
+        DynamicOverlayBehaviorValue(
             notchDimensions: [
                 0 : .fractional(0.3),
                 1 : .fractional(0.5),

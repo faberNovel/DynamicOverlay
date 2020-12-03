@@ -10,10 +10,10 @@ import SwiftUI
 
 public extension View {
 
-    func dynamicOverlay<Content: View, Transition: DynamicOverlayTransition>(_ content: Content, transition: Transition) -> some View {
+    func dynamicOverlay<Content: View, Behavior: DynamicOverlayBehavior>(_ content: Content, behavior: Behavior) -> some View {
         ModifiedContent(
             content: self,
-            modifier: transition.makeModifier(overlay: content)
+            modifier: behavior.makeModifier(overlay: content)
         )
     }
 }
@@ -21,12 +21,12 @@ public extension View {
 public struct DynamicOverlayModifier<Overlay: View>: ViewModifier {
 
     let overlay: Overlay
-    let transitionValue: DynamicOverlayTransitionValue?
+    let behaviorValue: DynamicOverlayBehaviorValue?
 
     init(overlay: Overlay,
-         transitionValue: DynamicOverlayTransitionValue? = nil) {
+         behaviorValue: DynamicOverlayBehaviorValue? = nil) {
         self.overlay = overlay
-        self.transitionValue = transitionValue
+        self.behaviorValue = behaviorValue
     }
 
     // MARK: - ViewModifier
@@ -35,7 +35,7 @@ public struct DynamicOverlayModifier<Overlay: View>: ViewModifier {
         content.overlay(
             OverlayContainerDynamicOverlayView(
                 content: overlay,
-                transition: transitionValue ?? .default
+                behavior: behaviorValue ?? .default
             )
         )
     }

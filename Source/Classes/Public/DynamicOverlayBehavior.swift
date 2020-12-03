@@ -1,5 +1,5 @@
 //
-//  DynamicOverlayTransition.swift
+//  DynamicOverlayBehavior.swift
 //  DynamicOverlay
 //
 //  Created by Gaétan Zanella on 02/12/2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public protocol DynamicOverlayTransition {
+public protocol DynamicOverlayBehavior {
 
     func makeModifier<Overlay: View>(overlay: Overlay) -> DynamicOverlayModifier<Overlay>
 }

@@ -30,8 +30,8 @@ class OverlayContainerCoordinator {
 
     private var state: State
 
-    init(initialState: State, content: UIViewController) {
-        self.state = initialState
+    init(layout: OverlayContainerLayout, content: UIViewController) {
+        self.state = State(notchIndex: nil, layout: layout)
         self.content = content
     }
 

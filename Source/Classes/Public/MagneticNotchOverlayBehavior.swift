@@ -1,5 +1,5 @@
 //
-//  NotchDimension.swift
+//  MagneticNotchOverlayBehavior.swift
 //  DynamicOverlay
 //
 //  Created by Gaétan Zanella on 02/12/2020.
@@ -26,7 +26,7 @@ public extension NotchDimension {
     }
 }
 
-public struct DynamicOverlayNotchTransition<Notch> where Notch: CaseIterable, Notch: Equatable {
+public struct MagneticNotchOverlayBehavior<Notch> where Notch: CaseIterable, Notch: Equatable {
 
     let value: Value
 
@@ -39,30 +39,30 @@ public struct DynamicOverlayNotchTransition<Notch> where Notch: CaseIterable, No
     }
 }
 
-public extension DynamicOverlayNotchTransition {
+public extension MagneticNotchOverlayBehavior {
 
     struct Translation {
         public let height: CGFloat
     }
 
     func onTranslation(_ block: @escaping (Translation) -> Void) -> Self {
-        DynamicOverlayNotchTransition(value: value.appending(block))
+        MagneticNotchOverlayBehavior(value: value.appending(block))
     }
 }
 
-public extension DynamicOverlayNotchTransition {
+public extension MagneticNotchOverlayBehavior {
 
     func notchChange(_ binding: Binding<Notch>) -> Self {
-        DynamicOverlayNotchTransition(value: value.setting(binding))
+        MagneticNotchOverlayBehavior(value: value.setting(binding))
     }
 }
 
-extension DynamicOverlayNotchTransition: DynamicOverlayTransition {
+extension MagneticNotchOverlayBehavior: DynamicOverlayBehavior {
 
     public func makeModifier<Overlay>(overlay: Overlay) -> DynamicOverlayModifier<Overlay> where Overlay : View {
         DynamicOverlayModifier(
             overlay: overlay,
-            transitionValue: buildValue()
+            behaviorValue: buildValue()
         )
     }
 }

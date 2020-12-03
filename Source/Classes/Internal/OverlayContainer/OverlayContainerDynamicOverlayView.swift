@@ -12,24 +12,25 @@ import OverlayContainer
 struct OverlayContainerDynamicOverlayView<Content: View>: View {
 
     let content: Content
-    let transition: DynamicOverlayTransitionValue
+    let behavior: DynamicOverlayBehaviorValue
 
     var body: some View {
         OverlayContainerRepresentableAdaptator(
-            transition: transition
+            behavior: behavior
         )
+        .passThroughContent()
         .overlayContent(content)
     }
 }
 
 struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
 
-    let transition: DynamicOverlayTransitionValue
+    let behavior: DynamicOverlayBehaviorValue
 
     private var containerState: OverlayContainerState {
         OverlayContainerState(
-            notchIndex: transition.binding?.wrappedValue,
-            layout: OverlayContainerLayout(indexToDimension: transition.notchDimensions ?? [:])
+            notchIndex: behavior.binding?.wrappedValue,
+            layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
         )
     }
 
@@ -37,14 +38,14 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
 
     func makeCoordinator() -> OverlayContainerCoordinator {
         let coordinator = OverlayContainerCoordinator(
-            initialState: containerState,
+            layout: containerState.layout,
             content: UIHostingController(rootView: OverlayContentHostingView())
         )
         coordinator.notchChangeUpdateHandler = { notch in
-            transition.binding?.wrappedValue = notch
+            behavior.binding?.wrappedValue = notch
         }
         coordinator.translationUpdateHandler = { coordinator in
-            transition.block?(coordinator.targetTranslationHeight)
+            behavior.block?(coordinator.targetTranslationHeight)
         }
         return coordinator
     }

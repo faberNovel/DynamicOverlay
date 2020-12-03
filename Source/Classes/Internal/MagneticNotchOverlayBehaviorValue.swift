@@ -1,5 +1,5 @@
 //
-//  DynamicOverlayNotchTransitionValue.swift
+//  MagneticNotchOverlayBehaviorValue.swift
 //  DynamicOverlay
 //
 //  Created by Gaétan Zanella on 02/12/2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension DynamicOverlayNotchTransition {
+extension MagneticNotchOverlayBehavior {
 
     struct Value {
 
@@ -17,7 +17,7 @@ extension DynamicOverlayNotchTransition {
         let binding: Binding<Notch>?
 
         init(dimensions: @escaping (Notch) -> NotchDimension,
-             translationBlocks: [(DynamicOverlayNotchTransition<Notch>.Translation) -> Void] = [],
+             translationBlocks: [(Translation) -> Void] = [],
              binding: Binding<Notch>? = nil) {
             self.dimensions = dimensions
             self.translationBlocks = translationBlocks

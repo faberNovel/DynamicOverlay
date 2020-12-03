@@ -1,5 +1,5 @@
 //
-//  DynamicOverlayNotchTransition+Transition.swift
+//  MagneticNotchOverlayBehavior+DynamicOverlayBehavior.swift
 //  DynamicOverlay
 //
 //  Created by Gaétan Zanella on 02/12/2020.
@@ -16,12 +16,12 @@ extension NotchDimension {
     }
 }
 
-extension DynamicOverlayNotchTransition {
+extension MagneticNotchOverlayBehavior {
 
-    // MARK: - DynamicOverlayTransition
+    // MARK: - DynamicOverlayBehavior
 
-    func buildValue() -> DynamicOverlayTransitionValue {
-        DynamicOverlayTransitionValue(
+    func buildValue() -> DynamicOverlayBehaviorValue {
+        DynamicOverlayBehaviorValue(
             notchDimensions: Dictionary(
                 uniqueKeysWithValues: Notch.allCases.enumerated().map { i, notch in (i, value.dimensions(notch)) }
             ),
