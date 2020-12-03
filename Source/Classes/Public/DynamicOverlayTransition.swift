@@ -9,5 +9,6 @@
 import SwiftUI
 
 public protocol DynamicOverlayTransition {
-    func makeModifier(current: DynamicOverlayModifier) -> DynamicOverlayModifier
+
+    func makeModifier<Overlay: View>(overlay: Overlay) -> DynamicOverlayModifier<Overlay>
 }

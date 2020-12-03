@@ -16,7 +16,6 @@ struct OverlayContainerLayout: Equatable {
 struct OverlayContainerState: Equatable {
     let notchIndex: Int?
     let layout: OverlayContainerLayout
-    let content: UIViewController?
 }
 
 class OverlayContainerCoordinator {
@@ -25,34 +24,32 @@ class OverlayContainerCoordinator {
 
     var translationUpdateHandler: ((OverlayContainerTransitionCoordinator) -> Void)?
 
-    private lazy var overlayViewController = OverlayContentViewController()
+    private let content: UIViewController
 
     typealias State = OverlayContainerState
 
     private var state: State
 
-    init(initialState: State) {
+    init(initialState: State, content: UIViewController) {
         self.state = initialState
+        self.content = content
     }
 
     // MARK: - Public
 
     func move(_ container: OverlayContainerViewController, to state: State, animated: Bool) {
-        let previous = self.state
-        guard state != previous else { return }
-        self.state = state
         if container.viewControllers.isEmpty {
-            container.viewControllers = [overlayViewController]
+            container.viewControllers = [content]
         }
-        overlayViewController.contentViewController = state.content
-        overlayViewController.view.layoutIfNeeded()
-        if previous.layout != self.state.layout {
+        let previous = self.state
+        self.state = state
+        if previous.layout != state.layout {
             container.invalidateNotchHeights()
         }
         if let index = state.notchIndex, index != previous.notchIndex {
             container.moveOverlay(toNotchAt: index, animated: animated)
         }
-        container.drivingScrollView = overlayViewController.view.findScrollView()
+        container.drivingScrollView = content.view.findScrollView()
     }
 }
 
@@ -94,7 +91,7 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
 private extension OverlayContainerState {
 
     func withNewNotch(_ notch: Int) -> OverlayContainerState {
-        OverlayContainerState(notchIndex: notch, layout: layout, content: content)
+        OverlayContainerState(notchIndex: notch, layout: layout)
     }
 }
 

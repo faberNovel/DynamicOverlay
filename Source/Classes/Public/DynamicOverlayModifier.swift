@@ -10,30 +10,20 @@ import SwiftUI
 
 public extension View {
 
-    func dynamicOverlay<Content: View>(_ content: Content) -> ModifiedContent<Self, DynamicOverlayModifier> {
+    func dynamicOverlay<Content: View, Transition: DynamicOverlayTransition>(_ content: Content, transition: Transition) -> some View {
         ModifiedContent(
             content: self,
-            modifier: DynamicOverlayModifier(overlay: AnyView(content))
+            modifier: transition.makeModifier(overlay: content)
         )
     }
 }
 
-public extension ModifiedContent where Modifier == DynamicOverlayModifier {
+public struct DynamicOverlayModifier<Overlay: View>: ViewModifier {
 
-    func dynamicOverlayTransition<Transition: DynamicOverlayTransition>(_ transition: Transition) -> ModifiedContent<Content, DynamicOverlayModifier> {
-        ModifiedContent(
-            content: content,
-            modifier: transition.makeModifier(current: modifier)
-        )
-    }
-}
-
-public struct DynamicOverlayModifier: ViewModifier {
-
-    let overlay: AnyView
+    let overlay: Overlay
     let transitionValue: DynamicOverlayTransitionValue?
 
-    init(overlay: AnyView,
+    init(overlay: Overlay,
          transitionValue: DynamicOverlayTransitionValue? = nil) {
         self.overlay = overlay
         self.transitionValue = transitionValue

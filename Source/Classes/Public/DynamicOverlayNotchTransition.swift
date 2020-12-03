@@ -59,9 +59,9 @@ public extension DynamicOverlayNotchTransition {
 
 extension DynamicOverlayNotchTransition: DynamicOverlayTransition {
 
-    public func makeModifier(current: DynamicOverlayModifier) -> DynamicOverlayModifier {
+    public func makeModifier<Overlay>(overlay: Overlay) -> DynamicOverlayModifier<Overlay> where Overlay : View {
         DynamicOverlayModifier(
-            overlay: current.overlay,
+            overlay: overlay,
             transitionValue: buildValue()
         )
     }

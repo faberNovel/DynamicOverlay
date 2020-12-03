@@ -16,22 +16,20 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
 
     var body: some View {
         OverlayContainerRepresentableAdaptator(
-            content: content,
             transition: transition
         )
+        .overlayContent(content)
     }
 }
 
-struct OverlayContainerRepresentableAdaptator<Content: View>: UIViewControllerRepresentable {
+struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
 
-    let content: Content
     let transition: DynamicOverlayTransitionValue
 
     private var containerState: OverlayContainerState {
         OverlayContainerState(
             notchIndex: transition.binding?.wrappedValue,
-            layout: OverlayContainerLayout(indexToDimension: transition.notchDimensions ?? [:]),
-            content: UIHostingController(rootView: content)
+            layout: OverlayContainerLayout(indexToDimension: transition.notchDimensions ?? [:])
         )
     }
 
@@ -39,11 +37,8 @@ struct OverlayContainerRepresentableAdaptator<Content: View>: UIViewControllerRe
 
     func makeCoordinator() -> OverlayContainerCoordinator {
         let coordinator = OverlayContainerCoordinator(
-            initialState: OverlayContainerState(
-                notchIndex: nil,
-                layout: containerState.layout,
-                content: nil
-            )
+            initialState: containerState,
+            content: UIHostingController(rootView: OverlayContentHostingView())
         )
         coordinator.notchChangeUpdateHandler = { notch in
             transition.binding?.wrappedValue = notch
@@ -55,7 +50,7 @@ struct OverlayContainerRepresentableAdaptator<Content: View>: UIViewControllerRe
     }
 
     func makeUIViewController(context: Context) -> OverlayContainerViewController {
-        let controller = OverlayContainerViewController(style: .expandableHeight)
+        let controller = OverlayContainerViewController(style: .flexibleHeight)
         controller.delegate = context.coordinator
         return controller
     }

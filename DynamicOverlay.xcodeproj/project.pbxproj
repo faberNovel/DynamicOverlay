@@ -18,6 +18,7 @@
 		E741EEAD2577CD910073FF6B /* DynamicOverlayNotchTransitionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EEAC2577CD910073FF6B /* DynamicOverlayNotchTransitionValue.swift */; };
 		E741EEB72577D27F0073FF6B /* OverlayContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EEB62577D27F0073FF6B /* OverlayContainerCoordinator.swift */; };
 		E741EEBB2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EEBA2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift */; };
+		E75590792578FA74001FB20C /* OverlayContentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75590782578FA74001FB20C /* OverlayContentModifier.swift */; };
 		E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */; };
 		E7691587222EA93F00FDEE7F /* DynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = E7691585222EA93F00FDEE7F /* DynamicOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E769158D222EA95100FDEE7F /* DynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7691589222EA94800FDEE7F /* DynamicOverlayTests.swift */; };
@@ -59,6 +60,7 @@
 		E741EEAC2577CD910073FF6B /* DynamicOverlayNotchTransitionValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayNotchTransitionValue.swift; sourceTree = "<group>"; };
 		E741EEB62577D27F0073FF6B /* OverlayContainerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerCoordinator.swift; sourceTree = "<group>"; };
 		E741EEBA2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerDynamicOverlayView.swift; sourceTree = "<group>"; };
+		E75590782578FA74001FB20C /* OverlayContentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContentModifier.swift; sourceTree = "<group>"; };
 		E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7691584222EA93F00FDEE7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				E741EEB62577D27F0073FF6B /* OverlayContainerCoordinator.swift */,
 				E741EEBA2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift */,
+				E75590782578FA74001FB20C /* OverlayContentModifier.swift */,
 			);
 			path = OverlayContainer;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				E741EE962577BFBF0073FF6B /* DynamicOverlayNotchTransition+Transition.swift in Sources */,
 				E741EEBB2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift in Sources */,
 				E741EEA92577CC400073FF6B /* DynamicOverlayTransition.swift in Sources */,
+				E75590792578FA74001FB20C /* OverlayContentModifier.swift in Sources */,
 				E7691590222EB15700FDEE7F /* DynamicOverlayTransitionValue.swift in Sources */,
 				E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */,
 				E741EE902577BF2A0073FF6B /* DynamicOverlayNotchTransition.swift in Sources */,
