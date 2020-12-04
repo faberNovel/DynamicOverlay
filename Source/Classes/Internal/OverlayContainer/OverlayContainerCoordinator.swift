@@ -14,6 +14,7 @@ struct OverlayContainerLayout: Equatable {
 }
 
 struct OverlayContainerState: Equatable {
+    let searchsScrollView: Bool
     let notchIndex: Int?
     let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
@@ -25,6 +26,8 @@ class OverlayContainerCoordinator {
 
     var translationUpdateHandler: ((OverlayContainerTransitionCoordinator) -> Void)?
 
+    var shouldStartDraggingOverlay: ((CGPoint) -> Bool)?
+
     private let content: UIViewController
 
     typealias State = OverlayContainerState
@@ -32,7 +35,7 @@ class OverlayContainerCoordinator {
     private var state: State
 
     init(layout: OverlayContainerLayout, content: UIViewController) {
-        self.state = State(notchIndex: nil, disabledNotches: [], layout: layout)
+        self.state = State(searchsScrollView: false, notchIndex: nil, disabledNotches: [], layout: layout)
         self.content = content
     }
 
@@ -50,7 +53,13 @@ class OverlayContainerCoordinator {
         if let index = state.notchIndex, index != previous.notchIndex {
             container.moveOverlay(toNotchAt: index, animated: animated)
         }
-        container.drivingScrollView = content.view.findScrollView()
+        guard state.searchsScrollView else {
+            container.drivingScrollView = nil
+            return
+        }
+        CATransaction.setCompletionBlock { [weak self] in
+            container.drivingScrollView = self?.content.view.findScrollView()
+        }
     }
 }
 
@@ -93,12 +102,26 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
                                         forOverlay overlayViewController: UIViewController) -> Bool {
         !state.disabledNotches.contains(index)
     }
+
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
+                                        shouldStartDraggingOverlay overlayViewController: UIViewController,
+                                        at point: CGPoint,
+                                        in coordinateSpace: UICoordinateSpace) -> Bool {
+        shouldStartDraggingOverlay?(
+            containerViewController.view.convert(point, from: coordinateSpace)
+        ) ?? false
+    }
 }
 
 private extension OverlayContainerState {
 
     func withNewNotch(_ notch: Int) -> OverlayContainerState {
-        OverlayContainerState(notchIndex: notch, disabledNotches: disabledNotches, layout: layout)
+        OverlayContainerState(
+            searchsScrollView: searchsScrollView,
+            notchIndex: notch,
+            disabledNotches: disabledNotches,
+            layout: layout
+        )
     }
 }
 

@@ -66,10 +66,7 @@ public extension MagneticNotchOverlayBehavior {
 
 extension MagneticNotchOverlayBehavior: DynamicOverlayBehavior {
 
-    public func makeModifier<Overlay>(overlay: Overlay) -> DynamicOverlayModifier<Overlay> where Overlay : View {
-        DynamicOverlayModifier(
-            overlay: overlay,
-            behaviorValue: buildValue()
-        )
+    public func makeModifier() -> AddDynamicOverlayBehaviorModifier {
+        AddDynamicOverlayBehaviorModifier(value: buildValue())
     }
 }

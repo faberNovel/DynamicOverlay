@@ -38,3 +38,20 @@ extension DynamicOverlayBehaviorValue {
         )
     }
 }
+
+struct DynamicOverlayBehaviorKey: EnvironmentKey {
+
+    static var defaultValue: DynamicOverlayBehaviorValue = .default
+}
+
+extension EnvironmentValues {
+
+    var behaviorValue: DynamicOverlayBehaviorValue {
+        set {
+            self[DynamicOverlayBehaviorKey] = newValue
+        }
+        get {
+            self[DynamicOverlayBehaviorKey]
+        }
+    }
+}

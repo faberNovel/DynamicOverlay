@@ -10,33 +10,43 @@ import SwiftUI
 
 public extension View {
 
-    func dynamicOverlay<Content: View, Behavior: DynamicOverlayBehavior>(_ content: Content, behavior: Behavior) -> some View {
+    func dynamicOverlay<Content: View>(_ content: Content) -> some View {
         ModifiedContent(
             content: self,
-            modifier: behavior.makeModifier(overlay: content)
+            modifier: AddDynamicOverlayModifier(overlay: content)
+        )
+    }
+
+    func dynamicOverlayBehavior<Behavior: DynamicOverlayBehavior>(_ behavior: Behavior) -> some View {
+        ModifiedContent(
+            content: self,
+            modifier: behavior.makeModifier()
         )
     }
 }
 
-public struct DynamicOverlayModifier<Overlay: View>: ViewModifier {
+public struct AddDynamicOverlayModifier<Overlay: View>: ViewModifier {
 
     let overlay: Overlay
-    let behaviorValue: DynamicOverlayBehaviorValue?
-
-    init(overlay: Overlay,
-         behaviorValue: DynamicOverlayBehaviorValue? = nil) {
-        self.overlay = overlay
-        self.behaviorValue = behaviorValue
-    }
 
     // MARK: - ViewModifier
 
     public func body(content: Content) -> some View {
         content.overlay(
             OverlayContainerDynamicOverlayView(
-                content: overlay,
-                behavior: behaviorValue ?? .default
+                content: overlay
             )
         )
+    }
+}
+
+public struct AddDynamicOverlayBehaviorModifier: ViewModifier {
+
+    let value: DynamicOverlayBehaviorValue
+
+    // MARK: - ViewModifier
+
+    public func body(content: Content) -> some View {
+        content.environment(\.behaviorValue, value)
     }
 }

@@ -10,5 +10,5 @@ import SwiftUI
 
 public protocol DynamicOverlayBehavior {
 
-    func makeModifier<Overlay: View>(overlay: Overlay) -> DynamicOverlayModifier<Overlay>
+    func makeModifier() -> AddDynamicOverlayBehaviorModifier
 }
