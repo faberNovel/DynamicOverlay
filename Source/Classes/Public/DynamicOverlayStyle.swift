@@ -25,9 +25,6 @@ public struct ShrinkableDynamicOverlayStyle: DynamicOverlayStyle {
 public extension View {
 
     func dynamicOverlayStyle<Style: DynamicOverlayStyle>(_ style: Style) -> some View {
-        ModifiedContent(
-            content: self,
-            modifier: style.makeModifier()
-        )
+        modifier(style.makeModifier())
     }
 }

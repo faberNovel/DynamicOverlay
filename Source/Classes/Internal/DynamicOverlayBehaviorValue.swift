@@ -11,12 +11,12 @@ import SwiftUI
 struct DynamicOverlayBehaviorValue {
 
     let notchDimensions: [Int: NotchDimension]?
-    let block: ((CGFloat) -> Void)?
+    let block: ((CGFloat, Transaction) -> Void)?
     let binding: Binding<Int>?
     let disabledNotchIndexes: Set<Int>
 
     init(notchDimensions: [Int: NotchDimension]? = nil,
-         block: ((CGFloat) -> Void)? = nil,
+         block: ((CGFloat, Transaction) -> Void)? = nil,
          binding: Binding<Int>? = nil,
          disabledNotchIndexes: Set<Int> = []) {
         self.notchDimensions = notchDimensions

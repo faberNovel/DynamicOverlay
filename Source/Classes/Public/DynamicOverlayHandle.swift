@@ -10,13 +10,11 @@ import SwiftUI
 
 public extension View {
 
-    func dragHandle() -> some View {
-        anchorPreference(key: DynamicOverlayDragHandlePreferenceKey.self, value: .bounds) {
-            DynamicOverlayDragHandle(anchors: [$0])
-        }
+    func dragHandle(_ isActive: Bool = true) -> some View {
+        modifier(DragHandleViewModifier(isActive: isActive))
     }
 
-    func drivingScrollView() -> some View {
-        preference(key: DynamicOverlayScrollPreferenceKey.self, value: true)
+    func drivingScrollView(_ isActive: Bool = true) -> some View {
+        modifier(DrivingScrollViewViewModifier(isActive: isActive))
     }
 }

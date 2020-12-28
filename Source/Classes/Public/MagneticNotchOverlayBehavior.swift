@@ -43,6 +43,7 @@ public extension MagneticNotchOverlayBehavior {
 
     struct Translation {
         public let height: CGFloat
+        public let transaction: Transaction
     }
 
     func onTranslation(_ block: @escaping (Translation) -> Void) -> Self {

@@ -29,13 +29,19 @@ class OverlayContainerCoordinator {
     var shouldStartDraggingOverlay: ((CGPoint) -> Bool)?
 
     private let content: UIViewController
+    private let animationController: OverlayAnimatedTransitioning
 
     typealias State = OverlayContainerState
 
     private var state: State
 
-    init(layout: OverlayContainerLayout, content: UIViewController) {
+    // MARK: - Life Cycle
+
+    init(layout: OverlayContainerLayout,
+         animationController: OverlayAnimatedTransitioning,
+         content: UIViewController) {
         self.state = State(searchsScrollView: false, notchIndex: nil, disabledNotches: [], layout: layout)
+        self.animationController = animationController
         self.content = content
     }
 
@@ -110,6 +116,20 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
         shouldStartDraggingOverlay?(
             containerViewController.view.convert(point, from: coordinateSpace)
         ) ?? false
+    }
+
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
+                                        transitioningDelegateForOverlay overlayViewController: UIViewController) -> OverlayTransitioningDelegate? {
+        self
+    }
+}
+
+extension OverlayContainerCoordinator: OverlayTransitioningDelegate {
+
+    // MARK: - OverlayTransitioningDelegate
+
+    func animationController(for overlayViewController: UIViewController) -> OverlayAnimatedTransitioning? {
+        animationController
     }
 }
 

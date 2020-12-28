@@ -10,14 +10,15 @@ import SwiftUI
 
 struct DynamicOverlayDragHandle: Equatable {
 
-    var anchors: [Anchor<CGRect>]
-
-    mutating func merge(_ handle: DynamicOverlayDragHandle) {
-        anchors += handle.anchors
+    struct Value: Equatable {
+        let frame: CGRect
+        let isActive: Bool
     }
 
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        false // I don't know what to put here. Apple removed the `Anchor` Equatable conformance.
+    var values: [Value]
+
+    mutating func merge(_ handle: DynamicOverlayDragHandle) {
+        values += handle.values
     }
 }
 
@@ -25,7 +26,7 @@ struct DynamicOverlayDragHandlePreferenceKey: PreferenceKey {
 
     typealias Value = DynamicOverlayDragHandle
 
-    static var defaultValue = DynamicOverlayDragHandle(anchors: [])
+    static var defaultValue = DynamicOverlayDragHandle(values: [])
 
     static func reduce(value: inout Value, nextValue: () -> Value) {
         value.merge(nextValue())

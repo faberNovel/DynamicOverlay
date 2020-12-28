@@ -12,7 +12,7 @@ import OverlayContainer
 struct OverlayContainerDynamicOverlayView<Content: View>: View {
 
     @State
-    private var handleRects: [CGRect] = []
+    private var handleValue = DynamicOverlayDragHandle(values: [])
 
     @State
     private var searchsScrollView = false
@@ -30,18 +30,20 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
             OverlayContainerRepresentableAdaptator(
                 style: style,
                 searchsScrollView: searchsScrollView,
-                handleRects: handleRects,
+                handleValue: handleValue,
                 behavior: behavior
             )
             .passThroughContent()
             .overlayContent(content)
             .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
-                handleRects = value.anchors.map { proxy[$0] }
+                handleValue = value
             })
             .onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
                 searchsScrollView = value
             })
+            .environment(\.containerGeometryProxy, proxy)
         }
+        .overlayContainerCoordinateSpace()
     }
 }
 
@@ -49,8 +51,12 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
 
     let style: OverlayStyle
     let searchsScrollView: Bool
-    let handleRects: [CGRect]
+    let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
+
+    private var animationController: DynamicOverlayContainerAnimationController {
+        DynamicOverlayContainerAnimationController(style: style)
+    }
 
     private var containerState: OverlayContainerState {
         OverlayContainerState(
@@ -66,6 +72,7 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
     func makeCoordinator() -> OverlayContainerCoordinator {
         OverlayContainerCoordinator(
             layout: containerState.layout,
+            animationController: animationController,
             content: UIHostingController(rootView: OverlayContentHostingView())
         )
     }
@@ -86,10 +93,18 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
             behavior.binding?.wrappedValue = notch
         }
         context.coordinator.translationUpdateHandler = { coordinator in
-            behavior.block?(coordinator.targetTranslationHeight)
+            let animation = animationController.animation(using: coordinator)
+            let transaction = Transaction(animation: animation)
+            withTransaction(transaction) {
+                behavior.block?(coordinator.targetTranslationHeight, transaction)
+            }
         }
         context.coordinator.shouldStartDraggingOverlay = { point in
-            handleRects.contains { $0.contains(point) }
+            if handleValue.values.isEmpty {
+                return true
+            } else {
+                return handleValue.values.contains { $0.frame.contains(point) && $0.isActive }
+            }
         }
         context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)
     }
