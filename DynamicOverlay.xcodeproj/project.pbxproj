@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7310E662599DC0000865422 /* DynamicOverlayStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E652599DC0000865422 /* DynamicOverlayStyle.swift */; };
+		E7310E6A2599DE2900865422 /* DynamicOverlayStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E692599DE2900865422 /* DynamicOverlayStyleModifier.swift */; };
 		E741EE5D2576AA240073FF6B /* PassThroughContentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE5C2576AA240073FF6B /* PassThroughContentModifier.swift */; };
 		E741EE672576AB7F0073FF6B /* DynamicOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */; };
 		E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E7310E652599DC0000865422 /* DynamicOverlayStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayStyle.swift; sourceTree = "<group>"; };
+		E7310E692599DE2900865422 /* DynamicOverlayStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayStyleModifier.swift; sourceTree = "<group>"; };
 		E741EE5C2576AA240073FF6B /* PassThroughContentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughContentModifier.swift; sourceTree = "<group>"; };
 		E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayModifier.swift; sourceTree = "<group>"; };
 		E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+CaseIterable.swift"; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7310E682599DE2100865422 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				E7310E692599DE2900865422 /* DynamicOverlayStyleModifier.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		E741EE872577AF9D0073FF6B /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 				E741EE8F2577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift */,
 				E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */,
 				E7559082257A4155001FB20C /* DynamicOverlayHandle.swift */,
+				E7310E652599DC0000865422 /* DynamicOverlayStyle.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -108,6 +121,7 @@
 		E741EE882577AFA20073FF6B /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				E7310E682599DE2100865422 /* Style */,
 				E741EEB52577D2730073FF6B /* OverlayContainer */,
 				E741EEAC2577CD910073FF6B /* MagneticNotchOverlayBehaviorValue.swift */,
 				E741EE5C2576AA240073FF6B /* PassThroughContentModifier.swift */,
@@ -296,6 +310,8 @@
 			files = (
 				E741EEB72577D27F0073FF6B /* OverlayContainerCoordinator.swift in Sources */,
 				E741EE962577BFBF0073FF6B /* DynamicOverlayNotchTransition+DynamicOverlayBehavior.swift in Sources */,
+				E7310E662599DC0000865422 /* DynamicOverlayStyle.swift in Sources */,
+				E7310E6A2599DE2900865422 /* DynamicOverlayStyleModifier.swift in Sources */,
 				E741EEBB2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift in Sources */,
 				E741EEA92577CC400073FF6B /* DynamicOverlayBehavior.swift in Sources */,
 				E75590792578FA74001FB20C /* OverlayContentModifier.swift in Sources */,

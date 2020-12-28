@@ -53,12 +53,12 @@ class OverlayContainerCoordinator {
         if let index = state.notchIndex, index != previous.notchIndex {
             container.moveOverlay(toNotchAt: index, animated: animated)
         }
-        guard state.searchsScrollView else {
+        if state.searchsScrollView {
+            CATransaction.setCompletionBlock { [weak self] in
+                container.drivingScrollView = self?.content.view.findScrollView()
+            }
+        } else {
             container.drivingScrollView = nil
-            return
-        }
-        CATransaction.setCompletionBlock { [weak self] in
-            container.drivingScrollView = self?.content.view.findScrollView()
         }
     }
 }
@@ -79,7 +79,7 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
         case .absolute:
             return dimension.value
         case .fractional:
-            return availableSpace * dimension.value
+            return containerViewController.availableSpace * dimension.value
         }
     }
 
@@ -125,17 +125,6 @@ private extension OverlayContainerState {
     }
 }
 
-private class OverlayContentViewController: UIViewController {
-
-    var contentViewController: UIViewController? {
-        didSet {
-            loadViewIfNeeded()
-            oldValue.flatMap { removeChild($0) }
-            contentViewController.flatMap { addChild($0, in: view) }
-        }
-    }
-}
-
 private extension UIView {
 
     func findScrollView() -> UIScrollView? {
@@ -148,24 +137,5 @@ private extension UIView {
             }
         }
         return nil
-    }
-}
-
-private extension UIViewController {
-
-    func addChild(_ child: UIViewController, in containerView: UIView) {
-        guard containerView.isDescendant(of: view) else { return }
-        addChild(child)
-        containerView.addSubview(child.view)
-        child.view.translatesAutoresizingMaskIntoConstraints = true
-        child.view.frame = containerView.bounds
-        child.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        child.didMove(toParent: self)
-    }
-
-    func removeChild(_ child: UIViewController) {
-        child.willMove(toParent: nil)
-        child.view.removeFromSuperview()
-        child.removeFromParent()
     }
 }
