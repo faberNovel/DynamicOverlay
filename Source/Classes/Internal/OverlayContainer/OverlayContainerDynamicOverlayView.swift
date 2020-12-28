@@ -12,7 +12,7 @@ import OverlayContainer
 struct OverlayContainerDynamicOverlayView<Content: View>: View {
 
     @State
-    private var handleValue = DynamicOverlayDragHandle(values: [])
+    private var handleValue: DynamicOverlayDragHandle = .default
 
     @State
     private var searchsScrollView = false
@@ -95,15 +95,19 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
         context.coordinator.translationUpdateHandler = { coordinator in
             let animation = animationController.animation(using: coordinator)
             let transaction = Transaction(animation: animation)
+            let translation = OverlayTranslation(
+                height: coordinator.targetTranslationHeight,
+                transaction: transaction
+            )
             withTransaction(transaction) {
-                behavior.block?(coordinator.targetTranslationHeight, transaction)
+                behavior.block?(translation)
             }
         }
         context.coordinator.shouldStartDraggingOverlay = { point in
-            if handleValue.values.isEmpty {
+            if handleValue.spots.isEmpty && !searchsScrollView {
                 return true
             } else {
-                return handleValue.values.contains { $0.frame.contains(point) && $0.isActive }
+                return handleValue.spots.contains { $0.frame.contains(point) && $0.isActive }
             }
         }
         context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)

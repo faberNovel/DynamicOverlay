@@ -11,17 +11,16 @@ import SwiftUI
 public struct NotchDimension: Hashable {
 
     let type: ValueType
-
-    public let value: CGFloat
+    let value: Double
 }
 
 public extension NotchDimension {
 
-    static func absolute(_ value: CGFloat) -> NotchDimension {
+    static func absolute(_ value: Double) -> NotchDimension {
         NotchDimension(type: .absolute, value: value)
     }
 
-    static func fractional(_ value: CGFloat) -> NotchDimension {
+    static func fractional(_ value: Double) -> NotchDimension {
         NotchDimension(type: .fractional, value: value)
     }
 }
@@ -30,8 +29,8 @@ public struct MagneticNotchOverlayBehavior<Notch> where Notch: CaseIterable, Not
 
     let value: Value
 
-    public init(dimensions: @escaping (Notch) -> NotchDimension) {
-        self.value = Value(dimensions: dimensions)
+    public init(notches: @escaping (Notch) -> NotchDimension) {
+        self.value = Value(dimensions: notches)
     }
 
     init(value: Value) {

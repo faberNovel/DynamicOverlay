@@ -19,8 +19,8 @@ struct DragHandleViewModifier: ViewModifier {
         content.preference(
             key: DynamicOverlayDragHandlePreferenceKey.self,
             value: DynamicOverlayDragHandle(
-                values: [
-                    DynamicOverlayDragHandle.Value(
+                spots: [
+                    DynamicOverlayDragHandle.Spot(
                         frame: proxy?.frame(in: .overlayContainer) ?? .zero,
                         isActive: isActive
                     )

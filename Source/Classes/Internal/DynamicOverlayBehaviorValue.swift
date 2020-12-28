@@ -8,15 +8,20 @@
 
 import SwiftUI
 
+struct OverlayTranslation {
+    let height: CGFloat
+    let transaction: Transaction
+}
+
 struct DynamicOverlayBehaviorValue {
 
     let notchDimensions: [Int: NotchDimension]?
-    let block: ((CGFloat, Transaction) -> Void)?
+    let block: ((OverlayTranslation) -> Void)?
     let binding: Binding<Int>?
     let disabledNotchIndexes: Set<Int>
 
     init(notchDimensions: [Int: NotchDimension]? = nil,
-         block: ((CGFloat, Transaction) -> Void)? = nil,
+         block: ((OverlayTranslation) -> Void)? = nil,
          binding: Binding<Int>? = nil,
          disabledNotchIndexes: Set<Int> = []) {
         self.notchDimensions = notchDimensions

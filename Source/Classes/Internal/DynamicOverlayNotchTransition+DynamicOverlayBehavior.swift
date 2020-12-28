@@ -25,8 +25,15 @@ extension MagneticNotchOverlayBehavior {
             notchDimensions: Dictionary(
                 uniqueKeysWithValues: Notch.allCases.enumerated().map { i, notch in (i, value.dimensions(notch)) }
             ),
-            block: value.translationBlocks.isEmpty ? nil : { height, transaction in
-                value.translationBlocks.forEach { $0(Translation(height: height, transaction: transaction)) }
+            block: value.translationBlocks.isEmpty ? nil : { translation in
+                value.translationBlocks.forEach {
+                    $0(
+                        Translation(
+                            height: translation.height,
+                            transaction: translation.transaction
+                        )
+                    )
+                }
             },
             binding: value.binding?.indexBinding(),
             disabledNotchIndexes: Set(value.disabledNotches.map { Notch.index(of: $0) })

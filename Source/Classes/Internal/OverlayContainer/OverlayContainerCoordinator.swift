@@ -83,9 +83,9 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
         guard let dimension = state.layout.indexToDimension[index] else { return 0 }
         switch dimension.type {
         case .absolute:
-            return dimension.value
+            return CGFloat(dimension.value)
         case .fractional:
-            return containerViewController.availableSpace * dimension.value
+            return containerViewController.availableSpace * CGFloat(dimension.value)
         }
     }
 
