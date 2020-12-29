@@ -12,9 +12,13 @@ let package = Package(
             targets: ["DynamicOverlay"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/applidium/OverlayContainer.git", from: "3.5.1")
+    ],
     targets: [
         .target(
             name: "DynamicOverlay",
+            dependencies: ["OverlayContainer"],
             path: "Source/Classes"
         ),
     ],
