@@ -4,11 +4,17 @@
 DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based interfaces, such as the one presented in the Apple Maps, Stocks or Shortcuts apps.
 </H4>
 
-[![Version](https://img.shields.io/cocoapods/v/DynamicOverlay.svg?style=flat)](https://cocoapods.org/pods/DynamicOverlay)
-[![License](https://img.shields.io/cocoapods/l/DynamicOverlay.svg?style=flat)](https://cocoapods.org/pods/DynamicOverlay)
-<!-- [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) -->
-<!-- [![Platform](https://img.shields.io/cocoapods/p/DynamicOverlay.svg?style=flat)](https://cocoapods.org/pods/DynamicOverlay) -->
-<!-- [![Build Status](https://github.com/fabernovel/DynamicOverlay/workflows/CI/badge.svg?branch=master)](https://github.com/fabernovel/DynamicOverlay/actions) -->
+<p align="center">
+  <a href="https://developer.apple.com/"><img alt="Platform" src="https://img.shields.io/badge/platform-iOS-green.svg"/></a>
+  <a href="https://developer.apple.com/swift"><img alt="Swift4" src="https://img.shields.io/badge/language-Swift%204.2-orange.svg"/></a>
+  <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift%205.0-orange.svg"/></a>
+  <a href="https://cocoapods.org/pods/DynamicOverlay"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/DynamicOverlay.svg?style=flat"/></a>
+  <a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
+  <a href="https://github.com/applidium/DynamicOverlay/actions"><img alt="Build Status" src="https://github.com/applidium/DynamicOverlay/workflows/CI/badge.svg?branch=master"/></a>
+  <a href="https://github.com/applidium/DynamicOverlay/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/DynamicOverlay.svg?style=flat"/></a>
+</p>
+
+---
 
 - [Requirements](#requirements)
 - [Getting started](#getting-started)
