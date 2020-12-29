@@ -6,7 +6,7 @@
 //  Copyright © 2020 Fabernovel. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 class OverlayNotchIndexMapper {
 

@@ -96,7 +96,7 @@ By default, all the content of the overlay is draggable but you can limit this b
 
 Here only the table view header is draggable:
 
-```
+```swift
 var body: some View {
     Color.green
         .dynamicOverlay(myOverlayContent())
@@ -119,7 +119,7 @@ func myOverlayBehavior() -> some DynamicOverlayBehavior {
 }
 ```
 Here we disable the drag gesture:
-```
+```swift
 func myOverlayContent() -> some View {
     VStack {
         Text("Header")
@@ -135,7 +135,7 @@ func myOverlayContent() -> some View {
 
 ### Scroll view support
 
-A magnetic notch overlay can coordinate its motion to the scrolling of a scroll view. 
+A magnetic notch overlay can coordinate its motion with the scrolling of a scroll view. 
 
 Mark a view of the overlay content as a `drivingScrollView` to do so.
 
