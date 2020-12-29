@@ -31,6 +31,8 @@ class OverlayContainerCoordinator {
     private let content: UIViewController
     private let animationController: OverlayAnimatedTransitioning
 
+    private let indexMapper = OverlayNotchIndexMapper()
+
     typealias State = OverlayContainerState
 
     private var state: State
@@ -74,19 +76,17 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
     // MARK: - OverlayContainerViewControllerDelegate
 
     func numberOfNotches(in containerViewController: OverlayContainerViewController) -> Int {
-        state.layout.indexToDimension.count
+        indexMapper.reload(
+            layout: state.layout,
+            availableHeight: containerViewController.availableSpace
+        )
+        return indexMapper.numberOfOverlayIndexes()
     }
 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
                                         heightForNotchAt index: Int,
                                         availableSpace: CGFloat) -> CGFloat {
-        guard let dimension = state.layout.indexToDimension[index] else { return 0 }
-        switch dimension.type {
-        case .absolute:
-            return CGFloat(dimension.value)
-        case .fractional:
-            return containerViewController.availableSpace * CGFloat(dimension.value)
-        }
+        indexMapper.height(forOverlayIndex: index)
     }
 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
@@ -94,7 +94,9 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
                                         toNotchAt index: Int) {
         let newState = state.withNewNotch(index)
         guard newState != state else { return }
-        notchChangeUpdateHandler?(index)
+        notchChangeUpdateHandler?(
+            indexMapper.dynamicIndex(forOverlayIndex: index)
+        )
     }
 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
@@ -106,7 +108,7 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
                                         canReachNotchAt index: Int,
                                         forOverlay overlayViewController: UIViewController) -> Bool {
-        !state.disabledNotches.contains(index)
+        !state.disabledNotches.map { indexMapper.overlayIndex(forDynamicIndex: $0) }.contains(index)
     }
 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,

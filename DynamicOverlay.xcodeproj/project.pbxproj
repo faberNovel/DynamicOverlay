@@ -13,6 +13,8 @@
 		E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E72259A102E00865422 /* DragHandleViewModifier.swift */; };
 		E7310E77259A10AB00865422 /* DrivingScrollViewViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */; };
 		E7310E7B259A117400865422 /* OverlayContainer+CoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */; };
+		E7310E82259B3AC900865422 /* OverlayNotchIndexMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */; };
+		E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */; };
 		E741EE5D2576AA240073FF6B /* PassThroughContentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE5C2576AA240073FF6B /* PassThroughContentModifier.swift */; };
 		E741EE672576AB7F0073FF6B /* DynamicOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */; };
 		E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
@@ -64,6 +66,9 @@
 		E7310E72259A102E00865422 /* DragHandleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleViewModifier.swift; sourceTree = "<group>"; };
 		E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingScrollViewViewModifier.swift; sourceTree = "<group>"; };
 		E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OverlayContainer+CoordinateSpace.swift"; sourceTree = "<group>"; };
+		E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNotchIndexMapper.swift; sourceTree = "<group>"; };
+		E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNotchIndexMapperTests.swift; sourceTree = "<group>"; };
+		E7310E8D259B524100865422 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E741EE5C2576AA240073FF6B /* PassThroughContentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughContentModifier.swift; sourceTree = "<group>"; };
 		E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayModifier.swift; sourceTree = "<group>"; };
 		E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+CaseIterable.swift"; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 				E741EEBA2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift */,
 				E75590782578FA74001FB20C /* OverlayContentModifier.swift */,
 				E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */,
+				E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */,
 			);
 			path = OverlayContainer;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 		E769153C222EA71F00FDEE7F = {
 			isa = PBXGroup;
 			children = (
+				E7310E8D259B524100865422 /* README.md */,
 				E7691583222EA93F00FDEE7F /* Source */,
 				E7691588222EA94800FDEE7F /* Tests */,
 				E7691547222EA71F00FDEE7F /* Products */,
@@ -204,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				E7691589222EA94800FDEE7F /* DynamicOverlayTests.swift */,
+				E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
@@ -343,6 +351,7 @@
 				E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */,
 				E741EE902577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift in Sources */,
 				E7310E77259A10AB00865422 /* DrivingScrollViewViewModifier.swift in Sources */,
+				E7310E82259B3AC900865422 /* OverlayNotchIndexMapper.swift in Sources */,
 				E7559083257A4155001FB20C /* DynamicOverlayHandle.swift in Sources */,
 				E741EE672576AB7F0073FF6B /* DynamicOverlayModifier.swift in Sources */,
 				E741EEAD2577CD910073FF6B /* MagneticNotchOverlayBehaviorValue.swift in Sources */,
@@ -355,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E769158D222EA95100FDEE7F /* DynamicOverlayTests.swift in Sources */,
+				E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -479,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

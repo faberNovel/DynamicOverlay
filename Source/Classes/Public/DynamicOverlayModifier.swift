@@ -10,18 +10,24 @@ import SwiftUI
 
 public extension View {
 
+    /// Adds a dynamic overlay above this view.
+    ///
+    /// - parameter content: the content of the overlay.
+    ///
+    /// - returns:A view with a dynamic overlay added above this view.
     func dynamicOverlay<Content: View>(_ content: Content) -> some View {
-        ModifiedContent(
-            content: self,
-            modifier: AddDynamicOverlayModifier(overlay: content)
-        )
+        modifier(AddDynamicOverlayModifier(overlay: content))
     }
 
+    /// Sets the overlay behavior for dynamic overlays within this view.
+    ///
+    /// - parameter behavior: the behavior to apply.
+    ///
+    /// - returns:A view with the specified behavior set.
+    /// 
+    /// This modifier affects the given view, as well as that view’s descendant views. It has no effect outside the view hierarchy on which you call it.
     func dynamicOverlayBehavior<Behavior: DynamicOverlayBehavior>(_ behavior: Behavior) -> some View {
-        ModifiedContent(
-            content: self,
-            modifier: behavior.makeModifier()
-        )
+        modifier(behavior.makeModifier())
     }
 }
 
