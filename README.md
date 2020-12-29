@@ -6,12 +6,11 @@ DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based in
 
 <p align="center">
   <a href="https://developer.apple.com/"><img alt="Platform" src="https://img.shields.io/badge/platform-iOS-green.svg"/></a>
-  <a href="https://developer.apple.com/swift"><img alt="Swift4" src="https://img.shields.io/badge/language-Swift%204.2-orange.svg"/></a>
   <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift%205.0-orange.svg"/></a>
   <a href="https://cocoapods.org/pods/DynamicOverlay"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/DynamicOverlay.svg?style=flat"/></a>
   <a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
-  <a href="https://github.com/applidium/DynamicOverlay/actions"><img alt="Build Status" src="https://github.com/applidium/DynamicOverlay/workflows/CI/badge.svg?branch=master"/></a>
-  <a href="https://github.com/applidium/DynamicOverlay/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/DynamicOverlay.svg?style=flat"/></a>
+  <a href="https://github.com/fabernovel/DynamicOverlay/actions"><img alt="Build Status" src="https://github.com/fabernovel/DynamicOverlay/workflows/CI/badge.svg?branch=master"/></a>
+  <a href="https://github.com/fabernovel/DynamicOverlay/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/DynamicOverlay.svg?style=flat"/></a>
 </p>
 
 ---
@@ -39,12 +38,14 @@ DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based in
 
 ## Getting started
 
-You add a dynamic overlay as a regular one using a dedicated view modifier:
+A dynamic overlay is an overlay that dynamically reveal or hide the content underneath it.
+
+You add a dynamic overlay as a [regular one](https://developer.apple.com/documentation/swiftui/view/overlay(_:alignment:)) using a dedicated view modifier:
 
 ```swift
 Color.blue.dynamicOverlay(Color.red)
 ```
-You can modify its default behavior using the `dynamicOverlayBehavior(_:)` view modifier.
+Its behavior is defined by the `DynamicOverlayBehavior` associated to it if any.
 
 ```swift
 Color.blue
@@ -55,6 +56,7 @@ func myOverlayBehavior() -> some DynamicOverlayBehavior {
     ...
 }
 ```
+If you do not specify a behavior in the overlay view hierarchy, it uses a default one. 
 
 ## Magnetic notch overlay
 
@@ -64,7 +66,7 @@ It describes an overlay that can be dragged up and down alongside predefined not
 
 ### Specifying the notches
 
-The preferred way to define the notches of a magnetic notch overlay is to declare an `CaseIterable` enum:
+The preferred way to define the  magnetic notch overlay notches is to declare an `CaseIterable` enum:
 
 ```swift
 enum Notch: CaseIterable, Equatable {
@@ -76,12 +78,14 @@ You specify the dimensions of each notch when you create a  `MagneticNotchOverla
 ```swift
 @State var isCompact = false
 
-MagneticNotchOverlayBehavior<Notch> { notch in
-    switch notch {
-    case .max:
-        return isCompact ? .fractional(0.5) : .fractional(0.8)
-    case .min:
-        return .fractional(0.3)
+func myOverlayBehavior() -> some DynamicOverlayBehavior {
+    MagneticNotchOverlayBehavior<Notch> { notch in
+        switch notch {
+        case .max:
+            return isCompact ? .fractional(0.5) : .fractional(0.8)
+        case .min:
+            return .fractional(0.3)
+        }
     }
 }
 ```
@@ -100,7 +104,7 @@ extension NotchDimension {
 
 By default, all the content of the overlay is draggable but you can limit this behavior using the `draggable`  view modifier.
 
-Here only the table view header is draggable:
+Here only the list header is draggable:
 
 ```swift
 var body: some View {
@@ -124,7 +128,7 @@ func myOverlayBehavior() -> some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { ... }
 }
 ```
-Here we disable the drag gesture:
+Here we disable the drag gesture entirely:
 ```swift
 func myOverlayContent() -> some View {
     VStack {
@@ -159,7 +163,7 @@ func myOverlayContent() -> some View {
 }
 ```
 
-### Responding to overlay update
+### Responding to overlay updates
 
 You can track the overlay motions using the `onTranslation(_:)` view modifier. It is a great occasion to update the UI according to the current overlay state.
 
