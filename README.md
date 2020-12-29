@@ -38,9 +38,9 @@ DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based in
 
 ## Getting started
 
-A dynamic overlay is an overlay that dynamically reveal or hide the content underneath it.
+A dynamic overlay is an overlay that dynamically reveals or hides the content underneath it.
 
-You add a dynamic overlay as a [regular one](https://developer.apple.com/documentation/swiftui/view/overlay(_:alignment:)) using a dedicated view modifier:
+You add a dynamic overlay as a [regular one](https://developer.apple.com/documentation/swiftui/view/overlay(_:alignment:)) using a view modifier:
 
 ```swift
 Color.blue.dynamicOverlay(Color.red)
@@ -56,17 +56,17 @@ func myOverlayBehavior() -> some DynamicOverlayBehavior {
     ...
 }
 ```
-If you do not specify a behavior in the overlay view hierarchy, it uses a default one. 
+If you do not specify a behavior in the overlay view hierarchy, it uses a default one.
 
 ## Magnetic notch overlay
 
 `MagneticNotchOverlayBehavior` is a `DynamicOverlayBehavior` instance. It is the only behavior available for now.
 
-It describes an overlay that can be dragged up and down alongside predefined notches. Whenever a drag gesture ends, the overlay motion will continue until it reaches one of its notches. 
+It describes an overlay that can be dragged up and down alongside predefined notches. Whenever a drag gesture ends, the overlay motion will continue until it reaches one of its notches.
 
 ### Specifying the notches
 
-The preferred way to define the  magnetic notch overlay notches is to declare an `CaseIterable` enum:
+The preferred way to define the notches is to declare an `CaseIterable` enum:
 
 ```swift
 enum Notch: CaseIterable, Equatable {
@@ -145,7 +145,7 @@ func myOverlayContent() -> some View {
 
 ### Scroll view support
 
-A magnetic notch overlay can coordinate its motion with the scrolling of a scroll view. 
+A magnetic notch overlay can coordinate its motion with the scrolling of a scroll view.
 
 Mark a view of the overlay content as a `drivingScrollView` to do so.
 
