@@ -22,13 +22,9 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
     @Environment(\.behaviorValue)
     var behavior: DynamicOverlayBehaviorValue
 
-    @Environment(\.overlayStyle)
-    var style: OverlayStyle
-
     var body: some View {
         GeometryReader { proxy in
             OverlayContainerRepresentableAdaptator(
-                style: style,
                 searchsScrollView: searchsScrollView,
                 handleValue: handleValue,
                 behavior: behavior
@@ -49,13 +45,12 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
 
 struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
 
-    let style: OverlayStyle
     let searchsScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
 
     private var animationController: DynamicOverlayContainerAnimationController {
-        DynamicOverlayContainerAnimationController(style: style)
+        DynamicOverlayContainerAnimationController()
     }
 
     private var containerState: OverlayContainerState {
@@ -78,12 +73,7 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> OverlayContainerViewController {
-        let containerStyle: OverlayContainerViewController.OverlayStyle
-        switch style {
-        case .shrinkable:
-            containerStyle = .flexibleHeight
-        }
-        let controller = OverlayContainerViewController(style: containerStyle)
+        let controller = OverlayContainerViewController(style: .flexibleHeight)
         controller.delegate = context.coordinator
         return controller
     }

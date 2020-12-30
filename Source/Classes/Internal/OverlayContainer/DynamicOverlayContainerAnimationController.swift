@@ -26,13 +26,6 @@ struct DynamicOverlayContainerAnimationController: OverlayAnimatedTransitioning 
     private var damping: CGFloat = Constant.defaultDamping
     private var response: CGFloat = Constant.defaultResponse
 
-    init(style: OverlayStyle) {
-        switch style {
-        case .shrinkable:
-            damping = Constant.defaultDamping
-        }
-    }
-
     // MARK: - Public
 
     public func animation(using context: OverlayContainerTransitionCoordinatorContext) -> Animation? {
