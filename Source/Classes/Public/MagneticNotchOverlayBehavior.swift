@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// The instance describing an overlay that can be dragged up and down alongside predefined notches.
+/// A `DynamicOverlayBehavior` instance describing an overlay that can be dragged up and down alongside predefined notches.
 /// Whenever a drag gesture ends, the overlay motion will continue until it reaches one of its notches.
 public struct MagneticNotchOverlayBehavior<Notch> where Notch: CaseIterable, Notch: Equatable {
 

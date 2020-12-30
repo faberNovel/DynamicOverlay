@@ -50,9 +50,9 @@ Its behavior is defined by the `DynamicOverlayBehavior` associated to it if any.
 ```swift
 Color.blue
     .dynamicOverlay(Color.red)
-    .dynamicOverlayBehavior(myOverlayBehavior())
+    .dynamicOverlayBehavior(myOverlayBehavior)
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     ...
 }
 ```
@@ -78,7 +78,7 @@ You specify the dimensions of each notch when you create a  `MagneticNotchOverla
 ```swift
 @State var isCompact = false
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { notch in
         switch notch {
         case .max:
@@ -109,11 +109,11 @@ Here only the list header is draggable:
 ```swift
 var body: some View {
     Color.green
-        .dynamicOverlay(myOverlayContent())
-        .dynamicOverlayBehavior(myOverlayBehavior())
+        .dynamicOverlay(myOverlayContent)
+        .dynamicOverlayBehavior(myOverlayBehavior)
 }
 
-func myOverlayContent() -> some View {
+var myOverlayContent: some View {
     VStack {
         Text("Header").draggable()
         List {
@@ -124,13 +124,13 @@ func myOverlayContent() -> some View {
     }
 }
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { ... }
 }
 ```
 Here we disable the drag gesture entirely:
 ```swift
-func myOverlayContent() -> some View {
+var myOverlayContent: some View {
     VStack {
         Text("Header")
         List {
@@ -150,7 +150,7 @@ A magnetic notch overlay can coordinate its motion with the scrolling of a scrol
 Mark a view of the overlay content as a `drivingScrollView` to do so.
 
 ```swift
-func myOverlayContent() -> some View {
+var myOverlayContent: some View {
     VStack {
         Text("Header").draggable()
         List {
@@ -165,7 +165,7 @@ func myOverlayContent() -> some View {
 
 ### Responding to overlay updates
 
-You can track the overlay motions using the `onTranslation(_:)` view modifier. It is a great occasion to update the UI according to the current overlay state.
+You can track the overlay motions using the `onTranslation(_:)` view modifier. It is a great occasion to update your UI based on the current overlay state.
 
 Here we define a control that should be right above the overlay:
 
@@ -194,10 +194,10 @@ var body: some View {
         ControlView(height: height, action: {})
     }
     .dynamicOverlay(Color.red)
-    .dynamicOverlayBehavior(myOverlayBehavior())
+    .dynamicOverlayBehavior(myOverlayBehavior)
 }
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { ... }
     .onTranslation { translation in
         height = translation.height
@@ -211,10 +211,10 @@ You can also be notified when a notch is reached using a binding:
 var body: some View {
     Color.blue
         .dynamicOverlay(Text("\(notch)"))
-        .dynamicOverlayBehavior(myOverlayBehavior())
+        .dynamicOverlayBehavior(myOverlayBehavior)
 }
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { ... }
     .notchChange($notch)
 }
@@ -235,10 +235,10 @@ var body: some View {
         }
     }
     .dynamicOverlay(Color.red)
-    .dynamicOverlayBehavior(myOverlayBehavior())
+    .dynamicOverlayBehavior(myOverlayBehavior)
 }
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { ... }
     .notchChange($notch)
 }
@@ -260,7 +260,7 @@ When a notch is disabled, the overlay will ignore it. Here we block the overlay 
 ```swift
 @State var notch: Notch = .max
 
-func myOverlayBehavior() -> some DynamicOverlayBehavior {
+var myOverlayBehavior: some DynamicOverlayBehavior {
     MagneticNotchOverlayBehavior<Notch> { ... }
     .notchChange($notch)
     .disable(.max, notch == .min)
