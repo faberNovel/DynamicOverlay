@@ -9,8 +9,8 @@ DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based in
   <a href="https://developer.apple.com/swift"><img alt="Swift5" src="https://img.shields.io/badge/language-Swift%205.0-orange.svg"/></a>
   <a href="https://cocoapods.org/pods/DynamicOverlay"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/DynamicOverlay.svg?style=flat"/></a>
   <a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
-  <a href="https://github.com/fabernovel/DynamicOverlay/actions"><img alt="Build Status" src="https://github.com/fabernovel/DynamicOverlay/workflows/CI/badge.svg?branch=master"/></a>
-  <a href="https://github.com/fabernovel/DynamicOverlay/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/DynamicOverlay.svg?style=flat"/></a>
+  <a href="https://github.com/fabernovel/DynamicOverlay/actions"><img alt="Build Status" src="https://github.com/fabernovel/DynamicOverlay/workflows/CI/badge.svg?branch=main"/></a>
+  <a href="https://github.com/fabernovel/DynamicOverlay/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/DynamicOverlay.svg?style=flat"/></a>
 </p>
 
 ---
