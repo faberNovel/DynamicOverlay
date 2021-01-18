@@ -65,10 +65,12 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
     // MARK: - UIViewControllerRepresentable
 
     func makeCoordinator() -> OverlayContainerCoordinator {
-        OverlayContainerCoordinator(
+        let content = UIHostingController(rootView: OverlayContentHostingView())
+        content.view.backgroundColor = nil
+        return OverlayContainerCoordinator(
             layout: containerState.layout,
             animationController: animationController,
-            content: UIHostingController(rootView: OverlayContentHostingView())
+            content: content
         )
     }
 
