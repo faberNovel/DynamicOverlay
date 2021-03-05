@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4895E51D25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895E51C25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift */; };
 		E7310E6E2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */; };
 		E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E72259A102E00865422 /* DragHandleViewModifier.swift */; };
 		E7310E77259A10AB00865422 /* DrivingScrollViewViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4895E51C25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAndOverlayViewController.swift; sourceTree = "<group>"; };
 		E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayContainerAnimationController.swift; sourceTree = "<group>"; };
 		E7310E72259A102E00865422 /* DragHandleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleViewModifier.swift; sourceTree = "<group>"; };
 		E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingScrollViewViewModifier.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				E75590782578FA74001FB20C /* OverlayContentModifier.swift */,
 				E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */,
 				E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */,
+				4895E51C25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift */,
 			);
 			path = OverlayContainer;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				E741EE672576AB7F0073FF6B /* DynamicOverlayModifier.swift in Sources */,
 				E741EEAD2577CD910073FF6B /* MagneticNotchOverlayBehaviorValue.swift in Sources */,
 				E741EE5D2576AA240073FF6B /* PassThroughContentModifier.swift in Sources */,
+				4895E51D25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

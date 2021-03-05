@@ -9,7 +9,7 @@
 import SwiftUI
 import OverlayContainer
 
-struct OverlayContainerDynamicOverlayView<Content: View>: View {
+public struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
     private var handleValue: DynamicOverlayDragHandle = .default
@@ -17,17 +17,25 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
     @State
     private var searchsScrollView = false
 
+    let background: Background
     let content: Content
 
     @Environment(\.behaviorValue)
     var behavior: DynamicOverlayBehaviorValue
+    
+    public init(background: Background, content: Content) {
+        
+        self.background = background
+        self.content = content
+    }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             OverlayContainerRepresentableAdaptator(
                 searchsScrollView: searchsScrollView,
                 handleValue: handleValue,
-                behavior: behavior
+                behavior: behavior,
+                background: background
             )
             .passThroughContent()
             .overlayContent(content)
@@ -43,11 +51,12 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
     }
 }
 
-struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
+struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControllerRepresentable {
 
     let searchsScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
+    let background: Background
 
     private var animationController: DynamicOverlayContainerAnimationController {
         DynamicOverlayContainerAnimationController()
@@ -75,7 +84,11 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> OverlayContainerViewController {
-        let controller = OverlayContainerViewController(style: .flexibleHeight)
+        let backgroundController = UIHostingController(rootView: background)
+        let controller = BackgroundAndOverlayContainerViewController(
+            backgroundViewController: backgroundController,
+            style: .flexibleHeight
+        )
         controller.delegate = context.coordinator
         return controller
     }
