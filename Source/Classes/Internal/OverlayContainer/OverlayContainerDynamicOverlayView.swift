@@ -9,7 +9,7 @@
 import SwiftUI
 import OverlayContainer
 
-public struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
+struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
     private var handleValue: DynamicOverlayDragHandle = .default
@@ -23,13 +23,13 @@ public struct OverlayContainerDynamicOverlayView<Background: View, Content: View
     @Environment(\.behaviorValue)
     var behavior: DynamicOverlayBehaviorValue
     
-    public init(background: Background, content: Content) {
+    init(background: Background, content: Content) {
         
         self.background = background
         self.content = content
     }
 
-    public var body: some View {
+    var body: some View {
         GeometryReader { proxy in
             OverlayContainerRepresentableAdaptator(
                 searchsScrollView: searchsScrollView,

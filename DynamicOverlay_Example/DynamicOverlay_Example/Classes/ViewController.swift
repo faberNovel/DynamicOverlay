@@ -28,7 +28,7 @@ struct ContentView: View {
 
     var body: some View {
         
-        OverlayContainerDynamicOverlayView(background: background, content: overlay.drivingScrollView())
+        DynamicOverlay(background: background, content: overlay.drivingScrollView())
             .dynamicOverlayBehavior(notchOverlayBehavior)
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480553B525F2E29F0063E536 /* DynamicOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480553B425F2E29F0063E536 /* DynamicOverlay.swift */; };
 		4895E51D25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895E51C25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift */; };
 		E7310E6E2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */; };
 		E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E72259A102E00865422 /* DragHandleViewModifier.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		480553B425F2E29F0063E536 /* DynamicOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicOverlay.swift; sourceTree = "<group>"; };
 		4895E51C25F2B5F100BC1048 /* BackgroundAndOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAndOverlayViewController.swift; sourceTree = "<group>"; };
 		E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayContainerAnimationController.swift; sourceTree = "<group>"; };
 		E7310E72259A102E00865422 /* DragHandleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleViewModifier.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		E741EE872577AF9D0073FF6B /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				480553B425F2E29F0063E536 /* DynamicOverlay.swift */,
 				E741EEA82577CC400073FF6B /* DynamicOverlayBehavior.swift */,
 				E741EE8F2577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift */,
 				E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */,
@@ -336,6 +339,7 @@
 				E7559086257A7152001FB20C /* DynamicOverlayDragHandle.swift in Sources */,
 				E7691590222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift in Sources */,
 				E7310E6E2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift in Sources */,
+				480553B525F2E29F0063E536 /* DynamicOverlay.swift in Sources */,
 				E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */,
 				E741EE902577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift in Sources */,
 				E7310E77259A10AB00865422 /* DrivingScrollViewViewModifier.swift in Sources */,
