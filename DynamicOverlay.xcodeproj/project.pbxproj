@@ -28,8 +28,8 @@
 		E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */; };
 		E7691587222EA93F00FDEE7F /* DynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = E7691585222EA93F00FDEE7F /* DynamicOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7691590222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */; };
-		E7A320AD2600DFE70020C3AA /* OverlayContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; };
-		E7A320AE2600DFE70020C3AA /* OverlayContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7A320CA2600E7530020C3AA /* OverlayContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; };
+		E7A320CB2600E7530020C3AA /* OverlayContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E7A320AF2600DFE70020C3AA /* Embed Frameworks */ = {
+		E7A320CC2600E7530020C3AA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E7A320AE2600DFE70020C3AA /* OverlayContainer.xcframework in Embed Frameworks */,
+				E7A320CB2600E7530020C3AA /* OverlayContainer.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A320AD2600DFE70020C3AA /* OverlayContainer.xcframework in Frameworks */,
+				E7A320CA2600E7530020C3AA /* OverlayContainer.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +231,7 @@
 				E7691542222EA71F00FDEE7F /* Sources */,
 				E7691543222EA71F00FDEE7F /* Frameworks */,
 				E7691544222EA71F00FDEE7F /* Resources */,
-				E7A320AF2600DFE70020C3AA /* Embed Frameworks */,
+				E7A320CC2600E7530020C3AA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -494,10 +494,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -511,7 +507,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -526,10 +522,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -542,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.DynamicOverlay;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

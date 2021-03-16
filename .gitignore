@@ -30,6 +30,7 @@ DerivedData
 *.ipa
 *.dSYM.zip
 *.dSYM
+!Carthage/Build/**/*.dSYM
 
 # Bundler
 .bundle
