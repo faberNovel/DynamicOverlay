@@ -48,6 +48,7 @@ Color.blue.dynamicOverlay(Color.red)
 Its behavior is defined by the `DynamicOverlayBehavior` associated to it if any.
 
 ```swift
+
 Color.blue
     .dynamicOverlay(Color.red)
     .dynamicOverlayBehavior(myOverlayBehavior)
