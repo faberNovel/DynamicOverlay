@@ -27,7 +27,6 @@
 		E7559086257A7152001FB20C /* DynamicOverlayDragHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7559085257A7152001FB20C /* DynamicOverlayDragHandle.swift */; };
 		E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */; };
 		E7691587222EA93F00FDEE7F /* DynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = E7691585222EA93F00FDEE7F /* DynamicOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E769158D222EA95100FDEE7F /* DynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7691589222EA94800FDEE7F /* DynamicOverlayTests.swift */; };
 		E7691590222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */; };
 		E7A320AD2600DFE70020C3AA /* OverlayContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; };
 		E7A320AE2600DFE70020C3AA /* OverlayContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -81,7 +80,6 @@
 		E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7691584222EA93F00FDEE7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7691585222EA93F00FDEE7F /* DynamicOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicOverlay.h; sourceTree = "<group>"; };
-		E7691589222EA94800FDEE7F /* DynamicOverlayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicOverlayTests.swift; sourceTree = "<group>"; };
 		E769158A222EA94800FDEE7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayBehaviorValue.swift; sourceTree = "<group>"; };
 		E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OverlayContainer.xcframework; path = Carthage/Build/OverlayContainer.xcframework; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 		E7691588222EA94800FDEE7F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E7691589222EA94800FDEE7F /* DynamicOverlayTests.swift */,
 				E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
@@ -348,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E769158D222EA95100FDEE7F /* DynamicOverlayTests.swift in Sources */,
 				E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
