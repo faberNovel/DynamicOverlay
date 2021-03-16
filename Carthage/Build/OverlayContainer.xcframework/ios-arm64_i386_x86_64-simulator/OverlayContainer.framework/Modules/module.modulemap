@@ -1,0 +1,11 @@
+framework module OverlayContainer {
+  umbrella header "OverlayContainer.h"
+
+  export *
+  module * { export * }
+}
+
+module OverlayContainer.Swift {
+    header "OverlayContainer-Swift.h"
+    requires objc
+}
