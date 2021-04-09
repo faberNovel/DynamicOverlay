@@ -26,8 +26,28 @@ class ViewController: UIHostingController<ContentView> {
 
 struct ContentView: View {
 
+    enum Notch: String, CaseIterable, Equatable {
+        case min
+        case med
+        case max
+    }
+
     var body: some View {
-        Color.red
-            .dynamicOverlay(Color.green)
+        Color.blue
+            .dynamicOverlay(Color.red)
+            .dynamicOverlayBehavior(notchOverlayBehavior)
+    }
+
+    private var notchOverlayBehavior: some DynamicOverlayBehavior {
+        MagneticNotchOverlayBehavior<Notch> { notch in
+            switch notch {
+            case .max:
+                return .fractional(0.8)
+            case .med:
+                return .fractional(0.5)
+            case .min:
+                return .fractional(0.3)
+            }
+        }
     }
 }

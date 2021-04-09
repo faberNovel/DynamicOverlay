@@ -38,10 +38,9 @@ public struct AddDynamicOverlayModifier<Overlay: View>: ViewModifier {
     // MARK: - ViewModifier
 
     public func body(content: Content) -> some View {
-        content.overlay(
-            OverlayContainerDynamicOverlayView(
-                content: overlay
-            )
+        OverlayContainerDynamicOverlayView(
+            background: content,
+            content: overlay
         )
     }
 }

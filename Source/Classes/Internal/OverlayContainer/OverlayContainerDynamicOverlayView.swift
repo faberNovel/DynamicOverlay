@@ -9,7 +9,7 @@
 import SwiftUI
 import OverlayContainer
 
-struct OverlayContainerDynamicOverlayView<Content: View>: View {
+struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
     private var handleValue: DynamicOverlayDragHandle = .default
@@ -17,6 +17,7 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
     @State
     private var searchsScrollView = false
 
+    let background: Background
     let content: Content
 
     @Environment(\.behaviorValue)
@@ -27,7 +28,8 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
             OverlayContainerRepresentableAdaptator(
                 searchsScrollView: searchsScrollView,
                 handleValue: handleValue,
-                behavior: behavior
+                behavior: behavior,
+                background: background
             )
             .passThroughContent()
             .overlayContent(content)
@@ -43,11 +45,12 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
     }
 }
 
-struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
+struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControllerRepresentable {
 
     let searchsScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
+    let background: Background
 
     private var animationController: DynamicOverlayContainerAnimationController {
         DynamicOverlayContainerAnimationController()
@@ -70,6 +73,7 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
         return OverlayContainerCoordinator(
             layout: containerState.layout,
             animationController: animationController,
+            background: UIHostingController(rootView: background),
             content: content
         )
     }
