@@ -31,7 +31,6 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
                 behavior: behavior,
                 background: background
             )
-            .passThroughContent()
             .overlayContent(content)
             .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
                 handleValue = value
