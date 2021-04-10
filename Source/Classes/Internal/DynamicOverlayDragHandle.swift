@@ -15,10 +15,14 @@ struct DynamicOverlayDragHandle: Equatable {
         let isActive: Bool
     }
 
-    var spots: [Spot]
+    private(set) var spots: [Spot]
 
     mutating func merge(_ handle: DynamicOverlayDragHandle) {
         spots += handle.spots
+    }
+
+    func contains(_ point: CGPoint) -> Bool {
+        spots.contains { $0.frame.contains(point) && $0.isActive }
     }
 }
 

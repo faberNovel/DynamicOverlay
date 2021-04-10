@@ -11,7 +11,7 @@ import SwiftUI
 extension CoordinateSpace {
 
     static var overlayContainer: CoordinateSpace {
-        CoordinateSpace.named("OverlayContainer")
+        .named("OverlayContainer")
     }
 }
 

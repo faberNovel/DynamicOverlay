@@ -26,7 +26,7 @@ class OverlayContainerCoordinator {
 
     var translationUpdateHandler: ((OverlayContainerTransitionCoordinator) -> Void)?
 
-    var shouldStartDraggingOverlay: ((CGPoint) -> Bool)?
+    var shouldStartDraggingOverlay: ((OverlayContainerViewController, CGPoint, UICoordinateSpace) -> Bool)?
 
     private let background: UIViewController
     private let content: UIViewController
@@ -119,7 +119,9 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
                                         at point: CGPoint,
                                         in coordinateSpace: UICoordinateSpace) -> Bool {
         shouldStartDraggingOverlay?(
-            containerViewController.view.convert(point, from: coordinateSpace)
+            containerViewController,
+            point,
+            coordinateSpace
         ) ?? false
     }
 
