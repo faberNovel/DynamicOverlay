@@ -89,7 +89,12 @@ struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControlle
             let transaction = Transaction(animation: animation)
             let translation = OverlayTranslation(
                 height: coordinator.targetTranslationHeight,
-                transaction: transaction
+                transaction: transaction,
+                isDragging: coordinator.isDragging,
+                translationProgress: coordinator.translationProgress(),
+                containerFrame: uiViewController.view.frame,
+                velocity: coordinator.velocity,
+                heightForNotchIndex: { coordinator.height(forNotchAt: $0) }
             )
             withTransaction(transaction) {
                 behavior.block?(translation)

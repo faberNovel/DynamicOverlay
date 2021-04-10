@@ -11,6 +11,11 @@ import SwiftUI
 struct OverlayTranslation {
     let height: CGFloat
     let transaction: Transaction
+    let isDragging: Bool
+    let translationProgress: CGFloat
+    let containerFrame: CGRect
+    let velocity: CGPoint
+    let heightForNotchIndex: (Int) -> CGFloat
 }
 
 struct DynamicOverlayBehaviorValue {

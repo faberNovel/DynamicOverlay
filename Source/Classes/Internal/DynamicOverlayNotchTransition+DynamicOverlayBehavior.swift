@@ -30,7 +30,12 @@ extension MagneticNotchOverlayBehavior {
                     $0(
                         Translation(
                             height: translation.height,
-                            transaction: translation.transaction
+                            transaction: translation.transaction,
+                            progress: Double(min(max(translation.translationProgress, 0), 1)),
+                            containerSize: translation.containerFrame.size,
+                            heightForNotch: { notch in
+                                translation.heightForNotchIndex(Notch.index(of: notch))
+                            }
                         )
                     )
                 }
