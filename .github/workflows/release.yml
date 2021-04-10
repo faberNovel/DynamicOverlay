@@ -8,25 +8,22 @@ on:
             description: 'Version name'
             required: true
 
-  runs-on: macOS-latest
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Bundle install
+      working-directory: ./
+      run: bundle install
 
-  steps:
-  - uses: actions/checkout@v2
-  - name: Bundle install
-    working-directory: ./
-    run: bundle install
-
-  - name: Unit tests
-    run: bundle exec fastlane tests
-
-  - name: SPM lint
-    run: bundle exec fastlane spm_lint
-
-  - name: Carthage lint
-    run: bundle exec fastlane carthage_lint
-
-  - name: Pod lint
-    run: bundle exec fastlane pod_lint
-
-  - name: Release
-    run: bundle exec fastlane release version:{{ github.event.inputs.environment }} bypass_confirmations:true
+    - name: Release
+      env:
+        LC_ALL: en_US.UTF-8
+        LANG: en_US.UTF-8
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_GZ_TOKEN }}
+        GIT_COMMITTER_NAME: Bot Fabernovel
+        GIT_AUTHOR_NAME: Bot Fabernovel
+        GIT_COMMITTER_EMAIL: ci@fabernovel.com
+        GIT_AUTHOR_EMAIL: ci@fabernovel.com
+      run: bundle exec fastlane release version:${{ github.event.inputs.name }} bypass_confirmations:true

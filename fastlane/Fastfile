@@ -31,6 +31,10 @@ platform :ios do
             project: output,
             scheme: "#{ENV["SCHEME"]}-Package"
         )
+        Dir.chdir("..") do
+            sh("rm Package.resolved")
+            sh("rm -rf Package.xcodeproj")
+        end
     end
 
     desc "Release a new version"
