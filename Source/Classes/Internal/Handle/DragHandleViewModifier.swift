@@ -12,37 +12,19 @@ struct DragHandleViewModifier: ViewModifier {
 
     let isActive: Bool
 
-    @Environment(\.containerGeometryProxy)
-    var proxy: GeometryProxy?
-
     func body(content: Content) -> some View {
-        content.preference(
-            key: DynamicOverlayDragHandlePreferenceKey.self,
-            value: DynamicOverlayDragHandle(
-                spots: [
-                    DynamicOverlayDragHandle.Spot(
-                        frame: proxy?.frame(in: .overlayContainer) ?? .zero,
-                        isActive: isActive
-                    )
-                ]
+        GeometryReader { proxy in
+            content.preference(
+                key: DynamicOverlayDragHandlePreferenceKey.self,
+                value: DynamicOverlayDragHandle(
+                    spots: [
+                        DynamicOverlayDragHandle.Spot(
+                            frame: proxy.frame(in: .overlayContainer),
+                            isActive: isActive
+                        )
+                    ]
+                )
             )
-        )
-    }
-}
-
-struct OverlayContainerGeometryProxyKey: EnvironmentKey {
-
-    static var defaultValue: GeometryProxy? = nil
-}
-
-extension EnvironmentValues {
-
-    var containerGeometryProxy: GeometryProxy? {
-        set {
-            self[OverlayContainerGeometryProxyKey] = newValue
-        }
-        get {
-            self[OverlayContainerGeometryProxyKey]
         }
     }
 }

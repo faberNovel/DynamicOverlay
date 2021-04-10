@@ -36,6 +36,17 @@ public extension MagneticNotchOverlayBehavior {
         public let height: CGFloat
         /// The transaction associated to the translation.
         public let transaction: Transaction
+        /// The overlay translation progress (from 0.0 to 1.0).
+        public let progress: Double
+        /// The overlay container size.
+        public let containerSize: CGSize
+
+        let heightForNotch: (Notch) -> CGFloat
+
+        /// returns the height of the given notch.
+        public func height(for notch: Notch) -> CGFloat {
+            heightForNotch(notch)
+        }
     }
 
     /// Adds an action to perform when the overlay moves.

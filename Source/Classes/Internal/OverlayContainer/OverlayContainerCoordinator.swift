@@ -26,8 +26,9 @@ class OverlayContainerCoordinator {
 
     var translationUpdateHandler: ((OverlayContainerTransitionCoordinator) -> Void)?
 
-    var shouldStartDraggingOverlay: ((CGPoint) -> Bool)?
+    var shouldStartDraggingOverlay: ((OverlayContainerViewController, CGPoint, UICoordinateSpace) -> Bool)?
 
+    private let background: UIViewController
     private let content: UIViewController
     private let animationController: OverlayAnimatedTransitioning
 
@@ -41,9 +42,11 @@ class OverlayContainerCoordinator {
 
     init(layout: OverlayContainerLayout,
          animationController: OverlayAnimatedTransitioning,
+         background: UIViewController,
          content: UIViewController) {
         self.state = State(searchsScrollView: false, notchIndex: nil, disabledNotches: [], layout: layout)
         self.animationController = animationController
+        self.background = background
         self.content = content
     }
 
@@ -51,7 +54,7 @@ class OverlayContainerCoordinator {
 
     func move(_ container: OverlayContainerViewController, to state: State, animated: Bool) {
         if container.viewControllers.isEmpty {
-            container.viewControllers = [content]
+            container.viewControllers = [background, content]
         }
         let previous = self.state
         self.state = state
@@ -116,7 +119,9 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
                                         at point: CGPoint,
                                         in coordinateSpace: UICoordinateSpace) -> Bool {
         shouldStartDraggingOverlay?(
-            containerViewController.view.convert(point, from: coordinateSpace)
+            containerViewController,
+            point,
+            coordinateSpace
         ) ?? false
     }
 

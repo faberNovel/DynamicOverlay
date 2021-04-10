@@ -9,7 +9,7 @@
 import SwiftUI
 import OverlayContainer
 
-struct OverlayContainerDynamicOverlayView<Content: View>: View {
+struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
     private var handleValue: DynamicOverlayDragHandle = .default
@@ -17,37 +17,36 @@ struct OverlayContainerDynamicOverlayView<Content: View>: View {
     @State
     private var searchsScrollView = false
 
+    let background: Background
     let content: Content
 
     @Environment(\.behaviorValue)
     var behavior: DynamicOverlayBehaviorValue
 
     var body: some View {
-        GeometryReader { proxy in
-            OverlayContainerRepresentableAdaptator(
-                searchsScrollView: searchsScrollView,
-                handleValue: handleValue,
-                behavior: behavior
-            )
-            .passThroughContent()
-            .overlayContent(content)
-            .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
-                handleValue = value
-            })
-            .onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
-                searchsScrollView = value
-            })
-            .environment(\.containerGeometryProxy, proxy)
-        }
+        OverlayContainerRepresentableAdaptator(
+            searchsScrollView: searchsScrollView,
+            handleValue: handleValue,
+            behavior: behavior,
+            background: background
+        )
+        .overlayContent(content)
+        .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
+            handleValue = value
+        })
+        .onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
+            searchsScrollView = value
+        })
         .overlayContainerCoordinateSpace()
     }
 }
 
-struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
+struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControllerRepresentable {
 
     let searchsScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
+    let background: Background
 
     private var animationController: DynamicOverlayContainerAnimationController {
         DynamicOverlayContainerAnimationController()
@@ -70,6 +69,7 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
         return OverlayContainerCoordinator(
             layout: containerState.layout,
             animationController: animationController,
+            background: UIHostingController(rootView: background),
             content: content
         )
     }
@@ -89,17 +89,24 @@ struct OverlayContainerRepresentableAdaptator: UIViewControllerRepresentable {
             let transaction = Transaction(animation: animation)
             let translation = OverlayTranslation(
                 height: coordinator.targetTranslationHeight,
-                transaction: transaction
+                transaction: transaction,
+                isDragging: coordinator.isDragging,
+                translationProgress: coordinator.translationProgress(),
+                containerFrame: uiViewController.view.frame,
+                velocity: coordinator.velocity,
+                heightForNotchIndex: { coordinator.height(forNotchAt: $0) }
             )
             withTransaction(transaction) {
                 behavior.block?(translation)
             }
         }
-        context.coordinator.shouldStartDraggingOverlay = { point in
-            if handleValue.spots.isEmpty && !searchsScrollView {
-                return true
+        context.coordinator.shouldStartDraggingOverlay = { container, point, coordinateSpace in
+            if let overlay = container.topViewController, handleValue.spots.isEmpty && !searchsScrollView {
+                let inOverlayPoint = overlay.view.convert(point, from: coordinateSpace)
+                return overlay.view.frame.contains(inOverlayPoint)
             } else {
-                return handleValue.spots.contains { $0.frame.contains(point) && $0.isActive }
+                let inContainerPoint = container.view.convert(point, from: coordinateSpace)
+                return handleValue.contains(inContainerPoint)
             }
         }
         context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)
