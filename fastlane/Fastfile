@@ -36,6 +36,7 @@ platform :ios do
     desc "Release a new version"
     lane :release do |options|
         target_version = options[:version]
+        bypass_confirmations = options[:bypass_confirmations]
         raise "The version is missed. Use `fastlane release version:{version_number}`.`" if target_version.nil?
 
         ensure_git_branch(branch: "main")
@@ -54,12 +55,12 @@ platform :ios do
         )
         ensure_git_status_clean
         add_git_tag(tag: target_version)
-        if UI.confirm("Push?")
+        if bypass_confirmations || UI.confirm("Push?")
             push_to_git_remote
             push_git_tags(tag: target_version)
             UI.success "Pushed 🎉"
         end
-        if UI.confirm("Release pod?")
+        if bypass_confirmations || UI.confirm("Release pod?")
             pod_push
             UI.success "Released 🎉"
         end
