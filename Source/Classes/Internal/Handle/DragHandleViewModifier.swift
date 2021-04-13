@@ -13,18 +13,6 @@ struct DragHandleViewModifier: ViewModifier {
     let isActive: Bool
 
     func body(content: Content) -> some View {
-        GeometryReader { proxy in
-            content.preference(
-                key: DynamicOverlayDragHandlePreferenceKey.self,
-                value: DynamicOverlayDragHandle(
-                    spots: [
-                        DynamicOverlayDragHandle.Spot(
-                            frame: proxy.frame(in: .overlayContainer),
-                            isActive: isActive
-                        )
-                    ]
-                )
-            )
-        }
+        content.background(DragHandleFrameReader(isActive: isActive))
     }
 }

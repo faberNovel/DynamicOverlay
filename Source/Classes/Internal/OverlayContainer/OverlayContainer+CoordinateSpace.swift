@@ -10,21 +10,21 @@ import SwiftUI
 
 extension CoordinateSpace {
 
-    static var overlayContainer: CoordinateSpace {
-        .named("OverlayContainer")
+    static var overlay: CoordinateSpace {
+        .named("Overlay")
     }
 }
 
 extension View {
 
-    func overlayContainerCoordinateSpace() -> some View {
-        modifier(OverlayContainerCoordinateSpaceViewModifier())
+    func overlayCoordinateSpace() -> some View {
+        modifier(OverlayCoordinateSpaceViewModifier())
     }
 }
 
-struct OverlayContainerCoordinateSpaceViewModifier: ViewModifier {
+struct OverlayCoordinateSpaceViewModifier: ViewModifier {
 
     func body(content: Content) -> some View {
-        content.coordinateSpace(name: "OverlayContainer")
+        content.coordinateSpace(name: "Overlay")
     }
 }

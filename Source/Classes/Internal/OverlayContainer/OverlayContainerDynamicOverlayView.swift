@@ -30,14 +30,13 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
             behavior: behavior,
             background: background
         )
-        .overlayContent(content)
+        .overlayContent(content.overlayCoordinateSpace())
         .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
             handleValue = value
         })
         .onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
             searchsScrollView = value
         })
-        .overlayContainerCoordinateSpace()
     }
 }
 
@@ -103,13 +102,12 @@ struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControlle
             }
         }
         context.coordinator.shouldStartDraggingOverlay = { container, point, coordinateSpace in
-            if let overlay = container.topViewController, handleValue.spots.isEmpty && !searchsScrollView {
-                let inOverlayPoint = overlay.view.convert(point, from: coordinateSpace)
+            guard let overlay = container.topViewController else { return false }
+            let inOverlayPoint = overlay.view.convert(point, from: coordinateSpace)
+            if handleValue.spots.isEmpty {
                 return overlay.view.frame.contains(inOverlayPoint)
-            } else {
-                let inContainerPoint = container.view.convert(point, from: coordinateSpace)
-                return handleValue.contains(inContainerPoint)
             }
+            return handleValue.contains(inOverlayPoint)
         }
         context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)
     }
