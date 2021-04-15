@@ -27,6 +27,10 @@
 		E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */; };
 		E7691587222EA93F00FDEE7F /* DynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = E7691585222EA93F00FDEE7F /* DynamicOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7691590222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */; };
+		E782E54026286A2500CC1FC6 /* TestHostApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E53F26286A2500CC1FC6 /* TestHostApplicationApp.swift */; };
+		E782E54226286A2500CC1FC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E54126286A2500CC1FC6 /* ContentView.swift */; };
+		E782E54426286A2600CC1FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E782E54326286A2600CC1FC6 /* Assets.xcassets */; };
+		E782E54726286A2600CC1FC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */; };
 		E7A320CA2600E7530020C3AA /* OverlayContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; };
 		E7A320CB2600E7530020C3AA /* OverlayContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7B68A0C262320E900AEE7DD /* DragHandleFrameReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */; };
@@ -39,6 +43,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E7691545222EA71F00FDEE7F;
 			remoteInfo = DynamicOverlay;
+		};
+		E782E54E26286A2C00CC1FC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E769153D222EA71F00FDEE7F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E782E53C26286A2500CC1FC6;
+			remoteInfo = TestHostApplication;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -81,6 +92,12 @@
 		E7691585222EA93F00FDEE7F /* DynamicOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicOverlay.h; sourceTree = "<group>"; };
 		E769158A222EA94800FDEE7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayBehaviorValue.swift; sourceTree = "<group>"; };
+		E782E53D26286A2500CC1FC6 /* TestHostApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHostApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E782E53F26286A2500CC1FC6 /* TestHostApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHostApplicationApp.swift; sourceTree = "<group>"; };
+		E782E54126286A2500CC1FC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E782E54326286A2600CC1FC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E782E54826286A2700CC1FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OverlayContainer.xcframework; path = Carthage/Build/OverlayContainer.xcframework; sourceTree = "<group>"; };
 		E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleFrameReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +116,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E782E53A26286A2500CC1FC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +191,7 @@
 				E7310E8D259B524100865422 /* README.md */,
 				E7691583222EA93F00FDEE7F /* Source */,
 				E7691588222EA94800FDEE7F /* Tests */,
+				E782E53E26286A2500CC1FC6 /* TestHostApplication */,
 				E7691547222EA71F00FDEE7F /* Products */,
 				E741EEA12577C3950073FF6B /* Frameworks */,
 			);
@@ -177,6 +202,7 @@
 			children = (
 				E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */,
 				E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */,
+				E782E53D26286A2500CC1FC6 /* TestHostApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +233,26 @@
 				E741EE882577AFA20073FF6B /* Internal */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		E782E53E26286A2500CC1FC6 /* TestHostApplication */ = {
+			isa = PBXGroup;
+			children = (
+				E782E53F26286A2500CC1FC6 /* TestHostApplicationApp.swift */,
+				E782E54126286A2500CC1FC6 /* ContentView.swift */,
+				E782E54326286A2600CC1FC6 /* Assets.xcassets */,
+				E782E54826286A2700CC1FC6 /* Info.plist */,
+				E782E54526286A2600CC1FC6 /* Preview Content */,
+			);
+			path = TestHostApplication;
+			sourceTree = "<group>";
+		};
+		E782E54526286A2600CC1FC6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +300,29 @@
 			);
 			dependencies = (
 				E7691552222EA71F00FDEE7F /* PBXTargetDependency */,
+				E782E54F26286A2C00CC1FC6 /* PBXTargetDependency */,
 			);
 			name = DynamicOverlayTests;
 			productName = DynamicOverlayTests;
 			productReference = E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E782E53C26286A2500CC1FC6 /* TestHostApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E782E54B26286A2700CC1FC6 /* Build configuration list for PBXNativeTarget "TestHostApplication" */;
+			buildPhases = (
+				E782E53926286A2500CC1FC6 /* Sources */,
+				E782E53A26286A2500CC1FC6 /* Frameworks */,
+				E782E53B26286A2500CC1FC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestHostApplication;
+			productName = TestHostApplication;
+			productReference = E782E53D26286A2500CC1FC6 /* TestHostApplication.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -266,7 +330,7 @@
 		E769153D222EA71F00FDEE7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Fabernovel;
 				TargetAttributes = {
@@ -276,6 +340,10 @@
 					};
 					E769154E222EA71F00FDEE7F = {
 						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E782E53C26286A2500CC1FC6;
+					};
+					E782E53C26286A2500CC1FC6 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -294,6 +362,7 @@
 			targets = (
 				E7691545222EA71F00FDEE7F /* DynamicOverlay */,
 				E769154E222EA71F00FDEE7F /* DynamicOverlayTests */,
+				E782E53C26286A2500CC1FC6 /* TestHostApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -310,6 +379,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E782E53B26286A2500CC1FC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E782E54726286A2600CC1FC6 /* Preview Assets.xcassets in Resources */,
+				E782E54426286A2600CC1FC6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +427,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E782E53926286A2500CC1FC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E782E54226286A2500CC1FC6 /* ContentView.swift in Sources */,
+				E782E54026286A2500CC1FC6 /* TestHostApplicationApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -356,6 +443,11 @@
 			isa = PBXTargetDependency;
 			target = E7691545222EA71F00FDEE7F /* DynamicOverlay */;
 			targetProxy = E7691551222EA71F00FDEE7F /* PBXContainerItemProxy */;
+		};
+		E782E54F26286A2C00CC1FC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E782E53C26286A2500CC1FC6 /* TestHostApplication */;
+			targetProxy = E782E54E26286A2C00CC1FC6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -554,6 +646,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHostApplication.app/TestHostApplication";
 			};
 			name = Debug;
 		};
@@ -571,6 +664,51 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.DynamicOverlayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHostApplication.app/TestHostApplication";
+			};
+			name = Release;
+		};
+		E782E54926286A2700CC1FC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TestHostApplication/Preview Content\"";
+				DEVELOPMENT_TEAM = C7G63Q6LZ9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TestHostApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaetanzanella.TestHostApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E782E54A26286A2700CC1FC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TestHostApplication/Preview Content\"";
+				DEVELOPMENT_TEAM = C7G63Q6LZ9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TestHostApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaetanzanella.TestHostApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -601,6 +739,15 @@
 			buildConfigurations = (
 				E769155E222EA71F00FDEE7F /* Debug */,
 				E769155F222EA71F00FDEE7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E782E54B26286A2700CC1FC6 /* Build configuration list for PBXNativeTarget "TestHostApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E782E54926286A2700CC1FC6 /* Debug */,
+				E782E54A26286A2700CC1FC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
