@@ -41,6 +41,8 @@
 		E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED832629CC8000C1EE2D /* ViewInspector.swift */; };
 		E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D451872624A37100EB91BB /* ViewRenderer.swift */; };
 		E7BFED912629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */; };
+		E7BFED9D2629E00600C1EE2D /* DragHandleViewModifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */; };
+		E7BFEDA62629E28F00C1EE2D /* OnDragHandleChangeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleFrameReader.swift; sourceTree = "<group>"; };
 		E7BFED832629CC8000C1EE2D /* ViewInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspector.swift; sourceTree = "<group>"; };
 		E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchDimensionDynamicOverlayTests.swift; sourceTree = "<group>"; };
+		E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleViewModifierTests.swift; sourceTree = "<group>"; };
+		E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDragHandleChangeViewModifier.swift; sourceTree = "<group>"; };
 		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +153,7 @@
 				E7310E72259A102E00865422 /* DragHandleViewModifier.swift */,
 				E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */,
 				E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */,
+				E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */,
 			);
 			path = Handle;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				E7B689FD2621C2C800AEE7DD /* NotchBindingDynamicOverlayTests.swift */,
 				E782E5622628937000CC1FC6 /* NotchTranslationDynamicOverlayTests.swift */,
 				E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */,
+				E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
@@ -431,6 +437,7 @@
 				E741EEB72577D27F0073FF6B /* OverlayContainerCoordinator.swift in Sources */,
 				E741EE962577BFBF0073FF6B /* DynamicOverlayNotchTransition+DynamicOverlayBehavior.swift in Sources */,
 				E741EEBB2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift in Sources */,
+				E7BFEDA62629E28F00C1EE2D /* OnDragHandleChangeViewModifier.swift in Sources */,
 				E7310E7B259A117400865422 /* OverlayContainer+CoordinateSpace.swift in Sources */,
 				E741EEA92577CC400073FF6B /* DynamicOverlayBehavior.swift in Sources */,
 				E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */,
@@ -460,6 +467,7 @@
 				E782E55F262882F700CC1FC6 /* View+Measure.swift in Sources */,
 				E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */,
 				E7B68A022621C30C00AEE7DD /* NotchBindingDynamicOverlayTests.swift in Sources */,
+				E7BFED9D2629E00600C1EE2D /* DragHandleViewModifierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

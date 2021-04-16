@@ -31,9 +31,7 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
             background: background
         )
         .overlayContent(content.overlayCoordinateSpace())
-        .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
-            handleValue = value
-        })
+        .onDragHandleChange { handleValue = $0 }
         .onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
             searchsScrollView = value
         })

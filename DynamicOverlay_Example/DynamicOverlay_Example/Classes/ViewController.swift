@@ -35,23 +35,11 @@ struct ContentView: View {
     }
 
     var body: some View {
-        ZStack {
-            Color.blue
+        GeometryReader { _ in
+            Color.red
+                .frame(width: 200, height: 300)
+                .offset(x: 30, y: 30)
         }
-//        .ignoresSafeArea()
-        .dynamicOverlay(
-            VStack {
-                Text("HELLo")
-                List {
-                    Text("Hello A")
-                    Text("Hello Z")
-                }
-            }
-            .drivingScrollView()
-//            .ignoresSafeArea()
-        )
-//        .ignoresSafeArea()
-        .dynamicOverlayBehavior(notchOverlayBehavior)
     }
 
     private var notchOverlayBehavior: some DynamicOverlayBehavior {
