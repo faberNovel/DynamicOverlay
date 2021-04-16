@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct OnDragHandleChangeViewModifier: ViewModifier {
+private struct OnDragHandleChangeViewModifier: ViewModifier {
 
     let handler: (DynamicOverlayDragHandle) -> Void
 
