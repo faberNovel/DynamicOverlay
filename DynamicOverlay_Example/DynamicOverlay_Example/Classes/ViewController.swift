@@ -26,6 +26,8 @@ class ViewController: UIHostingController<ContentView> {
 
 struct ContentView: View {
 
+    @State var notch: Notch = .min
+
     enum Notch: String, CaseIterable, Equatable {
         case min
         case med
@@ -33,9 +35,23 @@ struct ContentView: View {
     }
 
     var body: some View {
-        Color.blue
-            .dynamicOverlay(Color.red)
-            .dynamicOverlayBehavior(notchOverlayBehavior)
+        ZStack {
+            Color.blue
+        }
+//        .ignoresSafeArea()
+        .dynamicOverlay(
+            VStack {
+                Text("HELLo")
+                List {
+                    Text("Hello A")
+                    Text("Hello Z")
+                }
+            }
+            .drivingScrollView()
+//            .ignoresSafeArea()
+        )
+//        .ignoresSafeArea()
+        .dynamicOverlayBehavior(notchOverlayBehavior)
     }
 
     private var notchOverlayBehavior: some DynamicOverlayBehavior {
@@ -49,5 +65,6 @@ struct ContentView: View {
                 return .fractional(0.3)
             }
         }
+        .notchChange($notch)
     }
 }

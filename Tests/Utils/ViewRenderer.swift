@@ -12,10 +12,22 @@ import SwiftUI
 class ViewRenderer<V: View> {
 
     var size: CGSize {
-        targetWindow.frame.size
+        window.frame.size
     }
 
-    private var targetWindow: UIWindow {
+    var safeAreaInsets: UIEdgeInsets {
+        window.safeAreaInsets
+    }
+
+    var bounds: CGRect {
+        window.bounds
+    }
+
+    var safeBounds: CGRect {
+        bounds.inset(by: safeAreaInsets)
+    }
+
+    var window: UIWindow {
         UIApplication.shared.windows.first!
     }
 
@@ -26,8 +38,8 @@ class ViewRenderer<V: View> {
     }
 
     func render() {
-        if targetWindow.rootViewController !== hostController {
-            targetWindow.rootViewController = hostController
+        if window.rootViewController !== hostController {
+            window.rootViewController = hostController
         }
         CATransaction.flush()
     }

@@ -16,19 +16,6 @@ private enum Notch: CaseIterable, Equatable {
     case max
 }
 
-private class NotchTarget: ObservableObject {
-
-    @Published private(set) var notch: Notch
-
-    init(notch: Notch) {
-        self.notch = notch
-    }
-
-    func move(to notch: Notch) {
-        self.notch = notch
-    }
-}
-
 private struct Constants {
 
     static func height(for notch: Notch) -> CGFloat {
@@ -44,7 +31,7 @@ private struct Constants {
 private struct NotchChangeView: View {
 
     @ObservedObject
-    var target: NotchTarget
+    var target: ValuePublisher<Notch>
     let onHeightChange: (CGFloat) -> Void
 
     var body: some View {
@@ -57,15 +44,11 @@ private struct NotchChangeView: View {
         MagneticNotchOverlayBehavior<Notch> { notch in
             .absolute(Double(Constants.height(for: notch)))
         }
-        .notchChange($target.notch)
+        .notchChange($target.value)
     }
 }
 
 class NotchChangeOverlayTests: XCTestCase {
-
-    class Context {
-        var expectedHeight: CGFloat = 0.0
-    }
 
     func testInitialMaxNotch() {
         expectNotchHeight(.max)
@@ -76,8 +59,11 @@ class NotchChangeOverlayTests: XCTestCase {
     }
 
     func testNotchChange() {
+        class Context {
+            var expectedHeight: CGFloat = 0.0
+        }
         let context = Context()
-        let target = NotchTarget(notch: .min)
+        let target = ValuePublisher(Notch.min)
         var previousHeight: CGFloat = 0
         let notches: [Notch] = [.min, .max]
         let expectation = XCTestExpectation(description: "notch-change")
@@ -91,7 +77,7 @@ class NotchChangeOverlayTests: XCTestCase {
         let renderer = ViewRenderer(view: view)
         notches.forEach { notch in
             context.expectedHeight = Constants.height(for: notch)
-            target.move(to: notch)
+            target.update(notch)
             renderer.render()
         }
         wait(for: [expectation], timeout: 1.0)
@@ -99,7 +85,7 @@ class NotchChangeOverlayTests: XCTestCase {
 
     private func expectNotchHeight(_ notch: Notch) {
         let expectation = XCTestExpectation()
-        let target = NotchTarget(notch: notch)
+        let target = ValuePublisher(notch)
         let view = NotchChangeView(target: target) { height in
             expectation.fulfill()
             XCTAssertEqual(height, Constants.height(for: notch))

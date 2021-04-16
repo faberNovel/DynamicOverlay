@@ -32,11 +32,14 @@
 		E782E54426286A2600CC1FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E782E54326286A2600CC1FC6 /* Assets.xcassets */; };
 		E782E54726286A2600CC1FC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */; };
 		E782E55F262882F700CC1FC6 /* View+Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E553262881E300CC1FC6 /* View+Measure.swift */; };
+		E782E5682628939600CC1FC6 /* NotchTranslationOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E5622628937000CC1FC6 /* NotchTranslationOverlayTests.swift */; };
+		E782E5712628997E00CC1FC6 /* ValuePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E56B2628996600CC1FC6 /* ValuePublisher.swift */; };
 		E7A320CA2600E7530020C3AA /* OverlayContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; };
 		E7A320CB2600E7530020C3AA /* OverlayContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7B68A022621C30C00AEE7DD /* NotchChangeOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B689FD2621C2C800AEE7DD /* NotchChangeOverlayTests.swift */; };
 		E7B68A0C262320E900AEE7DD /* DragHandleFrameReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */; };
-		E7D4518B2624A50A00EB91BB /* ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D451872624A37100EB91BB /* ViewRenderer.swift */; };
+		E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED832629CC8000C1EE2D /* ViewInspector.swift */; };
+		E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D451872624A37100EB91BB /* ViewRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,9 +105,12 @@
 		E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E782E54826286A2700CC1FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E782E553262881E300CC1FC6 /* View+Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Measure.swift"; sourceTree = "<group>"; };
+		E782E5622628937000CC1FC6 /* NotchTranslationOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchTranslationOverlayTests.swift; sourceTree = "<group>"; };
+		E782E56B2628996600CC1FC6 /* ValuePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePublisher.swift; sourceTree = "<group>"; };
 		E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OverlayContainer.xcframework; path = Carthage/Build/OverlayContainer.xcframework; sourceTree = "<group>"; };
 		E7B689FD2621C2C800AEE7DD /* NotchChangeOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchChangeOverlayTests.swift; sourceTree = "<group>"; };
 		E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleFrameReader.swift; sourceTree = "<group>"; };
+		E7BFED832629CC8000C1EE2D /* ViewInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspector.swift; sourceTree = "<group>"; };
 		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,7 +235,7 @@
 				E782E552262881D400CC1FC6 /* Utils */,
 				E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */,
 				E7B689FD2621C2C800AEE7DD /* NotchChangeOverlayTests.swift */,
-				E7D451872624A37100EB91BB /* ViewRenderer.swift */,
+				E782E5622628937000CC1FC6 /* NotchTranslationOverlayTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
@@ -267,7 +273,10 @@
 		E782E552262881D400CC1FC6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E7D451872624A37100EB91BB /* ViewRenderer.swift */,
 				E782E553262881E300CC1FC6 /* View+Measure.swift */,
+				E782E56B2628996600CC1FC6 /* ValuePublisher.swift */,
+				E7BFED832629CC8000C1EE2D /* ViewInspector.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -440,9 +449,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E782E5682628939600CC1FC6 /* NotchTranslationOverlayTests.swift in Sources */,
+				E782E5712628997E00CC1FC6 /* ValuePublisher.swift in Sources */,
 				E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */,
+				E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */,
 				E782E55F262882F700CC1FC6 /* View+Measure.swift in Sources */,
-				E7D4518B2624A50A00EB91BB /* ViewRenderer.swift in Sources */,
+				E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */,
 				E7B68A022621C30C00AEE7DD /* NotchChangeOverlayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
