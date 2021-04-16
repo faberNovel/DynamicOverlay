@@ -1,5 +1,5 @@
 //
-//  NotchTranslationOverlayTests.swift
+//  NotchTranslationDynamicOverlayTests.swift
 //  DynamicOverlay
 //
 //  Created by Gaétan Zanella on 15/04/2021.
@@ -89,7 +89,7 @@ private struct TranslationContainerView: View {
     }
 }
 
-class OverlayTranslationTests: XCTestCase {
+class NotchTranslationDynamicOverlayTests: XCTestCase {
 
     func testInitialTranslation() {
         class Context {

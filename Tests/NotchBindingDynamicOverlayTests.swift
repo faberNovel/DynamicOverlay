@@ -1,5 +1,5 @@
 //
-//  NotchChangeOverlayTests.swift
+//  NotchBindingDynamicOverlayTests.swift
 //  DynamicOverlay
 //
 //  Created by Gaétan Zanella on 10/04/2021.
@@ -48,7 +48,7 @@ private struct NotchChangeView: View {
     }
 }
 
-class NotchChangeOverlayTests: XCTestCase {
+class NotchBindingDynamicOverlayTests: XCTestCase {
 
     func testInitialMaxNotch() {
         expectNotchHeight(.max)

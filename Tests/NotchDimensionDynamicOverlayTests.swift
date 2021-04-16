@@ -1,5 +1,5 @@
 //
-//  NotchDimensionTests.swift
+//  NotchDimensionDynamicOverlayTests.swift
 //  DynamicOverlayTests
 //
 //  Created by Gaétan Zanella on 16/04/2021.
@@ -33,9 +33,9 @@ private struct NotchDimensionView: View {
     }
 }
 
-class NotchDimensionTests: XCTestCase {
+class NotchDimensionDynamicOverlayTests: XCTestCase {
 
-    func test() {
+    func testVariousDimensions() {
         class Context {
             var dimension: NotchDimension = .absolute(0)
             var expectedHeight: CGFloat = 0.0
