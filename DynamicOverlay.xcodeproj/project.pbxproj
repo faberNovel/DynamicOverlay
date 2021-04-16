@@ -40,6 +40,7 @@
 		E7B68A0C262320E900AEE7DD /* DragHandleFrameReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */; };
 		E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED832629CC8000C1EE2D /* ViewInspector.swift */; };
 		E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D451872624A37100EB91BB /* ViewRenderer.swift */; };
+		E7BFED912629D4F800C1EE2D /* NotchDimensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED902629D4F800C1EE2D /* NotchDimensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		E7B689FD2621C2C800AEE7DD /* NotchChangeOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchChangeOverlayTests.swift; sourceTree = "<group>"; };
 		E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleFrameReader.swift; sourceTree = "<group>"; };
 		E7BFED832629CC8000C1EE2D /* ViewInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspector.swift; sourceTree = "<group>"; };
+		E7BFED902629D4F800C1EE2D /* NotchDimensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchDimensionTests.swift; sourceTree = "<group>"; };
 		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,7 @@
 				E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */,
 				E7B689FD2621C2C800AEE7DD /* NotchChangeOverlayTests.swift */,
 				E782E5622628937000CC1FC6 /* NotchTranslationOverlayTests.swift */,
+				E7BFED902629D4F800C1EE2D /* NotchDimensionTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E782E5682628939600CC1FC6 /* NotchTranslationOverlayTests.swift in Sources */,
+				E7BFED912629D4F800C1EE2D /* NotchDimensionTests.swift in Sources */,
 				E782E5712628997E00CC1FC6 /* ValuePublisher.swift in Sources */,
 				E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */,
 				E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */,
