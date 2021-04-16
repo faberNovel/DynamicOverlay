@@ -26,7 +26,8 @@ class ViewController: UIHostingController<ContentView> {
 
 struct ContentView: View {
 
-    @State var notch: Notch = .min
+    @State
+    private var notch: Notch = .min
 
     enum Notch: String, CaseIterable, Equatable {
         case min
@@ -35,11 +36,9 @@ struct ContentView: View {
     }
 
     var body: some View {
-        GeometryReader { _ in
-            Color.red
-                .frame(width: 200, height: 300)
-                .offset(x: 30, y: 30)
-        }
+        Color.green
+            .dynamicOverlay(Color.red)
+            .dynamicOverlayBehavior(notchOverlayBehavior)
     }
 
     private var notchOverlayBehavior: some DynamicOverlayBehavior {
