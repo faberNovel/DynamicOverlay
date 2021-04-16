@@ -46,6 +46,7 @@
 		E7BFEDB72629F18200C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */; };
 		E7BFEDC52629F47600C1EE2D /* OverlayContainerRepresentableAdaptator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDBA2629F45F00C1EE2D /* OverlayContainerRepresentableAdaptator.swift */; };
 		E7BFEDCE2629F52C00C1EE2D /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
+		E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		E7BFEDAB2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingScrollViewModifierTests.swift; sourceTree = "<group>"; };
 		E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDrivingScrollViewChangeViewModifier.swift; sourceTree = "<group>"; };
 		E7BFEDBA2629F45F00C1EE2D /* OverlayContainerRepresentableAdaptator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerRepresentableAdaptator.swift; sourceTree = "<group>"; };
+		E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticNotchOverlayBehaviorValueTests.swift; sourceTree = "<group>"; };
 		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +257,7 @@
 				E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */,
 				E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */,
 				E7BFEDAB2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift */,
+				E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
@@ -472,6 +475,7 @@
 			files = (
 				E782E5682628939600CC1FC6 /* NotchTranslationDynamicOverlayTests.swift in Sources */,
 				E7BFED912629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift in Sources */,
+				E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */,
 				E782E5712628997E00CC1FC6 /* ValuePublisher.swift in Sources */,
 				E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */,
 				E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */,
