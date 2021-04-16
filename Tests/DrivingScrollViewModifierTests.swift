@@ -1,5 +1,5 @@
 //
-//  DrivingScrollViewTests.swift
+//  DrivingScrollViewModifierTests.swift
 //  DynamicOverlayTests
 //
 //  Created by Gaétan Zanella on 16/04/2021.
