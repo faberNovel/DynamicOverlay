@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.dependency       'OverlayContainer', '~> 3.5'
 
   s.ios.deployment_target = '13.0'
-  s.source_files = 'Source/**/*'
+  s.source_files = 'Source/**/*.swift'
 end
