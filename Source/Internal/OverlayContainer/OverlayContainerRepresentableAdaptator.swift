@@ -1,44 +1,14 @@
 //
-//  OverlayContainerView.swift
-//  DynamicOverlay
+//  OverlayContainerRepresentableAdaptator.swift
+//  DynamicOverlayTests
 //
-//  Created by Gaétan Zanella on 02/12/2020.
-//  Copyright © 2020 Fabernovel. All rights reserved.
+//  Created by Gaétan Zanella on 16/04/2021.
+//  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+import Foundation
 import SwiftUI
 import OverlayContainer
-
-struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
-
-    @State
-    private var handleValue: DynamicOverlayDragHandle = .default
-
-    @State
-    private var searchsScrollView = false
-
-    let background: Background
-    let content: Content
-
-    @Environment(\.behaviorValue)
-    var behavior: DynamicOverlayBehaviorValue
-
-    var body: some View {
-        OverlayContainerRepresentableAdaptator(
-            searchsScrollView: searchsScrollView,
-            handleValue: handleValue,
-            behavior: behavior,
-            background: background
-        )
-        .overlayContent(content.overlayCoordinateSpace())
-        .onPreferenceChange(DynamicOverlayDragHandlePreferenceKey.self, perform: { value in
-            handleValue = value
-        })
-        .onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
-            searchsScrollView = value
-        })
-    }
-}
 
 struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControllerRepresentable {
 

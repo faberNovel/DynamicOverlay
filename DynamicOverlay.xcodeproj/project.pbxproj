@@ -10,11 +10,10 @@
 		E7310E6E2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */; };
 		E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E72259A102E00865422 /* DragHandleViewModifier.swift */; };
 		E7310E77259A10AB00865422 /* DrivingScrollViewViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */; };
-		E7310E7B259A117400865422 /* OverlayContainer+CoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */; };
+		E7310E7B259A117400865422 /* OverlayContainerCoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E7A259A117400865422 /* OverlayContainerCoordinateSpace.swift */; };
 		E7310E82259B3AC900865422 /* OverlayNotchIndexMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */; };
 		E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */; };
 		E741EE672576AB7F0073FF6B /* DynamicOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE662576AB7F0073FF6B /* DynamicOverlayModifier.swift */; };
-		E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
 		E741EE902577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8F2577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift */; };
 		E741EE962577BFBF0073FF6B /* DynamicOverlayNotchTransition+DynamicOverlayBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE952577BFBF0073FF6B /* DynamicOverlayNotchTransition+DynamicOverlayBehavior.swift */; };
 		E741EEA92577CC400073FF6B /* DynamicOverlayBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EEA82577CC400073FF6B /* DynamicOverlayBehavior.swift */; };
@@ -27,9 +26,27 @@
 		E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */; };
 		E7691587222EA93F00FDEE7F /* DynamicOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = E7691585222EA93F00FDEE7F /* DynamicOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7691590222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */; };
+		E782E54026286A2500CC1FC6 /* TestHostApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E53F26286A2500CC1FC6 /* TestHostApplicationApp.swift */; };
+		E782E54226286A2500CC1FC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E54126286A2500CC1FC6 /* ContentView.swift */; };
+		E782E54426286A2600CC1FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E782E54326286A2600CC1FC6 /* Assets.xcassets */; };
+		E782E54726286A2600CC1FC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */; };
+		E782E55F262882F700CC1FC6 /* View+Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E553262881E300CC1FC6 /* View+Measure.swift */; };
+		E782E5682628939600CC1FC6 /* NotchTranslationDynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E5622628937000CC1FC6 /* NotchTranslationDynamicOverlayTests.swift */; };
+		E782E5712628997E00CC1FC6 /* ValuePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782E56B2628996600CC1FC6 /* ValuePublisher.swift */; };
 		E7A320CA2600E7530020C3AA /* OverlayContainer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; };
 		E7A320CB2600E7530020C3AA /* OverlayContainer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7B68A022621C30C00AEE7DD /* NotchBindingDynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B689FD2621C2C800AEE7DD /* NotchBindingDynamicOverlayTests.swift */; };
 		E7B68A0C262320E900AEE7DD /* DragHandleFrameReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */; };
+		E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED832629CC8000C1EE2D /* ViewInspector.swift */; };
+		E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D451872624A37100EB91BB /* ViewRenderer.swift */; };
+		E7BFED912629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */; };
+		E7BFED9D2629E00600C1EE2D /* DragHandleViewModifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */; };
+		E7BFEDA62629E28F00C1EE2D /* OnDragHandleChangeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */; };
+		E7BFEDAC2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDAB2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift */; };
+		E7BFEDB72629F18200C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */; };
+		E7BFEDC52629F47600C1EE2D /* OverlayContainerRepresentableAdaptator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDBA2629F45F00C1EE2D /* OverlayContainerRepresentableAdaptator.swift */; };
+		E7BFEDCE2629F52C00C1EE2D /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
+		E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +56,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E7691545222EA71F00FDEE7F;
 			remoteInfo = DynamicOverlay;
+		};
+		E782E54E26286A2C00CC1FC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E769153D222EA71F00FDEE7F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E782E53C26286A2500CC1FC6;
+			remoteInfo = TestHostApplication;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,7 +84,7 @@
 		E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayContainerAnimationController.swift; sourceTree = "<group>"; };
 		E7310E72259A102E00865422 /* DragHandleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleViewModifier.swift; sourceTree = "<group>"; };
 		E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingScrollViewViewModifier.swift; sourceTree = "<group>"; };
-		E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OverlayContainer+CoordinateSpace.swift"; sourceTree = "<group>"; };
+		E7310E7A259A117400865422 /* OverlayContainerCoordinateSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerCoordinateSpace.swift; sourceTree = "<group>"; };
 		E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNotchIndexMapper.swift; sourceTree = "<group>"; };
 		E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNotchIndexMapperTests.swift; sourceTree = "<group>"; };
 		E7310E8D259B524100865422 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -81,8 +105,27 @@
 		E7691585222EA93F00FDEE7F /* DynamicOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicOverlay.h; sourceTree = "<group>"; };
 		E769158A222EA94800FDEE7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayBehaviorValue.swift; sourceTree = "<group>"; };
+		E782E53D26286A2500CC1FC6 /* TestHostApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHostApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E782E53F26286A2500CC1FC6 /* TestHostApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHostApplicationApp.swift; sourceTree = "<group>"; };
+		E782E54126286A2500CC1FC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E782E54326286A2600CC1FC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E782E54826286A2700CC1FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E782E553262881E300CC1FC6 /* View+Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Measure.swift"; sourceTree = "<group>"; };
+		E782E5622628937000CC1FC6 /* NotchTranslationDynamicOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchTranslationDynamicOverlayTests.swift; sourceTree = "<group>"; };
+		E782E56B2628996600CC1FC6 /* ValuePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePublisher.swift; sourceTree = "<group>"; };
 		E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OverlayContainer.xcframework; path = Carthage/Build/OverlayContainer.xcframework; sourceTree = "<group>"; };
+		E7B689FD2621C2C800AEE7DD /* NotchBindingDynamicOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchBindingDynamicOverlayTests.swift; sourceTree = "<group>"; };
 		E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleFrameReader.swift; sourceTree = "<group>"; };
+		E7BFED832629CC8000C1EE2D /* ViewInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspector.swift; sourceTree = "<group>"; };
+		E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchDimensionDynamicOverlayTests.swift; sourceTree = "<group>"; };
+		E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandleViewModifierTests.swift; sourceTree = "<group>"; };
+		E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDragHandleChangeViewModifier.swift; sourceTree = "<group>"; };
+		E7BFEDAB2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingScrollViewModifierTests.swift; sourceTree = "<group>"; };
+		E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDrivingScrollViewChangeViewModifier.swift; sourceTree = "<group>"; };
+		E7BFEDBA2629F45F00C1EE2D /* OverlayContainerRepresentableAdaptator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerRepresentableAdaptator.swift; sourceTree = "<group>"; };
+		E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticNotchOverlayBehaviorValueTests.swift; sourceTree = "<group>"; };
+		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,15 +145,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E782E53A26286A2500CC1FC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E7310E71259A0E4B00865422 /* Handle */ = {
 			isa = PBXGroup;
 			children = (
+				E7559085257A7152001FB20C /* DynamicOverlayDragHandle.swift */,
 				E7310E72259A102E00865422 /* DragHandleViewModifier.swift */,
+				E7310E7A259A117400865422 /* OverlayContainerCoordinateSpace.swift */,
 				E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */,
 				E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */,
+				E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */,
+				E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */,
 			);
 			path = Handle;
 			sourceTree = "<group>";
@@ -129,13 +183,14 @@
 		E741EE882577AFA20073FF6B /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				E7BFEDC82629F4E200C1EE2D /* Utils */,
 				E7310E71259A0E4B00865422 /* Handle */,
 				E741EEB52577D2730073FF6B /* OverlayContainer */,
+				E75590782578FA74001FB20C /* OverlayContentModifier.swift */,
+				E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */,
 				E741EEAC2577CD910073FF6B /* MagneticNotchOverlayBehaviorValue.swift */,
 				E769158F222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift */,
 				E741EE952577BFBF0073FF6B /* DynamicOverlayNotchTransition+DynamicOverlayBehavior.swift */,
-				E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */,
-				E7559085257A7152001FB20C /* DynamicOverlayDragHandle.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -154,9 +209,7 @@
 				E741EEB62577D27F0073FF6B /* OverlayContainerCoordinator.swift */,
 				E7310E6D2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift */,
 				E741EEBA2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift */,
-				E75590782578FA74001FB20C /* OverlayContentModifier.swift */,
-				E7310E7A259A117400865422 /* OverlayContainer+CoordinateSpace.swift */,
-				E7310E81259B3AC900865422 /* OverlayNotchIndexMapper.swift */,
+				E7BFEDBA2629F45F00C1EE2D /* OverlayContainerRepresentableAdaptator.swift */,
 			);
 			path = OverlayContainer;
 			sourceTree = "<group>";
@@ -167,6 +220,7 @@
 				E7310E8D259B524100865422 /* README.md */,
 				E7691583222EA93F00FDEE7F /* Source */,
 				E7691588222EA94800FDEE7F /* Tests */,
+				E782E53E26286A2500CC1FC6 /* TestHostApplication */,
 				E7691547222EA71F00FDEE7F /* Products */,
 				E741EEA12577C3950073FF6B /* Frameworks */,
 			);
@@ -177,6 +231,7 @@
 			children = (
 				E7691546222EA71F00FDEE7F /* DynamicOverlay.framework */,
 				E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */,
+				E782E53D26286A2500CC1FC6 /* TestHostApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,7 +239,8 @@
 		E7691583222EA93F00FDEE7F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				E7691591222EB93200FDEE7F /* Classes */,
+				E741EE872577AF9D0073FF6B /* Public */,
+				E741EE882577AFA20073FF6B /* Internal */,
 				E7691584222EA93F00FDEE7F /* Info.plist */,
 				E7691585222EA93F00FDEE7F /* DynamicOverlay.h */,
 			);
@@ -194,19 +250,56 @@
 		E7691588222EA94800FDEE7F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E782E552262881D400CC1FC6 /* Utils */,
 				E7310E84259B3AF100865422 /* OverlayNotchIndexMapperTests.swift */,
+				E7B689FD2621C2C800AEE7DD /* NotchBindingDynamicOverlayTests.swift */,
+				E782E5622628937000CC1FC6 /* NotchTranslationDynamicOverlayTests.swift */,
+				E7BFED902629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift */,
+				E7BFED9C2629E00600C1EE2D /* DragHandleViewModifierTests.swift */,
+				E7BFEDAB2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift */,
+				E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		E7691591222EB93200FDEE7F /* Classes */ = {
+		E782E53E26286A2500CC1FC6 /* TestHostApplication */ = {
 			isa = PBXGroup;
 			children = (
-				E741EE872577AF9D0073FF6B /* Public */,
-				E741EE882577AFA20073FF6B /* Internal */,
+				E782E53F26286A2500CC1FC6 /* TestHostApplicationApp.swift */,
+				E782E54126286A2500CC1FC6 /* ContentView.swift */,
+				E782E54326286A2600CC1FC6 /* Assets.xcassets */,
+				E782E54826286A2700CC1FC6 /* Info.plist */,
+				E782E54526286A2600CC1FC6 /* Preview Content */,
 			);
-			path = Classes;
+			path = TestHostApplication;
+			sourceTree = "<group>";
+		};
+		E782E54526286A2600CC1FC6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E782E54626286A2600CC1FC6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E782E552262881D400CC1FC6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E7D451872624A37100EB91BB /* ViewRenderer.swift */,
+				E782E553262881E300CC1FC6 /* View+Measure.swift */,
+				E782E56B2628996600CC1FC6 /* ValuePublisher.swift */,
+				E7BFED832629CC8000C1EE2D /* ViewInspector.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E7BFEDC82629F4E200C1EE2D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +347,29 @@
 			);
 			dependencies = (
 				E7691552222EA71F00FDEE7F /* PBXTargetDependency */,
+				E782E54F26286A2C00CC1FC6 /* PBXTargetDependency */,
 			);
 			name = DynamicOverlayTests;
 			productName = DynamicOverlayTests;
 			productReference = E769154F222EA71F00FDEE7F /* DynamicOverlayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E782E53C26286A2500CC1FC6 /* TestHostApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E782E54B26286A2700CC1FC6 /* Build configuration list for PBXNativeTarget "TestHostApplication" */;
+			buildPhases = (
+				E782E53926286A2500CC1FC6 /* Sources */,
+				E782E53A26286A2500CC1FC6 /* Frameworks */,
+				E782E53B26286A2500CC1FC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestHostApplication;
+			productName = TestHostApplication;
+			productReference = E782E53D26286A2500CC1FC6 /* TestHostApplication.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -266,7 +377,7 @@
 		E769153D222EA71F00FDEE7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Fabernovel;
 				TargetAttributes = {
@@ -276,6 +387,10 @@
 					};
 					E769154E222EA71F00FDEE7F = {
 						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E782E53C26286A2500CC1FC6;
+					};
+					E782E53C26286A2500CC1FC6 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -294,6 +409,7 @@
 			targets = (
 				E7691545222EA71F00FDEE7F /* DynamicOverlay */,
 				E769154E222EA71F00FDEE7F /* DynamicOverlayTests */,
+				E782E53C26286A2500CC1FC6 /* TestHostApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -313,6 +429,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E782E53B26286A2500CC1FC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E782E54726286A2600CC1FC6 /* Preview Assets.xcassets in Resources */,
+				E782E54426286A2600CC1FC6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -320,18 +445,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7BFEDB72629F18200C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift in Sources */,
 				E7B68A0C262320E900AEE7DD /* DragHandleFrameReader.swift in Sources */,
 				E741EEB72577D27F0073FF6B /* OverlayContainerCoordinator.swift in Sources */,
 				E741EE962577BFBF0073FF6B /* DynamicOverlayNotchTransition+DynamicOverlayBehavior.swift in Sources */,
 				E741EEBB2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift in Sources */,
-				E7310E7B259A117400865422 /* OverlayContainer+CoordinateSpace.swift in Sources */,
+				E7BFEDA62629E28F00C1EE2D /* OnDragHandleChangeViewModifier.swift in Sources */,
+				E7310E7B259A117400865422 /* OverlayContainerCoordinateSpace.swift in Sources */,
 				E741EEA92577CC400073FF6B /* DynamicOverlayBehavior.swift in Sources */,
 				E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */,
 				E75590792578FA74001FB20C /* OverlayContentModifier.swift in Sources */,
 				E7559086257A7152001FB20C /* DynamicOverlayDragHandle.swift in Sources */,
+				E7BFEDCE2629F52C00C1EE2D /* Binding+CaseIterable.swift in Sources */,
 				E7691590222EB15700FDEE7F /* DynamicOverlayBehaviorValue.swift in Sources */,
+				E7BFEDC52629F47600C1EE2D /* OverlayContainerRepresentableAdaptator.swift in Sources */,
 				E7310E6E2599E0C200865422 /* DynamicOverlayContainerAnimationController.swift in Sources */,
-				E741EE8C2577BE200073FF6B /* Binding+CaseIterable.swift in Sources */,
 				E741EE902577BF2A0073FF6B /* MagneticNotchOverlayBehavior.swift in Sources */,
 				E7310E77259A10AB00865422 /* DrivingScrollViewViewModifier.swift in Sources */,
 				E7310E82259B3AC900865422 /* OverlayNotchIndexMapper.swift in Sources */,
@@ -345,7 +473,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E782E5682628939600CC1FC6 /* NotchTranslationDynamicOverlayTests.swift in Sources */,
+				E7BFED912629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift in Sources */,
+				E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */,
+				E782E5712628997E00CC1FC6 /* ValuePublisher.swift in Sources */,
 				E7310E88259B3B2900865422 /* OverlayNotchIndexMapperTests.swift in Sources */,
+				E7BFED8B2629D42700C1EE2D /* ViewRenderer.swift in Sources */,
+				E782E55F262882F700CC1FC6 /* View+Measure.swift in Sources */,
+				E7BFED842629CC8000C1EE2D /* ViewInspector.swift in Sources */,
+				E7B68A022621C30C00AEE7DD /* NotchBindingDynamicOverlayTests.swift in Sources */,
+				E7BFED9D2629E00600C1EE2D /* DragHandleViewModifierTests.swift in Sources */,
+				E7BFEDAC2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E782E53926286A2500CC1FC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E782E54226286A2500CC1FC6 /* ContentView.swift in Sources */,
+				E782E54026286A2500CC1FC6 /* TestHostApplicationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +503,11 @@
 			isa = PBXTargetDependency;
 			target = E7691545222EA71F00FDEE7F /* DynamicOverlay */;
 			targetProxy = E7691551222EA71F00FDEE7F /* PBXContainerItemProxy */;
+		};
+		E782E54F26286A2C00CC1FC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E782E53C26286A2500CC1FC6 /* TestHostApplication */;
+			targetProxy = E782E54E26286A2C00CC1FC6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -554,6 +706,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHostApplication.app/TestHostApplication";
 			};
 			name = Debug;
 		};
@@ -571,6 +724,51 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fabernovel.DynamicOverlayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHostApplication.app/TestHostApplication";
+			};
+			name = Release;
+		};
+		E782E54926286A2700CC1FC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TestHostApplication/Preview Content\"";
+				DEVELOPMENT_TEAM = C7G63Q6LZ9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TestHostApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaetanzanella.TestHostApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E782E54A26286A2700CC1FC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TestHostApplication/Preview Content\"";
+				DEVELOPMENT_TEAM = C7G63Q6LZ9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TestHostApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaetanzanella.TestHostApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -601,6 +799,15 @@
 			buildConfigurations = (
 				E769155E222EA71F00FDEE7F /* Debug */,
 				E769155F222EA71F00FDEE7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E782E54B26286A2700CC1FC6 /* Build configuration list for PBXNativeTarget "TestHostApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E782E54926286A2700CC1FC6 /* Debug */,
+				E782E54A26286A2700CC1FC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

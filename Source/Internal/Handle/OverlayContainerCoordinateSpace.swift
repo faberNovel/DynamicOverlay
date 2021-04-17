@@ -22,7 +22,7 @@ extension View {
     }
 }
 
-struct OverlayCoordinateSpaceViewModifier: ViewModifier {
+private struct OverlayCoordinateSpaceViewModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content.coordinateSpace(name: "Overlay")
