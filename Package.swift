@@ -19,7 +19,7 @@ let package = Package(
         .target(
             name: "DynamicOverlay",
             dependencies: ["OverlayContainer"],
-            path: "Source/Classes"
+            path: "Source"
         ),
     ],
     swiftLanguageVersions: [.v5]
