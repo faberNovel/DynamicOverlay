@@ -17,6 +17,7 @@ DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based in
 
 - [Requirements](#requirements)
 - [Getting started](#getting-started)
+- [Examples](#examples)
 - [Magnetic notch overlay](#magnetic-notch-overlay)
   - [Specifying the notches](#specifying-the-notches)
   - [Drag gesture support](#drag-gesture-support)
@@ -58,6 +59,14 @@ var myOverlayBehavior: some DynamicOverlayBehavior {
 }
 ```
 If you do not specify a behavior in the overlay view hierarchy, it uses a default one.
+
+## Examples
+
+- [Map App](https://github.com/faberNovel/DynamicOverlay/blob/main/DynamicOverlay_Example/DynamicOverlay_Example/View/MapRootView.swift)
+
+| Min | Max |
+| ------------------- | ------------------ |
+| <img src="https://github.com/faberNovel/DynamicOverlay/blob/main/Screenshots/min.png" width=200 /> | <img src="https://github.com/faberNovel/DynamicOverlay/blob/main/Screenshots/max.png" width=200 /> |
 
 ## Magnetic notch overlay
 
