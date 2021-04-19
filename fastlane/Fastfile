@@ -54,7 +54,7 @@ platform :ios do
         )
         git_add
         git_commit(
-            path: ["Tests/Info.plist", "Source/Info.plist", "DynamicOverlay.podspec", "DynamicOverlay.xcodeproj/project.pbxproj"],
+            path: ["Tests/Info.plist", "Source/Info.plist", "DynamicOverlay.podspec", "DynamicOverlay.xcodeproj/project.pbxproj", "TestHostApplication/Info.plist"],
             message: "Bump to #{target_version}"
         )
         ensure_git_status_clean
