@@ -18,7 +18,6 @@ struct MapRootView: View {
 
     struct State {
         var notch: Notch = .min
-        var progress = 0.0
         var isEditing = false
     }
 
@@ -47,9 +46,6 @@ struct MapRootView: View {
         }
         .disable(.min, state.isEditing)
         .notchChange($state.notch)
-        .onTranslation { translation in
-            state.progress = translation.progress
-        }
     }
 
     private var background: some View {
