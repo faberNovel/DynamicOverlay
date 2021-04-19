@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E73A7CE9262B2A8400959344 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A7CE8262B2A8400959344 /* MapView.swift */; };
+		E73A7CEC262B2AA400959344 /* MapRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A7CEB262B2AA400959344 /* MapRootView.swift */; };
 		E741EE732576B10D0073FF6B /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E741EE722576B10D0073FF6B /* DynamicOverlay.framework */; };
 		E741EE742576B10D0073FF6B /* DynamicOverlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E741EE722576B10D0073FF6B /* DynamicOverlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E742E3C622302B4B002A2BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E3C422302B4B002A2BED /* AppDelegate.swift */; };
 		E742E3C922302B76002A2BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E3C822302B76002A2BED /* ViewController.swift */; };
+		E750EE4E262B2B4800E79C6B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE4D262B2B4800E79C6B /* OverlayView.swift */; };
+		E750EE51262C30F600E79C6B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE50262C30F600E79C6B /* SearchBar.swift */; };
+		E750EE53262C34D600E79C6B /* BackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE52262C34D600E79C6B /* BackdropView.swift */; };
+		E750EE63262C463100E79C6B /* MapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E3C422302B4B002A2BED /* MapApp.swift */; };
+		E750EE68262C69A900E79C6B /* UIKitAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE67262C69A900E79C6B /* UIKitAppDelegate.swift */; };
+		E750EE96262D772700E79C6B /* OverlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */; };
+		E750EE98262D798F00E79C6B /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE97262D798F00E79C6B /* ActionCell.swift */; };
+		E750EE9A262D799B00E79C6B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE99262D799B00E79C6B /* FavoriteCell.swift */; };
 		E7691574222EA78B00FDEE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7691573222EA78B00FDEE7F /* Assets.xcassets */; };
 		E7691577222EA78B00FDEE7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7691575222EA78B00FDEE7F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -30,9 +39,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E73A7CE8262B2A8400959344 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E73A7CEB262B2AA400959344 /* MapRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRootView.swift; sourceTree = "<group>"; };
 		E741EE722576B10D0073FF6B /* DynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E742E3C422302B4B002A2BED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
+		E742E3C422302B4B002A2BED /* MapApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapApp.swift; path = Classes/MapApp.swift; sourceTree = "<group>"; };
 		E742E3C822302B76002A2BED /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Classes/ViewController.swift; sourceTree = "<group>"; };
+		E750EE4D262B2B4800E79C6B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		E750EE50262C30F600E79C6B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E750EE52262C34D600E79C6B /* BackdropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropView.swift; sourceTree = "<group>"; };
+		E750EE67262C69A900E79C6B /* UIKitAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitAppDelegate.swift; sourceTree = "<group>"; };
+		E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBackgroundView.swift; sourceTree = "<group>"; };
+		E750EE97262D798F00E79C6B /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		E750EE99262D799B00E79C6B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		E7691569222EA78A00FDEE7F /* DynamicOverlay_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicOverlay_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7691573222EA78B00FDEE7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7691576222EA78B00FDEE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +69,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E73A7CEA262B2A8B00959344 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E73A7CEB262B2AA400959344 /* MapRootView.swift */,
+				E73A7CE8262B2A8400959344 /* MapView.swift */,
+				E750EE4D262B2B4800E79C6B /* OverlayView.swift */,
+				E750EE50262C30F600E79C6B /* SearchBar.swift */,
+				E750EE52262C34D600E79C6B /* BackdropView.swift */,
+				E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */,
+				E750EE97262D798F00E79C6B /* ActionCell.swift */,
+				E750EE99262D799B00E79C6B /* FavoriteCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E741EE712576B10D0073FF6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +98,14 @@
 				E742E3C822302B76002A2BED /* ViewController.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E750EE66262C699C00E79C6B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E750EE67262C69A900E79C6B /* UIKitAppDelegate.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		E7691560222EA78A00FDEE7F = {
@@ -87,7 +128,9 @@
 		E769156B222EA78A00FDEE7F /* DynamicOverlay_Example */ = {
 			isa = PBXGroup;
 			children = (
-				E742E3C422302B4B002A2BED /* AppDelegate.swift */,
+				E742E3C422302B4B002A2BED /* MapApp.swift */,
+				E750EE66262C699C00E79C6B /* UIKit */,
+				E73A7CEA262B2A8B00959344 /* View */,
 				E742E3C1223029BF002A2BED /* ViewController */,
 				E7691582222EA7C100FDEE7F /* Resources */,
 				E7691581222EA7B400FDEE7F /* Configuration */,
@@ -183,8 +226,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E750EE68262C69A900E79C6B /* UIKitAppDelegate.swift in Sources */,
+				E750EE98262D798F00E79C6B /* ActionCell.swift in Sources */,
 				E742E3C922302B76002A2BED /* ViewController.swift in Sources */,
-				E742E3C622302B4B002A2BED /* AppDelegate.swift in Sources */,
+				E73A7CEC262B2AA400959344 /* MapRootView.swift in Sources */,
+				E73A7CE9262B2A8400959344 /* MapView.swift in Sources */,
+				E750EE9A262D799B00E79C6B /* FavoriteCell.swift in Sources */,
+				E750EE4E262B2B4800E79C6B /* OverlayView.swift in Sources */,
+				E750EE63262C463100E79C6B /* MapApp.swift in Sources */,
+				E750EE53262C34D600E79C6B /* BackdropView.swift in Sources */,
+				E750EE96262D772700E79C6B /* OverlayBackgroundView.swift in Sources */,
+				E750EE51262C30F600E79C6B /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
