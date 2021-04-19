@@ -62,7 +62,7 @@ struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControlle
                 height: coordinator.targetTranslationHeight,
                 transaction: transaction,
                 isDragging: coordinator.isDragging,
-                translationProgress: coordinator.translationProgress(),
+                translationProgress: coordinator.overallTranslationProgress(),
                 containerFrame: uiViewController.view.frame,
                 velocity: coordinator.velocity,
                 heightForNotchIndex: { coordinator.height(forNotchAt: $0) }

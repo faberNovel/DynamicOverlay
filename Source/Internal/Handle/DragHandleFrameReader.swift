@@ -15,7 +15,7 @@ struct DragHandleFrameReader: View {
     @ViewBuilder
     var body: some View {
         GeometryReader { proxy in
-            Color.clear.preference(
+            Spacer().preference(
                 key: DynamicOverlayDragHandlePreferenceKey.self,
                 value: DynamicOverlayDragHandle(
                     spots: [
