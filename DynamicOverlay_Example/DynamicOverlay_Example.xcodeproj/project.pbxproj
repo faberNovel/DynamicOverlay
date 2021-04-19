@@ -18,6 +18,7 @@
 		E750EE96262D772700E79C6B /* OverlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */; };
 		E750EE98262D798F00E79C6B /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE97262D798F00E79C6B /* ActionCell.swift */; };
 		E750EE9A262D799B00E79C6B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE99262D799B00E79C6B /* FavoriteCell.swift */; };
+		E750EE9C262D7C9000E79C6B /* BackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE9B262D7C9000E79C6B /* BackdropView.swift */; };
 		E7691574222EA78B00FDEE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7691573222EA78B00FDEE7F /* Assets.xcassets */; };
 		E7691577222EA78B00FDEE7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7691575222EA78B00FDEE7F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBackgroundView.swift; sourceTree = "<group>"; };
 		E750EE97262D798F00E79C6B /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		E750EE99262D799B00E79C6B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		E750EE9B262D7C9000E79C6B /* BackdropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropView.swift; sourceTree = "<group>"; };
 		E7691569222EA78A00FDEE7F /* DynamicOverlay_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicOverlay_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7691573222EA78B00FDEE7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7691576222EA78B00FDEE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */,
 				E750EE97262D798F00E79C6B /* ActionCell.swift */,
 				E750EE99262D799B00E79C6B /* FavoriteCell.swift */,
+				E750EE9B262D7C9000E79C6B /* BackdropView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				E750EE4E262B2B4800E79C6B /* OverlayView.swift in Sources */,
 				E750EE63262C463100E79C6B /* MapApp.swift in Sources */,
 				E750EE96262D772700E79C6B /* OverlayBackgroundView.swift in Sources */,
+				E750EE9C262D7C9000E79C6B /* BackdropView.swift in Sources */,
 				E750EE51262C30F600E79C6B /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

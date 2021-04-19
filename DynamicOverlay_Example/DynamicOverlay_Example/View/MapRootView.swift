@@ -19,6 +19,7 @@ struct MapRootView: View {
     struct State {
         var notch: Notch = .min
         var isEditing = false
+        var progress = 0.0
     }
 
     @SwiftUI.State
@@ -46,11 +47,17 @@ struct MapRootView: View {
         }
         .disable(.min, state.isEditing)
         .notchChange($state.notch)
+        .onTranslation { translation in
+            state.progress = translation.progress
+        }
     }
 
     private var background: some View {
-        MapView()
-            .ignoresSafeArea()
+        ZStack {
+            MapView()
+            BackdropView().opacity(state.progress)
+        }
+        .ignoresSafeArea()
     }
 
     private var overlay: some View {
