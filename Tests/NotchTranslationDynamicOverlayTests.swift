@@ -56,6 +56,7 @@ private struct TranslationView: View {
         }
         .notchChange($target.value)
         .onTranslation(onTranslation)
+        .disable(.min)
     }
 }
 
@@ -137,6 +138,13 @@ class NotchTranslationDynamicOverlayTests: XCTestCase {
         context.expectedTranslation = .moved(to: .min, animated: true, in: renderer.safeBounds)
         withAnimation {
             target.update(.min)
+        }
+        wait(for: [context.expectation], timeout: 0.3)
+        // Max animated
+        context.expectation = XCTestExpectation()
+        context.expectedTranslation = .moved(to: .max, animated: true, in: renderer.safeBounds)
+        withAnimation {
+            target.update(.max)
         }
         wait(for: [context.expectation], timeout: 0.3)
     }
