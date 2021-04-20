@@ -2,7 +2,7 @@
 //  OverlayContainerRepresentableAdaptator.swift
 //  DynamicOverlayTests
 //
-//  Created by Gaétan Zanella on 16/04/2021.
+//  Created by Gaétan Zanella on 20/04/2021.
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
@@ -10,11 +10,22 @@ import Foundation
 import SwiftUI
 import OverlayContainer
 
-struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControllerRepresentable {
+struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
+
+    class Context {
+        let coordinator: OverlayContainerCoordinator
+        let transaction: Transaction
+
+        init(coordinator: OverlayContainerCoordinator, transaction: Transaction) {
+            self.coordinator = coordinator
+            self.transaction = transaction
+        }
+    }
 
     let searchsScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
+    let content: Content
     let background: Background
 
     private var animationController: DynamicOverlayContainerAnimationController {
@@ -33,7 +44,7 @@ struct OverlayContainerRepresentableAdaptator<Background: View>: UIViewControlle
     // MARK: - UIViewControllerRepresentable
 
     func makeCoordinator() -> OverlayContainerCoordinator {
-        let contentController = UIHostingController(rootView: OverlayContentHostingView())
+        let contentController = UIHostingController(rootView: content)
         contentController.view.backgroundColor = .clear
         let backgroundController = UIHostingController(rootView: background)
         backgroundController.view.backgroundColor = .clear

@@ -24,11 +24,14 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
     var behavior: DynamicOverlayBehaviorValue
 
     var body: some View {
-        OverlayContainerRepresentableAdaptator(
-            searchsScrollView: searchsScrollView,
-            handleValue: handleValue,
-            behavior: behavior,
-            background: background
+        SwiftUIOverlayContainerRepresentableAdaptator(
+            adaptator: OverlayContainerRepresentableAdaptator(
+                searchsScrollView: searchsScrollView,
+                handleValue: handleValue,
+                behavior: behavior,
+                content: OverlayContentHostingView(),
+                background: background
+            )
         )
         .overlayContent(content.overlayCoordinateSpace())
         .onDragHandleChange { handleValue = $0 }
