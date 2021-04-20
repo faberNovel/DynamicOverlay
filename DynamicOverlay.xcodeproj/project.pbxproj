@@ -98,7 +98,6 @@
 		E741EEAC2577CD910073FF6B /* MagneticNotchOverlayBehaviorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticNotchOverlayBehaviorValue.swift; sourceTree = "<group>"; };
 		E741EEB62577D27F0073FF6B /* OverlayContainerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerCoordinator.swift; sourceTree = "<group>"; };
 		E741EEBA2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerDynamicOverlayView.swift; sourceTree = "<group>"; };
-		E750EED7262DB6C600E79C6B /* InterposeKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InterposeKit.xcframework; path = Carthage/Build/InterposeKit.xcframework; sourceTree = "<group>"; };
 		E750EEF0262EC07900E79C6B /* OverlayContainerRepresentableAdaptatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerRepresentableAdaptatorTests.swift; sourceTree = "<group>"; };
 		E750EEF8262EC28F00E79C6B /* OverlayContainerRepresentableAdaptator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerRepresentableAdaptator.swift; sourceTree = "<group>"; };
 		E75590782578FA74001FB20C /* OverlayContentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContentModifier.swift; sourceTree = "<group>"; };
@@ -147,7 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7691550222EA71F00FDEE7F /* DynamicOverlay.framework in Frameworks */,
-				E750EED8262DB6C600E79C6B /* InterposeKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +202,6 @@
 		E741EEA12577C3950073FF6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E750EED7262DB6C600E79C6B /* InterposeKit.xcframework */,
 				E7A320AC2600DFE70020C3AA /* OverlayContainer.xcframework */,
 			);
 			name = Frameworks;
