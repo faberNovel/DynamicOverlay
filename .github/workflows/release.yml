@@ -12,7 +12,12 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 12.5
     - uses: actions/checkout@v2
+      with:
+        xcode-version: latest-stable
     - name: Bundle install
       working-directory: ./
       run: bundle install
