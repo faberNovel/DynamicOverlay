@@ -1,25 +1,16 @@
 {
-  "Mac" : [
-
-  ],
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-
-  ],
   "commitish" : "3.5.1",
   "iOS" : [
     {
-      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
-      "hash" : "3f8fc8587822765237c55c7cc6d7929de84d3ba29a9c332f87e6295573d5236c",
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "cc106da0421ce2c2a473bce54daa4e51aee0fc88d15cae141511aff1d28ce94f",
       "name" : "OverlayContainer",
       "container" : "OverlayContainer.xcframework",
       "identifier" : "ios-arm64_i386_x86_64-simulator"
     },
     {
-      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
-      "hash" : "8753a8749721ea5e6e1e88eeac70f277a658cd5c58042c138a5b2ecc988abc75",
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "2ac47ca679a6da94291d927e17f459508cd00c9bd57070c568d16c97e96fafb2",
       "name" : "OverlayContainer",
       "container" : "OverlayContainer.xcframework",
       "identifier" : "ios-arm64_armv7"
