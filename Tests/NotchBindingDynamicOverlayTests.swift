@@ -32,11 +32,11 @@ private struct NotchChangeView: View {
 
     @ObservedObject
     var target: ValuePublisher<Notch>
-    let onHeightChange: (CGFloat) -> Void
+    let onFrameChange: (CGRect) -> Void
 
     var body: some View {
         Color.red
-            .dynamicOverlay(Color.green.onHeightChange(onHeightChange))
+            .dynamicOverlay(Color.green.onFrameChange(onFrameChange))
             .dynamicOverlayBehavior(behavior)
     }
 
@@ -61,36 +61,40 @@ class NotchBindingDynamicOverlayTests: XCTestCase {
     func testNotchChange() {
         class Context {
             var expectedHeight: CGFloat = 0.0
+            var current = Notch.min
+            var displayedFrame = CGRect.zero
+            var expectations: [Notch: XCTestExpectation] = [:]
         }
-        let context = Context()
         let target = ValuePublisher(Notch.min)
-        var previousHeight: CGFloat = 0
         let notches: [Notch] = [.min, .max]
-        let expectation = XCTestExpectation(description: "notch-change")
-        expectation.expectedFulfillmentCount = notches.count
-        let view = NotchChangeView(target: target) { height in
-            guard previousHeight != height else { return }
-            previousHeight = height
-            expectation.fulfill()
-            XCTAssertEqual(height, context.expectedHeight)
+        let context = Context()
+        context.expectations = Dictionary(uniqueKeysWithValues: notches.map { ($0, XCTestExpectation()) })
+        let view = NotchChangeView(target: target) { rect in
+            context.displayedFrame = rect
+            context.expectations[context.current]?.fulfill()
         }
         let renderer = ViewRenderer(view: view)
         notches.forEach { notch in
-            context.expectedHeight = Constants.height(for: notch)
+            guard let expectation = context.expectations[notch] else { return }
+            context.current = notch
             target.update(notch)
             renderer.render()
+            wait(for: [expectation], timeout: 1.0)
+            let overlayFrame = renderer.window.bounds.intersection(context.displayedFrame)
+            XCTAssertEqual(overlayFrame.height, Constants.height(for: notch))
+            context.displayedFrame = .zero
         }
-        wait(for: [expectation], timeout: 1.0)
     }
 
     private func expectNotchHeight(_ notch: Notch) {
-        let expectation = XCTestExpectation()
         let target = ValuePublisher(notch)
-        let view = NotchChangeView(target: target) { height in
-            expectation.fulfill()
-            XCTAssertEqual(height, Constants.height(for: notch))
+        var displayedFrame: CGRect = .zero
+        let view = NotchChangeView(target: target) { rect in
+            displayedFrame = rect
         }
-        ViewRenderer(view: view).render()
-        wait(for: [expectation], timeout: 1.0)
+        let renderer = ViewRenderer(view: view)
+        renderer.render()
+        let overlayFrame = renderer.window.bounds.intersection(displayedFrame)
+        XCTAssertEqual(overlayFrame.height, Constants.height(for: notch))
     }
 }
