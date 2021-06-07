@@ -46,6 +46,8 @@ struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
     func makeCoordinator() -> OverlayContainerCoordinator {
         let contentController = UIHostingController(rootView: content)
         contentController.view.backgroundColor = .clear
+        contentController.view.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        contentController.view.setContentHuggingPriority(.defaultLow, for: .vertical)
         let backgroundController = UIHostingController(rootView: background)
         backgroundController.view.backgroundColor = .clear
         return OverlayContainerCoordinator(
