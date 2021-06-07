@@ -57,7 +57,7 @@ struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
     }
 
     func makeUIViewController(context: Context) -> OverlayContainerViewController {
-        let controller = OverlayContainerViewController(style: .flexibleHeight)
+        let controller = OverlayContainerViewController(style: .expandableHeight)
         controller.delegate = context.coordinator
         return controller
     }
