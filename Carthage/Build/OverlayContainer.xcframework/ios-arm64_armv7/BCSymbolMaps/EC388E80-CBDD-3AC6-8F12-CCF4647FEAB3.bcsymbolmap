@@ -1,6 +1,6 @@
 BCSymbolMap Version: 2.0
 Apple clang version 12.0.0 (clang-1200.0.32.29)
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk
+/Applications/Xcode_12.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk
 iPhoneOS14.4.sdk
 /Users/gaetanzanella/Library/Caches/org.carthage.CarthageKit/DerivedData/12.4_12D4e/OverlayContainer/3.5.1/Build/Intermediates.noindex/ArchiveIntermediates/OverlayContainer/IntermediateBuildFilesPath/OverlayContainer.build/Release-iphoneos/OverlayContainer.build/DerivedSources/OverlayContainer_vers.c
 /Users/gaetanzanella/Documents/Fabernovel/Projets/DynamicOverlay/Carthage/Checkouts/OverlayContainer
@@ -1420,7 +1420,7 @@ _got.$s16OverlayContainer0A28TranslationTargetNotchPolicyMp
 /Users/gaetanzanella/Documents/Fabernovel/Projets/DynamicOverlay/Carthage/Checkouts/OverlayContainer/Source/Classes/RushingForwardTargetNotchPolicy.swift
 $ss22_ContiguousArrayBufferV19_uninitializedCount15minimumCapacityAByxGSi_SitcfCSnySiG_Tgq5Tf4nnd_n
 _swift_stdlib_malloc_size
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/usr/lib/swift/shims/LibcShims.h
+/Applications/Xcode_12.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/usr/lib/swift/shims/LibcShims.h
 $sSa16_createNewBuffer14bufferIsUnique15minimumCapacity13growForAppendySb_SiSbtFSnySiG_Tgq5
 $sSp14moveInitialize4from5countySpyxG_SitFSnySiG_Tgq5
 $ss12_ArrayBufferV13_copyContents8subRange12initializingSpyxGSnySiG_AFtFAG_Tgq5
