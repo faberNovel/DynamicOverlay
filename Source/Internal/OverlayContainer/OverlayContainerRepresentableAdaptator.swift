@@ -34,7 +34,7 @@ struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
 
     private var containerState: OverlayContainerState {
         OverlayContainerState(
-            searchsScrollView: searchsScrollView,
+            searchesScrollView: searchsScrollView,
             notchIndex: behavior.binding?.wrappedValue,
             disabledNotches: behavior.disabledNotchIndexes,
             layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
