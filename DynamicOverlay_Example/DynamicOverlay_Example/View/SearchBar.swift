@@ -20,7 +20,7 @@ struct SearchBar: View {
     let eventHandler: (Event) -> Void
 
     var body: some View {
-        SearchBarAdaptator(
+        SearchBarAdaptor(
             didBeginEditing: { eventHandler(.didBeginEditing) },
             didCancel: { eventHandler(.didCancel) }
         )
@@ -44,7 +44,7 @@ private class SearchBarCoordinator: NSObject, UISearchBarDelegate {
     }
 }
 
-private struct SearchBarAdaptator: UIViewRepresentable {
+private struct SearchBarAdaptor: UIViewRepresentable {
 
     let didBeginEditing: () -> Void
     let didCancel: () -> Void
