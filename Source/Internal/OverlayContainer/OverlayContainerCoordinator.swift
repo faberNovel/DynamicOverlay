@@ -77,7 +77,7 @@ class OverlayContainerCoordinator {
             }
         }
         self.state = state
-        if requiresLayoutUpdate && !animated {
+        if changes.contains(.layout) && !animated {
             UIView.performWithoutAnimation {
                 container.view.layoutIfNeeded()
             }

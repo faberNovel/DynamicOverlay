@@ -1,5 +1,5 @@
 //
-//  OverlayContainerRepresentableAdaptatorTests.swift
+//  OverlayContainerRepresentableAdaptorTests.swift
 //  DynamicOverlayTests
 //
 //  Created by Gaétan Zanella on 20/04/2021.
@@ -12,13 +12,13 @@ import SwiftUI
 import OverlayContainer
 @testable import DynamicOverlay
 
-private struct AdaptatorParameters {
-    let searchsScrollView: Bool
+private struct AdaptorParameters {
+    let searchesScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
 }
 
-class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
+class OverlayContainerRepresentableAdaptorTests: XCTestCase {
 
     class Context {
         let container: OverlayContainerViewController
@@ -42,8 +42,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
 
     func testViewControllersSetup() {
         let context = makeContext(
-            for: AdaptatorParameters(
-                searchsScrollView: false,
+            for: AdaptorParameters(
+                searchesScrollView: false,
                 handleValue: .default,
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -54,8 +54,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
 
     func testDefaultDraggingStart() {
         let context = makeContext(
-            for: AdaptatorParameters(
-                searchsScrollView: false,
+            for: AdaptorParameters(
+                searchesScrollView: false,
                 handleValue: .default,
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -76,8 +76,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
 
     func testDisabledDraggingStart() {
         let context = makeContext(
-            for: AdaptatorParameters(
-                searchsScrollView: false,
+            for: AdaptorParameters(
+                searchesScrollView: false,
                 handleValue: DynamicOverlayDragHandle(spots: [.init(frame: .zero, isActive: false)]),
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -97,8 +97,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
 
     func testEnabledDraggingStart() {
         let context = makeContext(
-            for: AdaptatorParameters(
-                searchsScrollView: false,
+            for: AdaptorParameters(
+                searchesScrollView: false,
                 handleValue: DynamicOverlayDragHandle(
                     spots: [
                         .init(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 300)), isActive: true)
@@ -123,8 +123,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
     func testOverlayMoveNotification() {
         var index = 0
         let context = makeContext(
-            for: AdaptatorParameters(
-                searchsScrollView: false,
+            for: AdaptorParameters(
+                searchesScrollView: false,
                 handleValue: .default,
                 behavior: DynamicOverlayBehaviorValue(
                     notchDimensions: [0: .absolute(200.0), 1: .absolute(300.0)],
@@ -146,8 +146,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
         ]
         dimensions.forEach { layout in
             let context = makeContext(
-                for: AdaptatorParameters(
-                    searchsScrollView: false,
+                for: AdaptorParameters(
+                    searchesScrollView: false,
                     handleValue: .default,
                     behavior: DynamicOverlayBehaviorValue(
                         notchDimensions: layout,
@@ -174,8 +174,8 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
         ]
         indexes.forEach { disabledIndexes in
             let context = makeContext(
-                for: AdaptatorParameters(
-                    searchsScrollView: false,
+                for: AdaptorParameters(
+                    searchesScrollView: false,
                     handleValue: .default,
                     behavior: DynamicOverlayBehaviorValue(
                         notchDimensions: Dictionary(uniqueKeysWithValues: all.map { ($0, .absolute(100 * Double($0))) }),
@@ -208,21 +208,21 @@ class OverlayContainerRepresentableAdaptatorTests: XCTestCase {
         }
     }
 
-    private func makeContext(for parameters: AdaptatorParameters) -> Context {
-        let adaptator = OverlayContainerRepresentableAdaptator(
-            searchsScrollView: parameters.searchsScrollView,
+    private func makeContext(for parameters: AdaptorParameters) -> Context {
+        let adaptor = OverlayContainerRepresentableAdaptor(
+            searchesScrollView: parameters.searchesScrollView,
             handleValue: parameters.handleValue,
             behavior: parameters.behavior,
             content: ContentView(),
             background: Color.green
         )
-        let coordinator = adaptator.makeCoordinator()
-        let context = OverlayContainerRepresentableAdaptator<ContentView, Color>.Context(
+        let coordinator = adaptor.makeCoordinator()
+        let context = OverlayContainerRepresentableAdaptor<ContentView, Color>.Context(
             coordinator: coordinator,
             transaction: Transaction()
         )
-        let container = adaptator.makeUIViewController(context: context)
-        adaptator.updateUIViewController(container, context: context)
+        let container = adaptor.makeUIViewController(context: context)
+        adaptor.updateUIViewController(container, context: context)
         return Context(container: container, coordinator: coordinator)
     }
 }

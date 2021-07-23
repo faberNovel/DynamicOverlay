@@ -1,5 +1,5 @@
 //
-//  OverlayContainerRepresentableAdaptator.swift
+//  OverlayContainerRepresentableAdaptor.swift
 //  DynamicOverlayTests
 //
 //  Created by Gaétan Zanella on 20/04/2021.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import OverlayContainer
 
-struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
+struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
 
     class Context {
         let coordinator: OverlayContainerCoordinator
@@ -22,7 +22,7 @@ struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
         }
     }
 
-    let searchsScrollView: Bool
+    let searchesScrollView: Bool
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
     let content: Content
@@ -34,7 +34,7 @@ struct OverlayContainerRepresentableAdaptator<Content: View, Background: View> {
 
     private var containerState: OverlayContainerState {
         OverlayContainerState(
-            searchesScrollView: searchsScrollView,
+            searchesScrollView: searchesScrollView,
             notchIndex: behavior.binding?.wrappedValue,
             disabledNotches: behavior.disabledNotchIndexes,
             layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
