@@ -13,11 +13,11 @@ import SwiftUI
 struct MapView: View {
 
     var body: some View {
-        MapViewAdaptator().ignoresSafeArea()
+        MapViewAdaptor().ignoresSafeArea()
     }
 }
 
-private struct MapViewAdaptator: UIViewRepresentable {
+private struct MapViewAdaptor: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MKMapView {
         MKMapView()

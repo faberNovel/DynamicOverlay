@@ -15,7 +15,7 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
     private var handleValue: DynamicOverlayDragHandle = .default
 
     @State
-    private var searchsScrollView = false
+    private var searchesScrollView = false
 
     let background: Background
     let content: Content
@@ -24,9 +24,9 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
     var behavior: DynamicOverlayBehaviorValue
 
     var body: some View {
-        SwiftUIOverlayContainerRepresentableAdaptator(
-            adaptator: OverlayContainerRepresentableAdaptator(
-                searchsScrollView: searchsScrollView,
+        SwiftUIOverlayContainerRepresentableAdaptor(
+            adaptor: OverlayContainerRepresentableAdaptor(
+                searchesScrollView: searchesScrollView,
                 handleValue: handleValue,
                 behavior: behavior,
                 content: OverlayContentHostingView(),
@@ -35,6 +35,6 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
         )
         .overlayContent(content.overlayCoordinateSpace())
         .onDragHandleChange { handleValue = $0 }
-        .onDrivingScrollViewChange { value in searchsScrollView = value }
+        .onDrivingScrollViewChange { value in searchesScrollView = value }
     }
 }

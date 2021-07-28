@@ -27,7 +27,7 @@ extension View {
 /// The root view of the overlay content
 struct OverlayContentHostingView: View {
 
-    /// We use a environment variable to avoid UIViewController allocations each time the content changes.
+    /// We use an environment variable to avoid UIViewController allocations each time the content changes.
     @Environment(\.overlayContentKey)
     var content: AnyView
 

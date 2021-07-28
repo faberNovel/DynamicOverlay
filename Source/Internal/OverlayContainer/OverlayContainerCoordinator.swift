@@ -14,7 +14,7 @@ struct OverlayContainerLayout: Equatable {
 }
 
 struct OverlayContainerState: Equatable {
-    let searchsScrollView: Bool
+    let searchesScrollView: Bool
     let notchIndex: Int?
     let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
@@ -44,7 +44,7 @@ class OverlayContainerCoordinator {
          animationController: OverlayAnimatedTransitioning,
          background: UIViewController,
          content: UIViewController) {
-        self.state = State(searchsScrollView: false, notchIndex: nil, disabledNotches: [], layout: layout)
+        self.state = State(searchesScrollView: false, notchIndex: nil, disabledNotches: [], layout: layout)
         self.animationController = animationController
         self.background = background
         self.content = content
@@ -56,20 +56,31 @@ class OverlayContainerCoordinator {
         if container.viewControllers.isEmpty {
             container.viewControllers = [background, content]
         }
-        let previous = self.state
-        self.state = state
-        if previous.layout != state.layout {
+        let changes = OverlayContainerStateDiffer().diff(
+            from: self.state,
+            to: state
+        )
+        let requiresLayoutUpdate = changes.contains(.index) || changes.contains(.layout)
+        if requiresLayoutUpdate && animated {
+            // we update the content first
+            container.view.layoutIfNeeded()
+        }
+        if changes.contains(.layout) {
             container.invalidateNotchHeights()
         }
-        if let index = state.notchIndex, index != previous.notchIndex {
+        if let index = state.notchIndex, changes.contains(.index) {
             container.moveOverlay(toNotchAt: index, animated: animated)
         }
-        if state.searchsScrollView {
+        if changes.contains(.scrollView) {
             CATransaction.setCompletionBlock { [weak self] in
-                container.drivingScrollView = self?.content.view.findScrollView()
+                container.drivingScrollView = state.searchesScrollView ? self?.content.view.findScrollView() : nil
             }
-        } else {
-            container.drivingScrollView = nil
+        }
+        self.state = state
+        if changes.contains(.layout) && !animated {
+            UIView.performWithoutAnimation {
+                container.view.layoutIfNeeded()
+            }
         }
     }
 }
@@ -144,7 +155,7 @@ private extension OverlayContainerState {
 
     func withNewNotch(_ notch: Int) -> OverlayContainerState {
         OverlayContainerState(
-            searchsScrollView: searchsScrollView,
+            searchesScrollView: searchesScrollView,
             notchIndex: notch,
             disabledNotches: disabledNotches,
             layout: layout

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// A protocol that describes the behavior of an overlay.
+/// A protocol that describes the overlay behavior.
 public protocol DynamicOverlayBehavior {
 
     func makeModifier() -> AddDynamicOverlayBehaviorModifier
