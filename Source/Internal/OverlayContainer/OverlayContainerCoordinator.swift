@@ -63,6 +63,7 @@ class OverlayContainerCoordinator {
         let requiresLayoutUpdate = changes.contains(.index) || changes.contains(.layout)
         if requiresLayoutUpdate && animated {
             // we update the content first
+            container.drivingScrollView = nil // issue #21
             container.view.layoutIfNeeded()
         }
         if changes.contains(.layout) {
