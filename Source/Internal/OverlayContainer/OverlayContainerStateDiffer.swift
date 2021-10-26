@@ -23,9 +23,10 @@ struct OverlayContainerStateDiffer {
         if previous.notchIndex != next.notchIndex {
             changes.insert(.index)
         }
-        if previous.searchesScrollView != next.searchesScrollView {
-            changes.insert(.scrollView)
-        }
+        // issue #21
+        // The scroll view depends on the content, we need to first for a potential new scroll view
+        // at each update
+        changes.insert(.scrollView)
         if previous.layout != next.layout {
             changes.insert(.layout)
         }
