@@ -23,6 +23,7 @@ jobs:
       env:
         LC_ALL: en_US.UTF-8
         LANG: en_US.UTF-8
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_GZ_TOKEN }}
         GIT_COMMITTER_NAME: Bot Fabernovel
         GIT_AUTHOR_NAME: Bot Fabernovel
