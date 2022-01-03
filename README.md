@@ -157,7 +157,7 @@ var myOverlayContent: some View {
 
 A magnetic notch overlay can coordinate its motion with the scrolling of a scroll view.
 
-Mark a view of the overlay content as a `drivingScrollView` to do so.
+Mark the Scrollview or List that should dictate the overlays movement with `divingScrollView()`.
 
 ```swift
 var myOverlayContent: some View {
