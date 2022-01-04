@@ -58,10 +58,10 @@ extension EnvironmentValues {
 
     var behaviorValue: DynamicOverlayBehaviorValue {
         set {
-            self[DynamicOverlayBehaviorKey] = newValue
+            self[DynamicOverlayBehaviorKey.self] = newValue
         }
         get {
-            self[DynamicOverlayBehaviorKey]
+            self[DynamicOverlayBehaviorKey.self]
         }
     }
 }
