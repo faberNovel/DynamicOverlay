@@ -18,14 +18,6 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY_CI }}
-        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS_CI }}
-
-    - name: Export SSH
-      run: |
-        echo "GIT_SSH_COMMAND=$(git config --local --get core.sshCommand)" >> $GITHUB_ENV
 
     - name: Bundle install
       working-directory: ./
