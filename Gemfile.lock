@@ -129,6 +129,7 @@ GEM
       xcodeproj (>= 1.13.0, < 2.0.0)
       xcpretty (~> 0.3.0)
       xcpretty-travis-formatter (>= 0.0.3)
+    fastlane-plugin-changelog (0.16.0)
     ffi (1.13.1)
     fourflusher (2.3.1)
     fuzzy_match (2.0.4)
@@ -238,6 +239,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods (~> 1.9)
   fastlane (~> 2.1)
+  fastlane-plugin-changelog
 
 BUNDLED WITH
-   2.1.4
+   2.2.32
