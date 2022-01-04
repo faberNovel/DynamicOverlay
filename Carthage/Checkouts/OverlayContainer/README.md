@@ -1,6 +1,3 @@
-<p align="center">
-<img src="https://github.com/applidium/ADOverlayContainer/blob/master/Assets/icon.png" width="700">
-</p>
 
 <H4 align="center">
   OverlayContainer is a UI library written in Swift. It makes easier to develop overlay based interfaces, such as the one presented in the Apple Maps, Stocks or Shortcuts apps
@@ -18,18 +15,13 @@
 
 ---
 
-## Features
+> ⚠️ In iOS 15, consider using [UISheetPresentationController](https://developer.apple.com/documentation/uikit/uisheetpresentationcontroller) before `OverlayContainer`
 
-There are alternatives like:
+---
 
-- [Pulley](https://github.com/52inc/Pulley)
-- [FloatingPanel](https://github.com/SCENEE/FloatingPanel)
+`OverlayContainer` tries to be as lightweight and non-intrusive as possible. The layout and the UI customization are done by you to avoid to corrupt your project. 
 
-`OverlayContainer` uses a different approach:
-
-- It tries to be as lightweight and non-intrusive as possible. The layout and the UI customization are done by you to avoid to corrupt your project.
-- It perfectly mimics the overlay presented in the Siri Shotcuts app. See [this article](https://gaetanzanella.github.io//2018/replicate-apple-maps-overlay/) for details.
-- It provides more features:
+It perfectly mimics the overlay presented in the Siri Shotcuts app. See [this article](https://gaetanzanella.github.io//2018/replicate-apple-maps-overlay/) for details.
 
 - [x] Unlimited notches
 - [x] Notches modifiable at runtime
@@ -48,11 +40,6 @@ See the provided examples for help or feel free to ask directly.
 
 ---
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-  - [CocoaPods](#cocoapods)
-  - [Carthage](#carthage)
-  - [Swift Package Manager](#swift-package-manager)
 - [Usage](#usage)
   - [Setup](#setup)
   - [Overlay style](#overlay-style)
@@ -65,43 +52,18 @@ See the provided examples for help or feel free to ask directly.
   - [Presenting an overlay container](#presenting-an-overlay-container)
   - [Enabling & disabling notches](#enabling--disabling-notches)
   - [Backdrop view](#backdrop-view)
-  - [Safe Area](#safe-area)
+  - [Safe Area issues](#safe-area-issues)
   - [Custom Translation](#custom-translation)
   - [Custom Translation Animations](#custom-translation-animations)
   - [Reloading the notches](#reloading-the-notches)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [CocoaPods](#cocoapods)
+  - [Carthage](#carthage)
+  - [Swift Package Manager](#swift-package-manager)
+- [SwiftUI](#swiftui)
 - [Author](#author)
 - [License](#license)
-
-
-## Requirements
-
-OverlayContainer is written in Swift 5. Compatible with iOS 10.0+.
-
-## Installation
-
-OverlayContainer is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
-
-### Cocoapods
-
-```ruby
-pod 'OverlayContainer'
-```
-
-### Carthage
-
-Add the following to your Cartfile:
-
-```ruby
-github "https://github.com/applidium/OverlayContainer"
-```
-
-### Swift Package Manager
-
-OverlayContainer can be installed as a Swift Package with Xcode 11 or higher. To install it, add a package using Xcode or a dependency to your Package.swift file:
-
-```swift
-.package(url: "https://github.com/applidium/OverlayContainer.git", from: "3.4.0")
-```
 
 ## Usage
 
@@ -211,6 +173,8 @@ Or directly set the dedicated property:
 let containerController = OverlayContainerViewController()
 containerController.drivingScrollView = myScrollView
 ```
+
+Make sure to set `UIScrollView.alwaysBounceVertical` to `true` so the scroll view will always scroll regardless of its content size.
 
 ### Pan gesture support
 
@@ -452,11 +416,11 @@ func overlayContainerViewController(_ containerViewController: OverlayContainerV
 }
 ```
 
-### Safe Area
+### Safe Area issues
 
-Be careful when using safe areas. As described in the [WWDC "UIKit: Apps for Every Size and Shape" video](https://masterer.apple.com/videos/play/wwdc2018-235/?time=328), the safe area insets will not be updated if your views exceeds the screen bounds. This is specially the case when using the `OverlayStyle.flexibleHeight`.
+Be careful when using safe areas. As described in the [WWDC "UIKit: Apps for Every Size and Shape" video](https://masterer.apple.com/videos/play/wwdc2018-235/?time=328), the safe area insets will not be updated if your views exceeds the screen bounds. This is specially the case when using the `OverlayStyle.expandableHeight`: when the overlay exceeds the bottom screen limit, its safe area will not be updated.
 
-The simpliest way to handle the safe area correctly is to compute your notch heights using the `safeAreaInsets` provided by the container and avoid the `safeAreaLayoutGuide` bottom anchor in your overlay:
+The simpliest way to handle the safe area correctly is to compute your notch heights using the `safeAreaInsets` of the container and avoid the `safeAreaLayoutGuide` use in your overlay view:
 
 ```swift
 func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
@@ -472,6 +436,8 @@ func overlayContainerViewController(_ containerViewController: OverlayContainerV
     }
 }
 ```
+
+If you depend on `UIKit` native components that do not ignore the safe area like a `UINavigationBar`, use the `OverlayStyle.flexibleHeight` style.
 
 ### Custom Translation
 
@@ -527,6 +493,41 @@ func invalidateNotchHeights()
 
 This method does not reload the notch heights immediately. It only clears the current container's state. Because the number of notches may change, the container will use its target notch policy to determine where to go.
 Call `moveOverlay(toNotchAt:animated:)` to override this behavior.
+
+## Requirements
+
+OverlayContainer is written in Swift 5. Compatible with iOS 10.0+.
+
+## Installation
+
+OverlayContainer is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+### Cocoapods
+
+```ruby
+pod 'OverlayContainer'
+```
+
+### Carthage
+
+Add the following to your Cartfile:
+
+```ruby
+github "https://github.com/applidium/OverlayContainer"
+```
+
+### Swift Package Manager
+
+OverlayContainer can be installed as a Swift Package with Xcode 11 or higher. To install it, add a package using Xcode or a dependency to your Package.swift file:
+
+```swift
+.package(url: "https://github.com/applidium/OverlayContainer.git", from: "3.4.0")
+```
+
+
+## SwiftUI
+
+See [DynamicOverlay](https://github.com/faberNovel/DynamicOverlay)
 
 ## Author
 

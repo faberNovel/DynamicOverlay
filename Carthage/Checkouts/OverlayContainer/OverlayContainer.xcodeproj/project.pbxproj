@@ -3,14 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E701831B2226A98700433BB6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E70183192226A98700433BB6 /* Quick.framework */; };
-		E701831C2226A98700433BB6 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E701831A2226A98700433BB6 /* Nimble.framework */; };
-		E70183202226ABDE00433BB6 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E701831A2226A98700433BB6 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E70183212226ABDE00433BB6 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E70183192226A98700433BB6 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E783A4B7243CB5C0002C0B93 /* OverlayScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783A4B6243CB5C0002C0B93 /* OverlayScrollViewDelegate.swift */; };
 		E783A4B9243CB65A002C0B93 /* OverlayContainerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783A4B8243CB659002C0B93 /* OverlayContainerPresentationController.swift */; };
 		E783A4BB243CCBBF002C0B93 /* OverlayContainerSheetDismissalPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783A4BA243CCBBF002C0B93 /* OverlayContainerSheetDismissalPolicy.swift */; };
@@ -52,6 +48,14 @@
 		E78486542201EA9400DE64C3 /* OverlayNotchHeightTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78485C42201E66500DE64C3 /* OverlayNotchHeightTest.swift */; };
 		E791BAA4225F284800124D27 /* GroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E791BAA3225F284800124D27 /* GroundView.swift */; };
 		E791BAAD225F771400124D27 /* CGFloat+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = E791BAAC225F771400124D27 /* CGFloat+Round.swift */; };
+		E79AE411262F095000BFFBF3 /* RushingForwardTargetNotchPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE40B262F094600BFFBF3 /* RushingForwardTargetNotchPolicyTests.swift */; };
+		E79AE41A262F12E800BFFBF3 /* ScrollViewOverlayTranslationDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE414262F12DF00BFFBF3 /* ScrollViewOverlayTranslationDriverTests.swift */; };
+		E79AE426262F40A800BFFBF3 /* ScrollViewEmulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE41E262F40A000BFFBF3 /* ScrollViewEmulator.swift */; };
+		E79AE42F2630282800BFFBF3 /* PanGestureOverlayTranslationDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE4292630282400BFFBF3 /* PanGestureOverlayTranslationDriverTests.swift */; };
+		E79AE438263029AE00BFFBF3 /* FakeOverlayTranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE4322630286F00BFFBF3 /* FakeOverlayTranslationController.swift */; };
+		E79AE443263033F200BFFBF3 /* HeightConstraintOverlayTranslationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE43B26302EEA00BFFBF3 /* HeightConstraintOverlayTranslationControllerTests.swift */; };
+		E79D75E126035ED900C942F7 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D75DF26035ED900C942F7 /* Quick.xcframework */; };
+		E79D75E226035ED900C942F7 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D75E026035ED900C942F7 /* Nimble.xcframework */; };
 		E7A6A3AC24460D1A00E51F7A /* OverlayContainerSheetDismissalPolicyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6A3AA24460B5E00E51F7A /* OverlayContainerSheetDismissalPolicyTest.swift */; };
 		E7B22ABE22A182F4009392EC /* OverlayContainerConfigurationImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B22ABD22A182F4009392EC /* OverlayContainerConfigurationImplementation.swift */; };
 		E7B56C8B243DDEFE00763452 /* OverlayContainerSheetDimmingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B56C8A243DDEFE00763452 /* OverlayContainerSheetDimmingView.swift */; };
@@ -70,20 +74,6 @@
 			remoteInfo = OverlayContainer;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E701831F2226ABB900433BB6 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E70183202226ABDE00433BB6 /* Nimble.framework in CopyFiles */,
-				E70183212226ABDE00433BB6 /* Quick.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E70183192226A98700433BB6 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -130,8 +120,17 @@
 		E78485C42201E66500DE64C3 /* OverlayNotchHeightTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayNotchHeightTest.swift; sourceTree = "<group>"; };
 		E78485C52201E66500DE64C3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E78486472201EA7400DE64C3 /* OverlayContainer_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverlayContainer_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E78A7A582603424B0088569A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E791BAA3225F284800124D27 /* GroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundView.swift; sourceTree = "<group>"; };
 		E791BAAC225F771400124D27 /* CGFloat+Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Round.swift"; sourceTree = "<group>"; };
+		E79AE40B262F094600BFFBF3 /* RushingForwardTargetNotchPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RushingForwardTargetNotchPolicyTests.swift; sourceTree = "<group>"; };
+		E79AE414262F12DF00BFFBF3 /* ScrollViewOverlayTranslationDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOverlayTranslationDriverTests.swift; sourceTree = "<group>"; };
+		E79AE41E262F40A000BFFBF3 /* ScrollViewEmulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewEmulator.swift; sourceTree = "<group>"; };
+		E79AE4292630282400BFFBF3 /* PanGestureOverlayTranslationDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureOverlayTranslationDriverTests.swift; sourceTree = "<group>"; };
+		E79AE4322630286F00BFFBF3 /* FakeOverlayTranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeOverlayTranslationController.swift; sourceTree = "<group>"; };
+		E79AE43B26302EEA00BFFBF3 /* HeightConstraintOverlayTranslationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightConstraintOverlayTranslationControllerTests.swift; sourceTree = "<group>"; };
+		E79D75DF26035ED900C942F7 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		E79D75E026035ED900C942F7 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		E7A6A3AA24460B5E00E51F7A /* OverlayContainerSheetDismissalPolicyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerSheetDismissalPolicyTest.swift; sourceTree = "<group>"; };
 		E7B22ABD22A182F4009392EC /* OverlayContainerConfigurationImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayContainerConfigurationImplementation.swift; sourceTree = "<group>"; };
 		E7B56C8A243DDEFE00763452 /* OverlayContainerSheetDimmingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContainerSheetDimmingView.swift; sourceTree = "<group>"; };
@@ -153,8 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E701831B2226A98700433BB6 /* Quick.framework in Frameworks */,
-				E701831C2226A98700433BB6 /* Nimble.framework in Frameworks */,
+				E79D75E126035ED900C942F7 /* Quick.xcframework in Frameworks */,
+				E79D75E226035ED900C942F7 /* Nimble.xcframework in Frameworks */,
 				E784864C2201EA7500DE64C3 /* OverlayContainer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +164,8 @@
 		E70183182226A98700433BB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E79D75E026035ED900C942F7 /* Nimble.xcframework */,
+				E79D75DF26035ED900C942F7 /* Quick.xcframework */,
 				E701831A2226A98700433BB6 /* Nimble.framework */,
 				E70183192226A98700433BB6 /* Quick.framework */,
 			);
@@ -174,6 +175,7 @@
 		E78485522201E4F700DE64C3 = {
 			isa = PBXGroup;
 			children = (
+				E78A7A582603424B0088569A /* README.md */,
 				E78485672201E54E00DE64C3 /* Source */,
 				E78485C12201E66500DE64C3 /* Tests */,
 				E784855D2201E4F700DE64C3 /* Products */,
@@ -275,13 +277,27 @@
 		E78485C12201E66500DE64C3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E79AE41D262F408F00BFFBF3 /* Utils */,
 				E78485C22201E66500DE64C3 /* OverlayScrollViewDelegateTest.swift */,
 				E78485C32201E66500DE64C3 /* OverlayInsertionTest.swift */,
 				E78485C42201E66500DE64C3 /* OverlayNotchHeightTest.swift */,
 				E7A6A3AA24460B5E00E51F7A /* OverlayContainerSheetDismissalPolicyTest.swift */,
+				E79AE40B262F094600BFFBF3 /* RushingForwardTargetNotchPolicyTests.swift */,
+				E79AE414262F12DF00BFFBF3 /* ScrollViewOverlayTranslationDriverTests.swift */,
+				E79AE4292630282400BFFBF3 /* PanGestureOverlayTranslationDriverTests.swift */,
+				E79AE43B26302EEA00BFFBF3 /* HeightConstraintOverlayTranslationControllerTests.swift */,
 				E78485C52201E66500DE64C3 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		E79AE41D262F408F00BFFBF3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E79AE41E262F40A000BFFBF3 /* ScrollViewEmulator.swift */,
+				E79AE4322630286F00BFFBF3 /* FakeOverlayTranslationController.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E7B22ABC22A182E6009392EC /* Configuration */ = {
@@ -332,7 +348,6 @@
 				E78486432201EA7400DE64C3 /* Sources */,
 				E78486442201EA7400DE64C3 /* Frameworks */,
 				E78486452201EA7400DE64C3 /* Resources */,
-				E701831F2226ABB900433BB6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -351,7 +366,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Gaétan Zanella";
 				TargetAttributes = {
 					E784855B2201E4F700DE64C3 = {
@@ -456,7 +471,13 @@
 			files = (
 				E7A6A3AC24460D1A00E51F7A /* OverlayContainerSheetDismissalPolicyTest.swift in Sources */,
 				E78486522201EA9400DE64C3 /* OverlayScrollViewDelegateTest.swift in Sources */,
+				E79AE411262F095000BFFBF3 /* RushingForwardTargetNotchPolicyTests.swift in Sources */,
+				E79AE426262F40A800BFFBF3 /* ScrollViewEmulator.swift in Sources */,
 				E78486532201EA9400DE64C3 /* OverlayInsertionTest.swift in Sources */,
+				E79AE41A262F12E800BFFBF3 /* ScrollViewOverlayTranslationDriverTests.swift in Sources */,
+				E79AE42F2630282800BFFBF3 /* PanGestureOverlayTranslationDriverTests.swift in Sources */,
+				E79AE438263029AE00BFFBF3 /* FakeOverlayTranslationController.swift in Sources */,
+				E79AE443263033F200BFFBF3 /* HeightConstraintOverlayTranslationControllerTests.swift in Sources */,
 				E78486542201EA9400DE64C3 /* OverlayNotchHeightTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +519,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -506,7 +528,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -562,6 +584,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -570,7 +593,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -602,7 +625,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = C7G63Q6LZ9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 5;
+				DYLIB_CURRENT_VERSION = 6;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -628,7 +651,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = C7G63Q6LZ9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 5;
+				DYLIB_CURRENT_VERSION = 6;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
