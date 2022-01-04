@@ -30,6 +30,7 @@ DynamicOverlay is a SwiftUI library. It makes easier to develop overlay based in
     - [Carthage](#carthage)
     - [Swift Package Manager](#swift-package-manager)
 - [Under the hood](#under-the-hood)
+- [Release](#release)
 - [Author](#author)
 - [License](#license)
 
@@ -306,6 +307,13 @@ github "https://github.com/fabernovel/DynamicOverlay"
 ```swift
 .package(url: "https://github.com/fabernovel/DynamicOverlay.git")
 ```
+
+## Release
+
+- Create a release branch for the new version (release/#version#)
+- Update the [CHANGELOG.md](https://github.com/faberNovel/DynamicOverlay/blob/main/CHANGELOG.md) (Be sure to spell your release version correctly)
+- Push your release branch
+- Run the [release workflow](https://github.com/faberNovel/DynamicOverlay/actions/workflows/release.yml) from your release branch
 
 ## Author
 
