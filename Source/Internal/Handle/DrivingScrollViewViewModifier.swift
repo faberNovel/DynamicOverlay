@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct DrivingScrollViewViewModifier: ViewModifier {
+    static let drivingScrollviewIdentifier = "DynamicOverlay_DrivingScrollerView"
 
     let isActive: Bool
 
@@ -19,29 +20,19 @@ struct DrivingScrollViewViewModifier: ViewModifier {
     }
 }
 
-struct DrivingScrollViewWrapper<Content: View>: UIViewRepresentable {
+struct DrivingScrollViewWrapper<Content: View>: UIViewControllerRepresentable {
     let content: Content
 
-    func makeUIView(context: Context) -> DrivingScrollViewMarkingWrapper {
+    func makeUIViewController(context: Self.Context) -> UIHostingController<Content> {
         let hostingController = UIHostingController(rootView: content)
         hostingController.view.backgroundColor = .clear
         hostingController.view.frame = .zero
         hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        return DrivingScrollViewMarkingWrapper(content: hostingController.view)
+        hostingController.view.accessibilityIdentifier = DrivingScrollViewViewModifier.drivingScrollviewIdentifier
+        return hostingController
     }
 
-    func updateUIView(_ uiView: DrivingScrollViewMarkingWrapper, context: Context) {}
-}
+    func updateUIViewController(_ controller: UIHostingController<Content>, context: Self.Context) {
 
-class DrivingScrollViewMarkingWrapper: UIView {
-
-    init(content: UIView, frame: CGRect = .zero) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-        addSubview(content)
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

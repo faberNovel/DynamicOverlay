@@ -168,9 +168,9 @@ private extension OverlayContainerState {
 
 private extension UIView {
 
-    func findDrivingScrollViewWrapper() -> DrivingScrollViewMarkingWrapper? {
-        if let scrollView = self as? DrivingScrollViewMarkingWrapper {
-            return scrollView
+    func findDrivingScrollViewWrapper() -> UIView? {
+        if accessibilityIdentifier == DrivingScrollViewViewModifier.drivingScrollviewIdentifier {
+            return self
         }
         for subview in subviews {
             if let target = subview.findDrivingScrollViewWrapper() {
