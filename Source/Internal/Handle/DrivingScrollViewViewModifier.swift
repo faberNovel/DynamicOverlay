@@ -14,7 +14,7 @@ struct DrivingScrollViewViewModifier: ViewModifier {
     let isActive: Bool
 
     func body(content: Content) -> some View {
-        DrivingScrollViewWrapper(content: ZStack { content })
+        DrivingScrollViewWrapper(content: content)
             .preference(key: DynamicOverlayScrollPreferenceKey.self,
                         value: isActive)
     }
