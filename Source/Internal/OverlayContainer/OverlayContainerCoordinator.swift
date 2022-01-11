@@ -74,7 +74,9 @@ class OverlayContainerCoordinator {
         }
         if changes.contains(.scrollView) {
             CATransaction.setCompletionBlock { [weak self] in
-                container.drivingScrollView = state.searchesScrollView ? self?.content.view.findScrollView() : nil
+                container.drivingScrollView = state.searchesScrollView ?
+                self?.content.view.findDrivingScrollViewWrapper()?.findScrollView() :
+                nil
             }
         }
         self.state = state
@@ -165,6 +167,18 @@ private extension OverlayContainerState {
 }
 
 private extension UIView {
+
+    func findDrivingScrollViewWrapper() -> UIView? {
+        if accessibilityIdentifier == DrivingScrollViewViewModifier.drivingScrollviewIdentifier {
+            return self
+        }
+        for subview in subviews {
+            if let target = subview.findDrivingScrollViewWrapper() {
+                return target
+            }
+        }
+        return nil
+    }
 
     func findScrollView() -> UIScrollView? {
         if let scrollView = self as? UIScrollView {
