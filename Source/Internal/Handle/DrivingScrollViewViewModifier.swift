@@ -20,19 +20,19 @@ struct DrivingScrollViewViewModifier: ViewModifier {
     }
 }
 
-struct DrivingScrollViewWrapper<Content: View>: UIViewControllerRepresentable {
+struct DrivingScrollViewWrapper<Content: View>: UIViewRepresentable {
     let content: Content
 
-    func makeUIViewController(context: Self.Context) -> UIHostingController<Content> {
+    func makeUIView(context: Context) -> UIView {
         let hostingController = UIHostingController(rootView: content)
         hostingController.view.backgroundColor = .clear
         hostingController.view.frame = .zero
         hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         hostingController.view.accessibilityIdentifier = DrivingScrollViewViewModifier.drivingScrollviewIdentifier
-        return hostingController
+        let wrapperForLayout = UIView()
+        wrapperForLayout.addSubview(hostingController.view)
+        return wrapperForLayout
     }
 
-    func updateUIViewController(_ controller: UIHostingController<Content>, context: Self.Context) {
-
-    }
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
