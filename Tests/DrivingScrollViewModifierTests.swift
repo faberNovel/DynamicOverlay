@@ -14,12 +14,14 @@ import SwiftUI
 private struct ContainerView: View {
 
     let isActive: Bool
-    let isActiveHandler: (Bool) -> Void
+    let isActiveHandler: (DrivingScrollViewHandle) -> Void
 
     var body: some View {
-        Color.green
-            .drivingScrollView(isActive)
-            .onDrivingScrollViewChange(handler: isActiveHandler)
+        ScrollView {
+            Color.green
+        }
+        .drivingScrollView(isActive)
+        .onDrivingScrollViewChange(handler: isActiveHandler)
     }
 }
 
@@ -30,9 +32,15 @@ class DrivingScrollViewModifierTests: XCTestCase {
             let expectation = XCTestExpectation()
             let view = ContainerView(
                 isActive: shouldBeActive,
-                isActiveHandler: { isActive in
-                    XCTAssertEqual(isActive, shouldBeActive)
-                    expectation.fulfill()
+                isActiveHandler: { handle in
+                    CATransaction.setCompletionBlock {
+                        if shouldBeActive {
+                            XCTAssertNotNil(handle.findScrollView())
+                        } else {
+                            XCTAssertNil(handle.findScrollView())
+                        }
+                        expectation.fulfill()
+                    }
                 }
             )
             ViewRenderer(view: view).render()

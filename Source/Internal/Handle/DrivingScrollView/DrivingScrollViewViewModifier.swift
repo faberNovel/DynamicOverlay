@@ -50,7 +50,8 @@ private class DrivingScrollViewViewController: UIViewController, ScrollViewConta
     }
 
     func scrollView() -> UIScrollView? {
-        view.findScrollView()
+        view.layoutIfNeeded()
+        return view.findScrollView()
     }
 }
 

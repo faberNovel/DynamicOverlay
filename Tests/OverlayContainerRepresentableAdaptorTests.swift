@@ -13,7 +13,7 @@ import OverlayContainer
 @testable import DynamicOverlay
 
 private struct AdaptorParameters {
-    let searchesScrollView: Bool
+    let drivingHandle: DrivingScrollViewHandle
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
 }
@@ -43,7 +43,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
     func testViewControllersSetup() {
         let context = makeContext(
             for: AdaptorParameters(
-                searchesScrollView: false,
+                drivingHandle: .default,
                 handleValue: .default,
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -55,7 +55,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
     func testDefaultDraggingStart() {
         let context = makeContext(
             for: AdaptorParameters(
-                searchesScrollView: false,
+                drivingHandle: .default,
                 handleValue: .default,
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -77,7 +77,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
     func testDisabledDraggingStart() {
         let context = makeContext(
             for: AdaptorParameters(
-                searchesScrollView: false,
+                drivingHandle: .default,
                 handleValue: DynamicOverlayDragHandle(spots: [.init(frame: .zero, isActive: false)]),
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -98,7 +98,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
     func testEnabledDraggingStart() {
         let context = makeContext(
             for: AdaptorParameters(
-                searchesScrollView: false,
+                drivingHandle: .default,
                 handleValue: DynamicOverlayDragHandle(
                     spots: [
                         .init(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 300)), isActive: true)
@@ -124,7 +124,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
         var index = 0
         let context = makeContext(
             for: AdaptorParameters(
-                searchesScrollView: false,
+                drivingHandle: .default,
                 handleValue: .default,
                 behavior: DynamicOverlayBehaviorValue(
                     notchDimensions: [0: .absolute(200.0), 1: .absolute(300.0)],
@@ -147,7 +147,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
         dimensions.forEach { layout in
             let context = makeContext(
                 for: AdaptorParameters(
-                    searchesScrollView: false,
+                    drivingHandle: .default,
                     handleValue: .default,
                     behavior: DynamicOverlayBehaviorValue(
                         notchDimensions: layout,
@@ -175,7 +175,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
         indexes.forEach { disabledIndexes in
             let context = makeContext(
                 for: AdaptorParameters(
-                    searchesScrollView: false,
+                    drivingHandle: .default,
                     handleValue: .default,
                     behavior: DynamicOverlayBehaviorValue(
                         notchDimensions: Dictionary(uniqueKeysWithValues: all.map { ($0, .absolute(100 * Double($0))) }),
@@ -210,8 +210,8 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
 
     private func makeContext(for parameters: AdaptorParameters) -> Context {
         let adaptor = OverlayContainerRepresentableAdaptor(
-            searchesScrollView: parameters.searchesScrollView,
-            handleValue: parameters.handleValue,
+            drivingScrollViewHandle: parameters.drivingHandle,
+            dragHandle: parameters.handleValue,
             behavior: parameters.behavior,
             content: ContentView(),
             background: Color.green
