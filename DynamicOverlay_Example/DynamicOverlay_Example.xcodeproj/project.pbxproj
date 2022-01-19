@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4051F4F5278BF7E10054B54F /* MultipleDrivingScrollViewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051F4F4278BF7E10054B54F /* MultipleDrivingScrollViewsView.swift */; };
 		E73A7CE9262B2A8400959344 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A7CE8262B2A8400959344 /* MapView.swift */; };
 		E73A7CEC262B2AA400959344 /* MapRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A7CEB262B2AA400959344 /* MapRootView.swift */; };
 		E741EE732576B10D0073FF6B /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E741EE722576B10D0073FF6B /* DynamicOverlay.framework */; };
@@ -39,7 +38,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4051F4F4278BF7E10054B54F /* MultipleDrivingScrollViewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleDrivingScrollViewsView.swift; sourceTree = "<group>"; };
 		E73A7CE8262B2A8400959344 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E73A7CEB262B2AA400959344 /* MapRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRootView.swift; sourceTree = "<group>"; };
 		E741EE722576B10D0073FF6B /* DynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +74,6 @@
 				E73A7CE8262B2A8400959344 /* MapView.swift */,
 				E750EE4D262B2B4800E79C6B /* OverlayView.swift */,
 				E750EE50262C30F600E79C6B /* SearchBar.swift */,
-				4051F4F4278BF7E10054B54F /* MultipleDrivingScrollViewsView.swift */,
 				E750EE95262D772700E79C6B /* OverlayBackgroundView.swift */,
 				E750EE97262D798F00E79C6B /* ActionCell.swift */,
 				E750EE99262D799B00E79C6B /* FavoriteCell.swift */,
@@ -227,7 +224,6 @@
 				E750EE63262C463100E79C6B /* MapApp.swift in Sources */,
 				E750EE96262D772700E79C6B /* OverlayBackgroundView.swift in Sources */,
 				E750EE9C262D7C9000E79C6B /* BackdropView.swift in Sources */,
-				4051F4F5278BF7E10054B54F /* MultipleDrivingScrollViewsView.swift in Sources */,
 				E750EE51262C30F600E79C6B /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
