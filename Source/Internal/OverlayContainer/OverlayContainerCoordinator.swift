@@ -14,7 +14,7 @@ struct OverlayContainerLayout: Equatable {
 }
 
 struct OverlayContainerState: Equatable {
-    let searchesScrollView: Bool
+    let drivingScrollViewHandle: DrivingScrollViewHandle
     let notchIndex: Int?
     let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
@@ -44,7 +44,7 @@ class OverlayContainerCoordinator {
          animationController: OverlayAnimatedTransitioning,
          background: UIViewController,
          content: UIViewController) {
-        self.state = State(searchesScrollView: false, notchIndex: nil, disabledNotches: [], layout: layout)
+        self.state = State(drivingScrollViewHandle: .default, notchIndex: nil, disabledNotches: [], layout: layout)
         self.animationController = animationController
         self.background = background
         self.content = content
@@ -73,10 +73,8 @@ class OverlayContainerCoordinator {
             container.moveOverlay(toNotchAt: index, animated: animated)
         }
         if changes.contains(.scrollView) {
-            CATransaction.setCompletionBlock { [weak self] in
-                container.drivingScrollView = state.searchesScrollView ?
-                self?.content.view.findDrivingScrollViewWrapper()?.findScrollView() :
-                nil
+            CATransaction.setCompletionBlock { [weak container] in
+                container?.drivingScrollView = state.drivingScrollViewHandle.findScrollView()
             }
         }
         self.state = state
@@ -158,37 +156,10 @@ private extension OverlayContainerState {
 
     func withNewNotch(_ notch: Int) -> OverlayContainerState {
         OverlayContainerState(
-            searchesScrollView: searchesScrollView,
+            drivingScrollViewHandle: drivingScrollViewHandle,
             notchIndex: notch,
             disabledNotches: disabledNotches,
             layout: layout
         )
-    }
-}
-
-private extension UIView {
-
-    func findDrivingScrollViewWrapper() -> UIView? {
-        if accessibilityIdentifier == DrivingScrollViewViewModifier.drivingScrollviewIdentifier {
-            return self
-        }
-        for subview in subviews {
-            if let target = subview.findDrivingScrollViewWrapper() {
-                return target
-            }
-        }
-        return nil
-    }
-
-    func findScrollView() -> UIScrollView? {
-        if let scrollView = self as? UIScrollView {
-            return scrollView
-        }
-        for subview in subviews {
-            if let target = subview.findScrollView() {
-                return target
-            }
-        }
-        return nil
     }
 }

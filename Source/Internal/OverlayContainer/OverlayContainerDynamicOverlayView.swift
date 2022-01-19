@@ -12,10 +12,10 @@ import OverlayContainer
 struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
-    private var handleValue: DynamicOverlayDragHandle = .default
+    private var dragHandle: DynamicOverlayDragHandle = .default
 
     @State
-    private var searchesScrollView = false
+    private var drivingScrollViewHandle: DrivingScrollViewHandle = .default
 
     let background: Background
     let content: Content
@@ -26,15 +26,15 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
     var body: some View {
         SwiftUIOverlayContainerRepresentableAdaptor(
             adaptor: OverlayContainerRepresentableAdaptor(
-                searchesScrollView: searchesScrollView,
-                handleValue: handleValue,
+                drivingScrollViewHandle: drivingScrollViewHandle,
+                dragHandle: dragHandle,
                 behavior: behavior,
                 content: OverlayContentHostingView(),
                 background: background
             )
         )
         .overlayContent(content.overlayCoordinateSpace())
-        .onDragHandleChange { handleValue = $0 }
-        .onDrivingScrollViewChange { value in searchesScrollView = value }
+        .onDragHandleChange { dragHandle = $0 }
+        .onDrivingScrollViewChange { drivingScrollViewHandle = $0 }
     }
 }

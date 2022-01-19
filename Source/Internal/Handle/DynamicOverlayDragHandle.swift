@@ -43,12 +43,3 @@ struct DynamicOverlayDragHandlePreferenceKey: PreferenceKey {
         value.merge(nextValue())
     }
 }
-
-struct DynamicOverlayScrollPreferenceKey: PreferenceKey {
-
-    static var defaultValue = false
-
-    static func reduce(value: inout Bool, nextValue: () -> Bool) {
-        value = nextValue() ? true : value
-    }
-}

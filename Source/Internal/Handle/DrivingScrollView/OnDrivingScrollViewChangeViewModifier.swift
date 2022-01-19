@@ -10,7 +10,7 @@ import SwiftUI
 
 private struct OnDrivingScrollViewChangeViewModifier: ViewModifier {
 
-    let handler: (Bool) -> Void
+    let handler: (DrivingScrollViewHandle) -> Void
 
     func body(content: Content) -> some View {
         content.onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
@@ -21,7 +21,7 @@ private struct OnDrivingScrollViewChangeViewModifier: ViewModifier {
 
 extension View {
 
-    func onDrivingScrollViewChange(handler: @escaping (Bool) -> Void) -> some View {
+    func onDrivingScrollViewChange(handler: @escaping (DrivingScrollViewHandle) -> Void) -> some View {
         modifier(OnDrivingScrollViewChangeViewModifier(handler: handler))
     }
 }

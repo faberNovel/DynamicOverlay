@@ -50,6 +50,7 @@
 		E7BFEDC52629F47600C1EE2D /* SwiftUIOverlayContainerRepresentableAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDBA2629F45F00C1EE2D /* SwiftUIOverlayContainerRepresentableAdaptor.swift */; };
 		E7BFEDCE2629F52C00C1EE2D /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
 		E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */; };
+		E7F77E27278E14EE00D542AC /* DrivingScrollViewHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77E26278E14EE00D542AC /* DrivingScrollViewHandle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		E7BFEDBA2629F45F00C1EE2D /* SwiftUIOverlayContainerRepresentableAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIOverlayContainerRepresentableAdaptor.swift; sourceTree = "<group>"; };
 		E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticNotchOverlayBehaviorValueTests.swift; sourceTree = "<group>"; };
 		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
+		E7F77E26278E14EE00D542AC /* DrivingScrollViewHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingScrollViewHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,13 +166,12 @@
 		E7310E71259A0E4B00865422 /* Handle */ = {
 			isa = PBXGroup;
 			children = (
-				E7559085257A7152001FB20C /* DynamicOverlayDragHandle.swift */,
+				E7F77E25278E14C000D542AC /* DrivingScrollView */,
 				E7310E72259A102E00865422 /* DragHandleViewModifier.swift */,
+				E7559085257A7152001FB20C /* DynamicOverlayDragHandle.swift */,
 				E7310E7A259A117400865422 /* OverlayContainerCoordinateSpace.swift */,
-				E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */,
 				E7B68A0B262320E900AEE7DD /* DragHandleFrameReader.swift */,
 				E7BFEDA02629E28A00C1EE2D /* OnDragHandleChangeViewModifier.swift */,
-				E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */,
 			);
 			path = Handle;
 			sourceTree = "<group>";
@@ -309,6 +310,16 @@
 				E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E7F77E25278E14C000D542AC /* DrivingScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				E7F77E26278E14EE00D542AC /* DrivingScrollViewHandle.swift */,
+				E7310E76259A10AB00865422 /* DrivingScrollViewViewModifier.swift */,
+				E7BFEDAF2629F14100C1EE2D /* OnDrivingScrollViewChangeViewModifier.swift */,
+			);
+			path = DrivingScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 				E741EEBB2577D44D0073FF6B /* OverlayContainerDynamicOverlayView.swift in Sources */,
 				E7BFEDA62629E28F00C1EE2D /* OnDragHandleChangeViewModifier.swift in Sources */,
 				E750EEFE262EC29500E79C6B /* OverlayContainerRepresentableAdaptor.swift in Sources */,
+				E7F77E27278E14EE00D542AC /* DrivingScrollViewHandle.swift in Sources */,
 				E7310E7B259A117400865422 /* OverlayContainerCoordinateSpace.swift in Sources */,
 				E741EEA92577CC400073FF6B /* DynamicOverlayBehavior.swift in Sources */,
 				E7310E73259A102E00865422 /* DragHandleViewModifier.swift in Sources */,
