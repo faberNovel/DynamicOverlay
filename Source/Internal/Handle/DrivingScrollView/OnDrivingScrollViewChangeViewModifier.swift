@@ -10,18 +10,18 @@ import SwiftUI
 
 private struct OnDrivingScrollViewChangeViewModifier: ViewModifier {
 
-    let handler: (DynamicOverlayDragHandle) -> Void
+    let handler: (DynamicOverlayScrollViewProxy) -> Void
 
     func body(content: Content) -> some View {
-        content.onPreferenceChange(DynamicOverlayScrollPreferenceKey.self, perform: { value in
-            handler(value)
+        content.onPreferenceChange(DynamicOverlayScrollViewProxyPreferenceKey.self, perform: { value in
+            handler(DynamicOverlayScrollViewProxy(area: value))
         })
     }
 }
 
 extension View {
 
-    func onDrivingScrollViewChange(handler: @escaping (DynamicOverlayDragHandle) -> Void) -> some View {
+    func onDrivingScrollViewChange(handler: @escaping (DynamicOverlayScrollViewProxy) -> Void) -> some View {
         modifier(OnDrivingScrollViewChangeViewModifier(handler: handler))
     }
 }

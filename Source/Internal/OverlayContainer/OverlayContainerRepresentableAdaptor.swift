@@ -22,8 +22,8 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         }
     }
 
-    let drivingScrollViewHandle: DynamicOverlayDragHandle
-    let dragHandle: DynamicOverlayDragHandle
+    let drivingScrollViewProxy: DynamicOverlayScrollViewProxy
+    let dragArea: DynamicOverlayDragArea
     let behavior: DynamicOverlayBehaviorValue
     let content: Content
     let background: Background
@@ -34,7 +34,7 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
 
     private var containerState: OverlayContainerState {
         OverlayContainerState(
-            drivingScrollViewHandle: drivingScrollViewHandle,
+            drivingScrollViewProxy: drivingScrollViewProxy,
             notchIndex: behavior.binding?.wrappedValue,
             disabledNotches: behavior.disabledNotchIndexes,
             layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
@@ -87,10 +87,7 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         context.coordinator.shouldStartDraggingOverlay = { container, point, coordinateSpace in
             guard let overlay = container.topViewController else { return false }
             let inOverlayPoint = overlay.view.convert(point, from: coordinateSpace)
-            if dragHandle.spots.isEmpty {
-                return overlay.view.frame.contains(inOverlayPoint)
-            }
-            return dragHandle.contains(inOverlayPoint)
+            return dragArea.canDrag(at: inOverlayPoint)
         }
         context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)
     }

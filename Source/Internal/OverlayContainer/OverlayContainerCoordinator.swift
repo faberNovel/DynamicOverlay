@@ -14,7 +14,7 @@ struct OverlayContainerLayout: Equatable {
 }
 
 struct OverlayContainerState: Equatable {
-    let drivingScrollViewHandle: DynamicOverlayDragHandle
+    let drivingScrollViewProxy: DynamicOverlayScrollViewProxy
     let notchIndex: Int?
     let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
@@ -44,7 +44,7 @@ class OverlayContainerCoordinator {
          animationController: OverlayAnimatedTransitioning,
          background: UIViewController,
          content: UIViewController) {
-        self.state = State(drivingScrollViewHandle: .default, notchIndex: nil, disabledNotches: [], layout: layout)
+        self.state = State(drivingScrollViewProxy: .none, notchIndex: nil, disabledNotches: [], layout: layout)
         self.animationController = animationController
         self.background = background
         self.content = content
@@ -75,7 +75,7 @@ class OverlayContainerCoordinator {
         if changes.contains(.scrollView) {
             CATransaction.setCompletionBlock { [weak container] in
                 guard let overlay = container?.topViewController?.view else { return }
-                container?.drivingScrollView = state.drivingScrollViewHandle.findScrollView(in: overlay)
+                container?.drivingScrollView = state.drivingScrollViewProxy.findScrollView(in: overlay)
             }
         }
         self.state = state
@@ -157,7 +157,7 @@ private extension OverlayContainerState {
 
     func withNewNotch(_ notch: Int) -> OverlayContainerState {
         OverlayContainerState(
-            drivingScrollViewHandle: drivingScrollViewHandle,
+            drivingScrollViewProxy: drivingScrollViewProxy,
             notchIndex: notch,
             disabledNotches: disabledNotches,
             layout: layout
