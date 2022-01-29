@@ -13,7 +13,7 @@ import OverlayContainer
 @testable import DynamicOverlay
 
 private struct AdaptorParameters {
-    let drivingHandle: DrivingScrollViewHandle
+    let drivingHandle: DynamicOverlayDragHandle
     let handleValue: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
 }

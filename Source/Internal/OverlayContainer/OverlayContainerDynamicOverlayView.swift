@@ -15,7 +15,7 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
     private var dragHandle: DynamicOverlayDragHandle = .default
 
     @State
-    private var drivingScrollViewHandle: DrivingScrollViewHandle = .default
+    private var drivingScrollViewHandle: DynamicOverlayDragHandle = .default
 
     let background: Background
     let content: Content

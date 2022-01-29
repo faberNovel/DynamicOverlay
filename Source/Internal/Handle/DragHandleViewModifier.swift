@@ -13,6 +13,11 @@ struct DragHandleViewModifier: ViewModifier {
     let isActive: Bool
 
     func body(content: Content) -> some View {
-        content.background(DragHandleFrameReader(isActive: isActive))
+        content.background(
+            DragHandleFrameReader(
+                key: DynamicOverlayDragHandlePreferenceKey.self,
+                isActive: isActive
+            )
+        )
     }
 }

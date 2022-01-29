@@ -8,15 +8,16 @@
 
 import SwiftUI
 
-struct DragHandleFrameReader: View {
+struct DragHandleFrameReader<Key: PreferenceKey>: View where Key.Value == DynamicOverlayDragHandle {
 
+    let key: Key.Type
     let isActive: Bool
 
     @ViewBuilder
     var body: some View {
         GeometryReader { proxy in
             Spacer().preference(
-                key: DynamicOverlayDragHandlePreferenceKey.self,
+                key: key,
                 value: DynamicOverlayDragHandle(
                     spots: [
                         DynamicOverlayDragHandle.Spot(

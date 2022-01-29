@@ -22,7 +22,7 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         }
     }
 
-    let drivingScrollViewHandle: DrivingScrollViewHandle
+    let drivingScrollViewHandle: DynamicOverlayDragHandle
     let dragHandle: DynamicOverlayDragHandle
     let behavior: DynamicOverlayBehaviorValue
     let content: Content

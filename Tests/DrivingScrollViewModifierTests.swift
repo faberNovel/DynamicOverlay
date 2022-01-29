@@ -14,36 +14,77 @@ import SwiftUI
 private struct ContainerView: View {
 
     let isActive: Bool
-    let isActiveHandler: (DrivingScrollViewHandle) -> Void
+    let isActiveHandler: (DynamicOverlayDragHandle) -> Void
 
     var body: some View {
         ScrollView {
             Color.green
         }
+        .overlayCoordinateSpace()
         .drivingScrollView(isActive)
         .onDrivingScrollViewChange(handler: isActiveHandler)
     }
 }
 
+private class IdentifiedScrollView: UIScrollView {
+    var id = ""
+}
+
 class DrivingScrollViewModifierTests: XCTestCase {
+
+    func testScrollViewSearch() {
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        let layer = UIView(frame: container.bounds)
+        container.addSubview(layer)
+        let scrollViews = Array(repeating: IdentifiedScrollView(), count: 4)
+        for i in scrollViews.indices {
+            let scrollView = scrollViews[i]
+            scrollView.frame.size.height = container.bounds.height / 2
+            scrollView.frame.size.width = container.bounds.width / 2
+            scrollView.frame.origin.x = container.bounds.width / 2 * CGFloat(i % 2)
+            scrollView.frame.origin.y = container.bounds.height / 2 * CGFloat(i % 2)
+            if i.isMultiple(of: 2) {
+                layer.addSubview(scrollView)
+            } else {
+                container.addSubview(scrollView)
+            }
+        }
+        for scrollView in scrollViews {
+            scrollViews.forEach { $0.id = "lure" }
+            scrollView.id = "target"
+            let handle = DynamicOverlayDragHandle(
+                spots: [
+                    DynamicOverlayDragHandle.Spot(
+                        frame: scrollView.frame,
+                        isActive: true
+                    )
+                ]
+            )
+            let scrollView = handle.findScrollView(in: container) as! IdentifiedScrollView
+            XCTAssertEqual(scrollView.id, "target")
+        }
+    }
 
     func testDrivingScrollView() {
         [false, true].forEach { shouldBeActive in
             let expectation = XCTestExpectation()
+            var window: UIWindow!
             let view = ContainerView(
                 isActive: shouldBeActive,
                 isActiveHandler: { handle in
                     CATransaction.setCompletionBlock {
                         if shouldBeActive {
-                            XCTAssertNotNil(handle.findScrollView())
+                            XCTAssertNotNil(handle.findScrollView(in: window))
                         } else {
-                            XCTAssertNil(handle.findScrollView())
+                            XCTAssertNil(handle.findScrollView(in: window))
                         }
                         expectation.fulfill()
                     }
                 }
             )
-            ViewRenderer(view: view).render()
+            let renderer = ViewRenderer(view: view)
+            window = renderer.window
+            renderer.render()
             wait(for: [expectation], timeout: 0.1)
         }
     }

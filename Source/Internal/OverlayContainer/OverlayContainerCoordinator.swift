@@ -14,7 +14,7 @@ struct OverlayContainerLayout: Equatable {
 }
 
 struct OverlayContainerState: Equatable {
-    let drivingScrollViewHandle: DrivingScrollViewHandle
+    let drivingScrollViewHandle: DynamicOverlayDragHandle
     let notchIndex: Int?
     let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
@@ -74,7 +74,8 @@ class OverlayContainerCoordinator {
         }
         if changes.contains(.scrollView) {
             CATransaction.setCompletionBlock { [weak container] in
-                container?.drivingScrollView = state.drivingScrollViewHandle.findScrollView()
+                guard let overlay = container?.topViewController?.view else { return }
+                container?.drivingScrollView = state.drivingScrollViewHandle.findScrollView(in: overlay)
             }
         }
         self.state = state
