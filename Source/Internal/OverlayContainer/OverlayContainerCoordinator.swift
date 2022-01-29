@@ -44,7 +44,7 @@ class OverlayContainerCoordinator {
          animationController: OverlayAnimatedTransitioning,
          background: UIViewController,
          content: UIViewController) {
-        self.state = State(drivingScrollViewProxy: .none, notchIndex: nil, disabledNotches: [], layout: layout)
+        self.state = State(drivingScrollViewProxy: .default, notchIndex: nil, disabledNotches: [], layout: layout)
         self.animationController = animationController
         self.background = background
         self.content = content

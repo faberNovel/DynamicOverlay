@@ -87,7 +87,10 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         context.coordinator.shouldStartDraggingOverlay = { container, point, coordinateSpace in
             guard let overlay = container.topViewController else { return false }
             let inOverlayPoint = overlay.view.convert(point, from: coordinateSpace)
-            return dragArea.canDrag(at: inOverlayPoint)
+            if dragArea.isEmpty {
+                return overlay.view.frame.contains(inOverlayPoint)
+            }
+            return dragArea.contains(inOverlayPoint)
         }
         context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)
     }

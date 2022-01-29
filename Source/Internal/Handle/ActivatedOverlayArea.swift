@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ActivatedOverlayArea: Equatable {
 
-    struct Spot: Equatable {
+    private struct Spot: Equatable {
         let frame: CGRect
     }
 
@@ -20,19 +20,27 @@ struct ActivatedOverlayArea: Equatable {
         spots += handle.spots
     }
 
-    var isZero: Bool {
+    var isEmpty: Bool {
         spots.isEmpty
+    }
+
+    func contains(_ rect: CGRect) -> Bool {
+        spots.contains { $0.frame == rect }
     }
 
     func contains(_ point: CGPoint) -> Bool {
         spots.contains { $0.frame.contains(point) }
     }
 
-    func isIncluded(in rect: CGRect) -> Bool {
-        spots.contains { rect.intersects($0.frame) }
+    func intersects(_ rect: CGRect) -> Bool {
+        spots.contains {
+            // (gz) 2022-01-29 `SwiftUI` rounds the `UIKit` view frames.
+            // A 0.25pt-width `SwiftUI` view can contain a 0.5pt-width `UIView`.
+            rect.intersection($0.frame).width >= 0.5
+            && $0.frame != .zero
+        }
     }
 }
-
 
 extension ActivatedOverlayArea {
 
@@ -41,7 +49,7 @@ extension ActivatedOverlayArea {
     }
 
     static func inactive() -> ActivatedOverlayArea {
-        ActivatedOverlayArea(spots: [])
+        ActivatedOverlayArea(spots: [Spot(frame: .zero)])
     }
 
     static var `default`: ActivatedOverlayArea {

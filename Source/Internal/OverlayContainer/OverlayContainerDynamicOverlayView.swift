@@ -12,10 +12,10 @@ import OverlayContainer
 struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
-    private var dragArea: DynamicOverlayDragArea = .empty
+    private var dragArea: DynamicOverlayDragArea = .default
 
     @State
-    private var scrollViewProxy: DynamicOverlayScrollViewProxy = .none
+    private var scrollViewProxy: DynamicOverlayScrollViewProxy = .default
 
     let background: Background
     let content: Content

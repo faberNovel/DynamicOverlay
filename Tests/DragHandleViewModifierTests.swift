@@ -22,7 +22,7 @@ private struct ContainerView: View {
 
     let isActive: Bool
     let frame: CGRect
-    let handler: (DynamicOverlayDragHandle) -> Void
+    let handler: (DynamicOverlayDragArea) -> Void
 
     var body: some View {
         GeometryReader { _ in
@@ -31,14 +31,14 @@ private struct ContainerView: View {
                 .draggable(isActive)
                 .offset(x: frame.origin.x, y: frame.origin.y)
         }
-        .onDragHandleChange(handler: handler)
+        .onDragAreaChange(handler: handler)
         .overlayCoordinateSpace()
     }
 }
 
 private struct MultipleHandlesView: View {
 
-    let handler: (DynamicOverlayDragHandle) -> Void
+    let handler: (DynamicOverlayDragArea) -> Void
 
     var body: some View {
         VStack {
@@ -46,7 +46,7 @@ private struct MultipleHandlesView: View {
             Color.red.draggable()
         }
         .overlayCoordinateSpace()
-        .onDragHandleChange(handler: handler)
+        .onDragAreaChange(handler: handler)
     }
 }
 
@@ -54,16 +54,8 @@ class DragHandleViewModifierTests: XCTestCase {
 
     func testActiveState() {
         let frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        let activeHandle = DynamicOverlayDragHandle(
-            spots: [
-                DynamicOverlayDragHandle.Spot(frame: frame, isActive: true)
-            ]
-        )
-        let notActiveHandle = DynamicOverlayDragHandle(
-            spots: [
-                DynamicOverlayDragHandle.Spot(frame: frame, isActive: false)
-            ]
-        )
+        let activeHandle = DynamicOverlayDragArea(area: .active(frame))
+        let notActiveHandle = DynamicOverlayDragArea(area: .inactive())
         let point = CGPoint(x: 20.0, y: 20.0)
         XCTAssertTrue(activeHandle.contains(point))
         XCTAssertFalse(notActiveHandle.contains(point))
@@ -73,6 +65,7 @@ class DragHandleViewModifierTests: XCTestCase {
         let values: [(Bool, CGRect)] = [
             (true, CGRect(x: 30, y: 30, width: 50, height: 100)),
             (false, CGRect(x: 0, y: 0, width: 400, height: 400)),
+            (true, CGRect(x: 0, y: 0, width: 400, height: 400)),
         ]
         values.forEach { isActive, frame in
             let expectation = XCTestExpectation()
@@ -80,22 +73,10 @@ class DragHandleViewModifierTests: XCTestCase {
                 isActive: isActive,
                 frame: frame,
                 handler: { handler in
-                    XCTAssertEqual(handler.spots.count, 1)
-                    XCTAssertEqual(handler.spots[0].isActive, isActive)
-                    XCTAssertEqual(handler.spots[0].frame, frame)
+                    XCTAssertEqual(handler.contains(frame), isActive)
                     expectation.fulfill()
                 }
             )
-            ViewRenderer(view: view).render()
-            wait(for: [expectation], timeout: 0.3)
-        }
-
-        func testMultipleHandles() {
-            let expectation = XCTestExpectation()
-            let view = MultipleHandlesView { handle in
-                expectation.fulfill()
-                XCTAssertEqual(handle.spots.count, 2)
-            }
             ViewRenderer(view: view).render()
             wait(for: [expectation], timeout: 0.3)
         }

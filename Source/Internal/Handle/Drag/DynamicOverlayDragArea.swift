@@ -17,14 +17,19 @@ struct DynamicOverlayDragArea {
         self.area = area
     }
 
-    static var empty: DynamicOverlayDragArea {
-        DynamicOverlayDragArea(area: .empty)
+    static var `default`: DynamicOverlayDragArea {
+        DynamicOverlayDragArea(area: .default)
     }
 
-    func canDrag(at point: CGPoint) -> Bool {
-        if area.isZero {
-            return true
-        }
+    var isEmpty: Bool {
+        area.isEmpty
+    }
+
+    func contains(_ rect: CGRect) -> Bool {
+        area.contains(rect)
+    }
+
+    func contains(_ point: CGPoint) -> Bool {
         return area.contains(point)
     }
 }

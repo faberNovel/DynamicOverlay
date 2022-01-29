@@ -13,8 +13,8 @@ import OverlayContainer
 @testable import DynamicOverlay
 
 private struct AdaptorParameters {
-    let drivingHandle: DynamicOverlayDragHandle
-    let handleValue: DynamicOverlayDragHandle
+    let drivingHandle: DynamicOverlayScrollViewProxy
+    let handleValue: DynamicOverlayDragArea
     let behavior: DynamicOverlayBehaviorValue
 }
 
@@ -78,7 +78,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
         let context = makeContext(
             for: AdaptorParameters(
                 drivingHandle: .default,
-                handleValue: DynamicOverlayDragHandle(spots: [.init(frame: .zero, isActive: false)]),
+                handleValue: DynamicOverlayDragArea(area: .inactive()),
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
         )
@@ -99,10 +99,8 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
         let context = makeContext(
             for: AdaptorParameters(
                 drivingHandle: .default,
-                handleValue: DynamicOverlayDragHandle(
-                    spots: [
-                        .init(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 300)), isActive: true)
-                    ]
+                handleValue: DynamicOverlayDragArea(
+                    area: .active(CGRect(origin: .zero, size: CGSize(width: 200, height: 300)))
                 ),
                 behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
             )
@@ -125,7 +123,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
         let context = makeContext(
             for: AdaptorParameters(
                 drivingHandle: .default,
-                handleValue: .default,
+                handleValue: DynamicOverlayDragArea(area: .default),
                 behavior: DynamicOverlayBehaviorValue(
                     notchDimensions: [0: .absolute(200.0), 1: .absolute(300.0)],
                     binding: Binding<Int>(get: { index }, set: { index = $0 })
@@ -210,8 +208,8 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
 
     private func makeContext(for parameters: AdaptorParameters) -> Context {
         let adaptor = OverlayContainerRepresentableAdaptor(
-            drivingScrollViewHandle: parameters.drivingHandle,
-            dragHandle: parameters.handleValue,
+            drivingScrollViewProxy: parameters.drivingHandle,
+            dragArea: parameters.handleValue,
             behavior: parameters.behavior,
             content: ContentView(),
             background: Color.green

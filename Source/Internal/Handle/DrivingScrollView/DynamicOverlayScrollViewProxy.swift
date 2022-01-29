@@ -16,8 +16,8 @@ struct DynamicOverlayScrollViewProxy: Equatable {
         self.area = area
     }
 
-    static var none: DynamicOverlayScrollViewProxy {
-        DynamicOverlayScrollViewProxy(area: .empty)
+    static var `default`: DynamicOverlayScrollViewProxy {
+        DynamicOverlayScrollViewProxy(area: .default)
     }
 
     func findScrollView(in space: UIView) -> UIScrollView? {
@@ -42,7 +42,7 @@ private extension UIView {
     func findScrollView(in area: ActivatedOverlayArea,
                         coordinate: UICoordinateSpace) -> UIScrollView? {
         let frame = coordinate.convert(bounds, from: self)
-        guard area.isIncluded(in: frame) else { return nil }
+        guard area.intersects(frame) else { return nil }
         if let result = self as? UIScrollView {
             return result
         }

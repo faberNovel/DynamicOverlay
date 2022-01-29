@@ -14,7 +14,7 @@ import SwiftUI
 private struct ContainerView: View {
 
     let isActive: Bool
-    let isActiveHandler: (DynamicOverlayDragHandle) -> Void
+    let isActiveHandler: (DynamicOverlayScrollViewProxy) -> Void
 
     var body: some View {
         ScrollView {
@@ -42,7 +42,7 @@ class DrivingScrollViewModifierTests: XCTestCase {
             scrollView.frame.size.height = container.bounds.height / 2
             scrollView.frame.size.width = container.bounds.width / 2
             scrollView.frame.origin.x = container.bounds.width / 2 * CGFloat(i % 2)
-            scrollView.frame.origin.y = container.bounds.height / 2 * CGFloat(i % 2)
+            scrollView.frame.origin.y = i > 1 ? container.bounds.height / 2 : 0
             if i.isMultiple(of: 2) {
                 layer.addSubview(scrollView)
             } else {
@@ -52,15 +52,10 @@ class DrivingScrollViewModifierTests: XCTestCase {
         for scrollView in scrollViews {
             scrollViews.forEach { $0.id = "lure" }
             scrollView.id = "target"
-            let handle = DynamicOverlayDragHandle(
-                spots: [
-                    DynamicOverlayDragHandle.Spot(
-                        frame: scrollView.frame,
-                        isActive: true
-                    )
-                ]
+            let proxy = DynamicOverlayScrollViewProxy(
+                area: .active(scrollView.frame)
             )
-            let scrollView = handle.findScrollView(in: container) as! IdentifiedScrollView
+            let scrollView = proxy.findScrollView(in: container) as! IdentifiedScrollView
             XCTAssertEqual(scrollView.id, "target")
         }
     }
