@@ -13,9 +13,11 @@ import OverlayContainer
 @testable import DynamicOverlay
 
 private struct AdaptorParameters {
-    let drivingHandle: DynamicOverlayScrollViewProxy
-    let handleValue: DynamicOverlayDragArea
-    let behavior: DynamicOverlayBehaviorValue
+    var drivingHandle: DynamicOverlayScrollViewProxy
+    var handleValue: DynamicOverlayDragArea
+    var disabledNotches: Set<Int> = []
+    var indexToDimension: [Int: NotchDimension] = [:]
+    var onIndexChange: ((Int) -> Void)?
 }
 
 class OverlayContainerRepresentableAdaptorTests: XCTestCase {
@@ -45,7 +47,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
             for: AdaptorParameters(
                 drivingHandle: .default,
                 handleValue: .default,
-                behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
+                indexToDimension: [0: .absolute(200.0)]
             )
         )
         context.layout()
@@ -57,19 +59,28 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
             for: AdaptorParameters(
                 drivingHandle: .default,
                 handleValue: .default,
-                behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
+                indexToDimension: [0: .absolute(200.0)]
             )
         )
         context.layout()
-        let overlay = context.overlay
         let aboveOverlayPoint = CGPoint(x: 100, y: -10)
         XCTAssertEqual(
-            context.coordinator.shouldStartDraggingOverlay!(context.container, aboveOverlayPoint, overlay.view),
+            context.container.delegate?.overlayContainerViewController(
+                context.container,
+                shouldStartDraggingOverlay: context.overlay,
+                at: aboveOverlayPoint,
+                in: context.overlay.view
+            ),
             false
         )
         let inOverlayPoint = CGPoint(x: 100, y: 100)
         XCTAssertEqual(
-            context.coordinator.shouldStartDraggingOverlay!(context.container, inOverlayPoint, overlay.view),
+            context.container.delegate?.overlayContainerViewController(
+                context.container,
+                shouldStartDraggingOverlay: context.overlay,
+                at: inOverlayPoint,
+                in: context.overlay.view
+            ),
             true
         )
     }
@@ -79,18 +90,28 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
             for: AdaptorParameters(
                 drivingHandle: .default,
                 handleValue: DynamicOverlayDragArea(area: .inactive()),
-                behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
+                indexToDimension: [0: .absolute(200.0)]
             )
         )
         context.layout()
         let aboveOverlayPoint = CGPoint(x: 100, y: -10)
         XCTAssertEqual(
-            context.coordinator.shouldStartDraggingOverlay!(context.container, aboveOverlayPoint, context.overlay.view),
+            context.container.delegate?.overlayContainerViewController(
+                context.container,
+                shouldStartDraggingOverlay: context.overlay,
+                at: aboveOverlayPoint,
+                in: context.overlay.view
+            ),
             false
         )
         let inOverlayPoint = CGPoint(x: 100, y: 100)
         XCTAssertEqual(
-            context.coordinator.shouldStartDraggingOverlay!(context.container, inOverlayPoint, context.overlay.view),
+            context.container.delegate?.overlayContainerViewController(
+                context.container,
+                shouldStartDraggingOverlay: context.overlay,
+                at: inOverlayPoint,
+                in: context.overlay.view
+            ),
             false
         )
     }
@@ -102,18 +123,28 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
                 handleValue: DynamicOverlayDragArea(
                     area: .active(CGRect(origin: .zero, size: CGSize(width: 200, height: 300)))
                 ),
-                behavior: DynamicOverlayBehaviorValue(notchDimensions: [0: .absolute(200.0)])
+                indexToDimension: [0: .absolute(200.0)]
             )
         )
         context.layout()
         let inZonePoint = CGPoint(x: 100, y: 100)
         XCTAssertEqual(
-            context.coordinator.shouldStartDraggingOverlay!(context.container, inZonePoint, context.overlay.view),
+            context.container.delegate?.overlayContainerViewController(
+                context.container,
+                shouldStartDraggingOverlay: context.overlay,
+                at: inZonePoint,
+                in: context.overlay.view
+            ),
             true
         )
         let outZonePoint = CGPoint(x: 300, y: 100)
         XCTAssertEqual(
-            context.coordinator.shouldStartDraggingOverlay!(context.container, outZonePoint, context.overlay.view),
+            context.container.delegate?.overlayContainerViewController(
+                context.container,
+                shouldStartDraggingOverlay: context.overlay,
+                at: outZonePoint,
+                in: context.overlay.view
+            ),
             false
         )
     }
@@ -124,10 +155,8 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
             for: AdaptorParameters(
                 drivingHandle: .default,
                 handleValue: DynamicOverlayDragArea(area: .default),
-                behavior: DynamicOverlayBehaviorValue(
-                    notchDimensions: [0: .absolute(200.0), 1: .absolute(300.0)],
-                    binding: Binding<Int>(get: { index }, set: { index = $0 })
-                )
+                indexToDimension: [0: .absolute(200.0), 1: .absolute(300.0)],
+                onIndexChange: { index = $0 }
             )
         )
         context.layout()
@@ -147,10 +176,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
                 for: AdaptorParameters(
                     drivingHandle: .default,
                     handleValue: .default,
-                    behavior: DynamicOverlayBehaviorValue(
-                        notchDimensions: layout,
-                        binding: nil
-                    )
+                    indexToDimension: layout
                 )
             )
             context.layout()
@@ -175,11 +201,8 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
                 for: AdaptorParameters(
                     drivingHandle: .default,
                     handleValue: .default,
-                    behavior: DynamicOverlayBehaviorValue(
-                        notchDimensions: Dictionary(uniqueKeysWithValues: all.map { ($0, .absolute(100 * Double($0))) }),
-                        binding: nil,
-                        disabledNotchIndexes: disabledIndexes
-                    )
+                    disabledNotches: disabledIndexes,
+                    indexToDimension: Dictionary(uniqueKeysWithValues: all.map { ($0, .absolute(100 * Double($0))) })
                 )
             )
             context.layout()
@@ -207,10 +230,17 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
     }
 
     private func makeContext(for parameters: AdaptorParameters) -> Context {
-        let adaptor = OverlayContainerRepresentableAdaptor(
-            drivingScrollViewProxy: parameters.drivingHandle,
-            dragArea: parameters.handleValue,
-            behavior: parameters.behavior,
+        let holder = OverlayContainerPassiveContainer()
+        holder.onNotchChange = parameters.onIndexChange
+        let adaptor = OverlayContainerRepresentableAdaptor.init(
+            containerState: OverlayContainerState(
+                dragArea: parameters.handleValue,
+                drivingScrollViewProxy: parameters.drivingHandle,
+                notchIndex: nil,
+                disabledNotches: parameters.disabledNotches,
+                layout: OverlayContainerLayout(indexToDimension: parameters.indexToDimension)
+            ),
+            passiveContainer: holder,
             content: ContentView(),
             background: Color.green
         )

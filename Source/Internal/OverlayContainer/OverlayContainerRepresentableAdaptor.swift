@@ -12,34 +12,15 @@ import OverlayContainer
 
 struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
 
-    class Context {
+    struct Context {
         let coordinator: OverlayContainerCoordinator
         let transaction: Transaction
-
-        init(coordinator: OverlayContainerCoordinator, transaction: Transaction) {
-            self.coordinator = coordinator
-            self.transaction = transaction
-        }
     }
 
-    let drivingScrollViewProxy: DynamicOverlayScrollViewProxy
-    let dragArea: DynamicOverlayDragArea
-    let behavior: DynamicOverlayBehaviorValue
+    let containerState: OverlayContainerState
+    let passiveContainer: OverlayContainerPassiveContainer
     let content: Content
     let background: Background
-
-    private var animationController: DynamicOverlayContainerAnimationController {
-        DynamicOverlayContainerAnimationController()
-    }
-
-    private var containerState: OverlayContainerState {
-        OverlayContainerState(
-            drivingScrollViewProxy: drivingScrollViewProxy,
-            notchIndex: behavior.binding?.wrappedValue,
-            disabledNotches: behavior.disabledNotchIndexes,
-            layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
-        )
-    }
 
     // MARK: - UIViewControllerRepresentable
 
@@ -52,7 +33,7 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         backgroundController.view.backgroundColor = .clear
         return OverlayContainerCoordinator(
             layout: containerState.layout,
-            animationController: animationController,
+            passiveContainer: passiveContainer,
             background: backgroundController,
             content: contentController
         )
@@ -64,34 +45,12 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         return controller
     }
 
-    func updateUIViewController(_ uiViewController: OverlayContainerViewController, context: Context) {
-        context.coordinator.notchChangeUpdateHandler = { notch in
-            behavior.binding?.wrappedValue = notch
-        }
-        context.coordinator.translationUpdateHandler = { coordinator in
-            let animation = animationController.animation(using: coordinator)
-            let transaction = Transaction(animation: animation)
-            let translation = OverlayTranslation(
-                height: coordinator.targetTranslationHeight,
-                transaction: transaction,
-                isDragging: coordinator.isDragging,
-                translationProgress: coordinator.overallTranslationProgress(),
-                containerFrame: uiViewController.view.frame,
-                velocity: coordinator.velocity,
-                heightForNotchIndex: { coordinator.height(forNotchAt: $0) }
-            )
-            withTransaction(transaction) {
-                behavior.block?(translation)
-            }
-        }
-        context.coordinator.shouldStartDraggingOverlay = { container, point, coordinateSpace in
-            guard let overlay = container.topViewController else { return false }
-            let inOverlayPoint = overlay.view.convert(point, from: coordinateSpace)
-            if dragArea.isEmpty {
-                return overlay.view.frame.contains(inOverlayPoint)
-            }
-            return dragArea.contains(inOverlayPoint)
-        }
-        context.coordinator.move(uiViewController, to: containerState, animated: context.transaction.animation != nil)
+    func updateUIViewController(_ container: OverlayContainerViewController,
+                                context: Context) {
+        context.coordinator.move(
+            container,
+            to: containerState,
+            animated: context.transaction.animation != nil
+        )
     }
 }

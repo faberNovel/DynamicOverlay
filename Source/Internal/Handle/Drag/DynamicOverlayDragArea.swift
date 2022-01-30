@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct DynamicOverlayDragArea {
+struct DynamicOverlayDragArea: Equatable {
 
     private let area: ActivatedOverlayArea
 
