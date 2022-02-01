@@ -10,7 +10,8 @@ import Foundation
 
 class ValuePublisher<V>: ObservableObject {
 
-    @Published private(set) var value: V
+    @Published
+    var value: V
 
     init(_ value: V) {
         self.value = value

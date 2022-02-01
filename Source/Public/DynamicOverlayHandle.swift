@@ -14,7 +14,12 @@ public extension View {
     ///
     /// - parameter isActive: Boolean indicating whether the target is draggable.
     func draggable(_ isActive: Bool = true) -> some View {
-        modifier(DragHandleViewModifier(isActive: isActive))
+        modifier(
+            ActiveOverlayAreaViewModifier(
+                key: DynamicOverlayDragAreaPreferenceKey.self,
+                isActive: isActive
+            )
+        )
     }
 
     /// Defines the target as the container of a driving scroll view.
@@ -22,6 +27,11 @@ public extension View {
     ///
     /// - parameter isActive: Boolean indicating whether the scroll view is active.
     func drivingScrollView(_ isActive: Bool = true) -> some View {
-        modifier(DrivingScrollViewViewModifier(isActive: isActive))
+        modifier(
+            ActiveOverlayAreaViewModifier(
+                key: DynamicOverlayScrollViewProxyPreferenceKey.self,
+                isActive: isActive
+            )
+        )
     }
 }
