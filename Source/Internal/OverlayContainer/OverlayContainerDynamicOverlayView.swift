@@ -7,34 +7,65 @@
 //
 
 import SwiftUI
-import OverlayContainer
 
 struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View {
 
     @State
-    private var handleValue: DynamicOverlayDragHandle = .default
+    private var dragArea: DynamicOverlayDragArea = .default
 
     @State
-    private var searchesScrollView = false
+    private var scrollViewProxy: DynamicOverlayScrollViewProxy = .default
+
+    @State
+    private var passiveContainer = OverlayContainerPassiveContainer()
+
+    @Environment(\.behaviorValue)
+    private var behavior: DynamicOverlayBehaviorValue
 
     let background: Background
     let content: Content
 
-    @Environment(\.behaviorValue)
-    var behavior: DynamicOverlayBehaviorValue
+    // MARK: - View
 
     var body: some View {
         SwiftUIOverlayContainerRepresentableAdaptor(
             adaptor: OverlayContainerRepresentableAdaptor(
-                searchesScrollView: searchesScrollView,
-                handleValue: handleValue,
-                behavior: behavior,
+                containerState: makeContainerState(),
+                passiveContainer: passiveContainer,
                 content: OverlayContentHostingView(),
                 background: background
             )
         )
         .overlayContent(content.overlayCoordinateSpace())
-        .onDragHandleChange { handleValue = $0 }
-        .onDrivingScrollViewChange { value in searchesScrollView = value }
+        .onUpdate {
+            passiveContainer.onTranslation = behavior.block
+            passiveContainer.onNotchChange = { behavior.binding?.wrappedValue = $0 }
+        }
+        .onDragAreaChange {
+            dragArea = $0
+        }
+        .onDrivingScrollViewChange {
+            scrollViewProxy = $0
+        }
+    }
+
+    // MARK: - Private
+
+    private func makeContainerState() -> OverlayContainerState {
+        OverlayContainerState(
+            dragArea: dragArea,
+            drivingScrollViewProxy: scrollViewProxy,
+            notchIndex: behavior.binding?.wrappedValue,
+            disabledNotches: behavior.disabledNotchIndexes,
+            layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
+        )
+    }
+}
+
+private extension View {
+
+    func onUpdate(_ block: () -> Void) -> some View {
+        block()
+        return self
     }
 }

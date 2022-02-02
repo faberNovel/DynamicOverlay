@@ -2,15 +2,15 @@
   "commitish" : "3.5.2",
   "iOS" : [
     {
-      "swiftToolchainVersion" : "5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)",
-      "hash" : "066663c4418facd7d673f8e6a3c93b0bc5d221b1871933413866c1a20489f7cd",
+      "swiftToolchainVersion" : "5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)",
+      "hash" : "d48dc5d561da8b5c0b487e2607497c7e61a324666950c020ef39706f76ca79ac",
       "name" : "OverlayContainer",
       "container" : "OverlayContainer.xcframework",
       "identifier" : "ios-arm64_i386_x86_64-simulator"
     },
     {
-      "swiftToolchainVersion" : "5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)",
-      "hash" : "a5cdb9e1758a2de7ea78323d93301f5744b96c375ccdd8c4e49d5bc9123bd7fb",
+      "swiftToolchainVersion" : "5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)",
+      "hash" : "51f7049b850df88f2df361f6caf55a57b5251b953b2a1b16b895d3f242e59a9d",
       "name" : "OverlayContainer",
       "container" : "OverlayContainer.xcframework",
       "identifier" : "ios-arm64_armv7"
