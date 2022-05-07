@@ -1,4 +1,4 @@
-## [1.1.0-beta.1]
+## [1.1.0-beta.2]
 ### Added
 - Overlay content adjustment mode #37
 
