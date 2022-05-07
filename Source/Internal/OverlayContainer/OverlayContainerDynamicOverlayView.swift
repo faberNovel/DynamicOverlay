@@ -57,7 +57,8 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
             drivingScrollViewProxy: scrollViewProxy,
             notchIndex: behavior.binding?.wrappedValue,
             disabledNotches: behavior.disabledNotchIndexes,
-            layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:])
+            layout: OverlayContainerLayout(indexToDimension: behavior.notchDimensions ?? [:]),
+            contentAdjustmentMode: behavior.contentAdjustmentMode
         )
     }
 }
