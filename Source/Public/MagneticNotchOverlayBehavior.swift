@@ -113,3 +113,15 @@ public extension NotchDimension {
         NotchDimension(type: .fractional, value: value)
     }
 }
+
+public extension MagneticNotchOverlayBehavior {
+
+    enum ContentAdjustmentMode {
+        case none
+        case stretch
+    }
+
+    func contentAdjustmentMode(_ contentMode: ContentAdjustmentMode) -> Self {
+        MagneticNotchOverlayBehavior(value: value.contentAdjustmentMode(contentMode))
+    }
+}

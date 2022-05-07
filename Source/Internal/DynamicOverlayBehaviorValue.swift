@@ -18,21 +18,29 @@ struct OverlayTranslation {
     let heightForNotchIndex: (Int) -> CGFloat
 }
 
+enum DynamicContentAdjustmentMode {
+    case none
+    case stretch
+}
+
 struct DynamicOverlayBehaviorValue {
 
     let notchDimensions: [Int: NotchDimension]?
     let block: ((OverlayTranslation) -> Void)?
     let binding: Binding<Int>?
     let disabledNotchIndexes: Set<Int>
+    let contentAdjustmentMode: DynamicContentAdjustmentMode
 
     init(notchDimensions: [Int: NotchDimension]? = nil,
          block: ((OverlayTranslation) -> Void)? = nil,
          binding: Binding<Int>? = nil,
-         disabledNotchIndexes: Set<Int> = []) {
+         disabledNotchIndexes: Set<Int> = [],
+         contentAdjustmentMode: DynamicContentAdjustmentMode) {
         self.notchDimensions = notchDimensions
         self.block = block
         self.binding = binding
         self.disabledNotchIndexes = disabledNotchIndexes
+        self.contentAdjustmentMode = contentAdjustmentMode
     }
 }
 
@@ -44,7 +52,8 @@ extension DynamicOverlayBehaviorValue {
                 0 : .fractional(0.3),
                 1 : .fractional(0.5),
                 2 : .fractional(0.7)
-            ]
+            ],
+            contentAdjustmentMode: .none
         )
     }
 }
