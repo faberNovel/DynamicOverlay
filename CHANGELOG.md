@@ -1,3 +1,7 @@
+## [1.1.0-beta.2]
+### Added
+- Overlay content adjustment mode #37
+
 ## [1.0.0]
 ### Fixed
 - Overlay with multiple scroll views #16
