@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E739AD94291D45F00076B2AC /* DynamicOverlay in Frameworks */ = {isa = PBXBuildFile; productRef = E739AD93291D45F00076B2AC /* DynamicOverlay */; };
 		E73A7CE9262B2A8400959344 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A7CE8262B2A8400959344 /* MapView.swift */; };
 		E73A7CEC262B2AA400959344 /* MapRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A7CEB262B2AA400959344 /* MapRootView.swift */; };
-		E741EE732576B10D0073FF6B /* DynamicOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E741EE722576B10D0073FF6B /* DynamicOverlay.framework */; };
-		E741EE742576B10D0073FF6B /* DynamicOverlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E741EE722576B10D0073FF6B /* DynamicOverlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E750EE4E262B2B4800E79C6B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE4D262B2B4800E79C6B /* OverlayView.swift */; };
 		E750EE51262C30F600E79C6B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750EE50262C30F600E79C6B /* SearchBar.swift */; };
 		E750EE63262C463100E79C6B /* MapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E3C422302B4B002A2BED /* MapApp.swift */; };
@@ -23,21 +22,8 @@
 		E7691577222EA78B00FDEE7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7691575222EA78B00FDEE7F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		E741EE752576B10D0073FF6B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E741EE742576B10D0073FF6B /* DynamicOverlay.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		E739AD92291D45B10076B2AC /* DynamicOverlay */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DynamicOverlay; path = ..; sourceTree = "<group>"; };
 		E73A7CE8262B2A8400959344 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E73A7CEB262B2AA400959344 /* MapRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRootView.swift; sourceTree = "<group>"; };
 		E741EE722576B10D0073FF6B /* DynamicOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,13 +46,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E741EE732576B10D0073FF6B /* DynamicOverlay.framework in Frameworks */,
+				E739AD94291D45F00076B2AC /* DynamicOverlay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E739AD91291D45B10076B2AC /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E739AD92291D45B10076B2AC /* DynamicOverlay */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		E73A7CEA262B2A8B00959344 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +95,7 @@
 		E7691560222EA78A00FDEE7F = {
 			isa = PBXGroup;
 			children = (
+				E739AD91291D45B10076B2AC /* Packages */,
 				E769156B222EA78A00FDEE7F /* DynamicOverlay_Example */,
 				E769156A222EA78A00FDEE7F /* Products */,
 				E741EE712576B10D0073FF6B /* Frameworks */,
@@ -154,13 +149,15 @@
 				E7691565222EA78A00FDEE7F /* Sources */,
 				E7691566222EA78A00FDEE7F /* Frameworks */,
 				E7691567222EA78A00FDEE7F /* Resources */,
-				E741EE752576B10D0073FF6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DynamicOverlay_Example;
+			packageProductDependencies = (
+				E739AD93291D45F00076B2AC /* DynamicOverlay */,
+			);
 			productName = DynamicOverlay_Example;
 			productReference = E7691569222EA78A00FDEE7F /* DynamicOverlay_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -294,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -350,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -367,7 +364,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DynamicOverlay_Example/Configuration/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,7 +384,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DynamicOverlay_Example/Configuration/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,6 +418,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E739AD93291D45F00076B2AC /* DynamicOverlay */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DynamicOverlay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E7691561222EA78A00FDEE7F /* Project object */;
 }
