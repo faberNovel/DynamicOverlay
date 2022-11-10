@@ -39,6 +39,10 @@ struct OverlayContainerDynamicOverlayView<Background: View, Content: View>: View
         .overlayContent(content.overlayCoordinateSpace())
         .onUpdate {
             passiveContainer.onTranslation = behavior.block
+            // This is tricky. `OverlayContainerPassiveContainer` is a class inside a struct,
+            // `passiveContainer.onNotchChange = { self.behavior.binding?.wrappedValue = $0 }`
+            // would create a retain cycle as `self` includes a ref to `passiveContainer`.
+            let behavior = behavior
             passiveContainer.onNotchChange = { behavior.binding?.wrappedValue = $0 }
         }
         .onDragAreaChange {

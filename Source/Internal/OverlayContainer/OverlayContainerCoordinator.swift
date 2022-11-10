@@ -139,8 +139,8 @@ extension OverlayContainerCoordinator: OverlayContainerViewControllerDelegate {
             velocity: transitionCoordinator.velocity,
             heightForNotchIndex: { transitionCoordinator.height(forNotchAt: $0) }
         )
-        withTransaction(transaction) {
-            passiveContainer.onTranslation?(translation)
+        withTransaction(transaction) { [weak passiveContainer] in
+            passiveContainer?.onTranslation?(translation)
         }
     }
 
