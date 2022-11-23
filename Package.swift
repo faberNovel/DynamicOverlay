@@ -21,6 +21,12 @@ let package = Package(
             dependencies: ["OverlayContainer"],
             path: "Source"
         ),
+        .testTarget(
+            name: "DynamicOverlayTests",
+            dependencies: [
+                "DynamicOverlay",
+            ]
+        )
     ],
     swiftLanguageVersions: [.v5]
 )
