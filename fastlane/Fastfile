@@ -5,7 +5,7 @@ platform :ios do
     desc "Run all unit tests"
     lane :tests do
         scan(
-            scheme: "DynamicOverlayTests",
+            scheme: "DynamicOverlay_Example",
             project: "DynamicOverlay_Example/DynamicOverlay_Example.xcodeproj",
             clean: true
         )

@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E7C3C38B292E8E840089B7C7"
-               BuildableName = "DynamicOverlayTests.xctest"
+               BlueprintIdentifier = "DynamicOverlayTests"
+               BuildableName = "DynamicOverlayTests"
                BlueprintName = "DynamicOverlayTests"
-               ReferencedContainer = "container:DynamicOverlay_Example.xcodeproj">
+               ReferencedContainer = "container:..">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -50,14 +50,8 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-   </LaunchAction>
-   <ProfileAction
-      buildConfiguration = "Release"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      savedToolIdentifier = ""
-      useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E7691568222EA78A00FDEE7F"
@@ -65,7 +59,24 @@
             BlueprintName = "DynamicOverlay_Example"
             ReferencedContainer = "container:DynamicOverlay_Example.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E7691568222EA78A00FDEE7F"
+            BuildableName = "DynamicOverlay_Example.app"
+            BlueprintName = "DynamicOverlay_Example"
+            ReferencedContainer = "container:DynamicOverlay_Example.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
