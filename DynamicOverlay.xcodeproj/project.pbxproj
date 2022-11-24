@@ -49,7 +49,6 @@
 		E7BFEDC52629F47600C1EE2D /* SwiftUIOverlayContainerRepresentableAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDBA2629F45F00C1EE2D /* SwiftUIOverlayContainerRepresentableAdaptor.swift */; };
 		E7BFEDCE2629F52C00C1EE2D /* Binding+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741EE8B2577BE200073FF6B /* Binding+CaseIterable.swift */; };
 		E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */; };
-		E7DDCC0B2826714300D95B2F /* MagneticNotchContentModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDCC09282670BC00D95B2F /* MagneticNotchContentModeTests.swift */; };
 		E7F77E27278E14EE00D542AC /* DynamicOverlayScrollViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77E26278E14EE00D542AC /* DynamicOverlayScrollViewProxy.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,7 +131,6 @@
 		E7BFEDBA2629F45F00C1EE2D /* SwiftUIOverlayContainerRepresentableAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIOverlayContainerRepresentableAdaptor.swift; sourceTree = "<group>"; };
 		E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticNotchOverlayBehaviorValueTests.swift; sourceTree = "<group>"; };
 		E7D451872624A37100EB91BB /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
-		E7DDCC09282670BC00D95B2F /* MagneticNotchContentModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticNotchContentModeTests.swift; sourceTree = "<group>"; };
 		E7F77E26278E14EE00D542AC /* DynamicOverlayScrollViewProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOverlayScrollViewProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,7 +274,6 @@
 				E7BFEDAB2629F0F200C1EE2D /* DrivingScrollViewModifierTests.swift */,
 				E7BFEDD52629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift */,
 				E750EEF0262EC07900E79C6B /* OverlayContainerRepresentableAdaptorTests.swift */,
-				E7DDCC09282670BC00D95B2F /* MagneticNotchContentModeTests.swift */,
 				E769158A222EA94800FDEE7F /* Info.plist */,
 			);
 			path = Tests;
@@ -505,7 +502,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E750EF03262EC42A00E79C6B /* OverlayContainerRepresentableAdaptorTests.swift in Sources */,
-				E7DDCC0B2826714300D95B2F /* MagneticNotchContentModeTests.swift in Sources */,
 				E782E5682628939600CC1FC6 /* NotchTranslationDynamicOverlayTests.swift in Sources */,
 				E7BFED912629D4F800C1EE2D /* NotchDimensionDynamicOverlayTests.swift in Sources */,
 				E7BFEDD62629F64C00C1EE2D /* MagneticNotchOverlayBehaviorValueTests.swift in Sources */,
@@ -580,7 +576,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -645,7 +641,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -677,7 +673,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 14;
+				DYLIB_CURRENT_VERSION = 13;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -705,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 14;
+				DYLIB_CURRENT_VERSION = 13;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

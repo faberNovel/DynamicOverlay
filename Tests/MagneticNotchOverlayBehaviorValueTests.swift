@@ -68,15 +68,6 @@ class MagneticNotchOverlayBehaviorValueTests: XCTestCase {
         XCTAssertTrue(behavior.buildValue().block != nil)
     }
 
-    func testContentModeValue() {
-        var behavior = Behavior.empty()
-        XCTAssertEqual(behavior.buildValue().contentAdjustmentMode, .none)
-        behavior = behavior.contentAdjustmentMode(.none)
-        XCTAssertEqual(behavior.buildValue().contentAdjustmentMode, .none)
-        behavior = behavior.contentAdjustmentMode(.stretch)
-        XCTAssertEqual(behavior.buildValue().contentAdjustmentMode, .stretch)
-    }
-
     func testTranslationMapping() {
         let expectation = XCTestExpectation()
         let overlayTranslations = OverlayTranslation.translations()

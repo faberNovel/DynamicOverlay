@@ -32,7 +32,6 @@ struct OverlayContainerState: Equatable {
     let notchIndex: Int?
     let disabledNotches: Set<Int>
     let layout: OverlayContainerLayout
-    let contentAdjustmentMode: DynamicContentAdjustmentMode
 }
 
 class OverlayContainerCoordinator {
@@ -186,8 +185,7 @@ private extension OverlayContainerState {
             drivingScrollViewProxy: .default,
             notchIndex: nil,
             disabledNotches: [],
-            layout: layout,
-            contentAdjustmentMode: .none
+            layout: layout
         )
     }
 
@@ -197,8 +195,7 @@ private extension OverlayContainerState {
             drivingScrollViewProxy: drivingScrollViewProxy,
             notchIndex: notch,
             disabledNotches: disabledNotches,
-            layout: layout,
-            contentAdjustmentMode: contentAdjustmentMode
+            layout: layout
         )
     }
 }

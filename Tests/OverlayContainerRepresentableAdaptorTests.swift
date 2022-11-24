@@ -238,8 +238,7 @@ class OverlayContainerRepresentableAdaptorTests: XCTestCase {
                 drivingScrollViewProxy: parameters.drivingHandle,
                 notchIndex: nil,
                 disabledNotches: parameters.disabledNotches,
-                layout: OverlayContainerLayout(indexToDimension: parameters.indexToDimension),
-                contentAdjustmentMode: .none
+                layout: OverlayContainerLayout(indexToDimension: parameters.indexToDimension)
             ),
             passiveContainer: holder,
             content: ContentView(),

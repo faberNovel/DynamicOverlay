@@ -21,14 +21,7 @@ extension MagneticNotchOverlayBehavior {
     // MARK: - DynamicOverlayBehavior
 
     func buildValue() -> DynamicOverlayBehaviorValue {
-        let dynamicContentAdjustmentMode: DynamicContentAdjustmentMode
-        switch value.contentAdjustmentMode {
-        case .none:
-            dynamicContentAdjustmentMode = .none
-        case .stretch:
-            dynamicContentAdjustmentMode = .stretch
-        }
-        return DynamicOverlayBehaviorValue(
+        DynamicOverlayBehaviorValue(
             notchDimensions: Dictionary(
                 uniqueKeysWithValues: Notch.allCases.enumerated().map { i, notch in (i, value.dimensions(notch)) }
             ),
@@ -48,8 +41,7 @@ extension MagneticNotchOverlayBehavior {
                 }
             },
             binding: value.binding?.indexBinding(),
-            disabledNotchIndexes: Set(value.disabledNotches.map { Notch.index(of: $0) }),
-            contentAdjustmentMode: dynamicContentAdjustmentMode
+            disabledNotchIndexes: Set(value.disabledNotches.map { Notch.index(of: $0) })
         )
     }
 }

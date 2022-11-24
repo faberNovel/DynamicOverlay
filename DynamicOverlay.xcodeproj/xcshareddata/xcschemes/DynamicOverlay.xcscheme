@@ -20,20 +20,6 @@
                ReferencedContainer = "container:DynamicOverlay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E7691568222EA78A00FDEE7F"
-               BuildableName = "DynamicOverlay_Example.app"
-               BlueprintName = "DynamicOverlay_Example"
-               ReferencedContainer = "container:DynamicOverlay_Example/DynamicOverlay_Example.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

@@ -113,21 +113,3 @@ public extension NotchDimension {
         NotchDimension(type: .fractional, value: value)
     }
 }
-
-public extension MagneticNotchOverlayBehavior {
-
-    enum ContentAdjustmentMode {
-        /// The overlay's content will be constrained with a height greater or equal to the highest notch.
-        /// Its height will be expanded if the overlay goes beyond the highest notch
-        case none
-        /// The overlay's content will always have the same height as the overlay. It will shrink and expand its height as the user drags it up and down the overlay.
-        /// Note though that while the user is dragging the overlay, the overlay's content may perform some extra layout computations.
-        /// This is specially true for lists or grids as some cells may be added or removed when the overlay moves.
-        /// Try .none if you encounter performance issues.
-        case stretch
-    }
-
-    func contentAdjustmentMode(_ contentMode: ContentAdjustmentMode) -> Self {
-        MagneticNotchOverlayBehavior(value: value.contentAdjustmentMode(contentMode))
-    }
-}

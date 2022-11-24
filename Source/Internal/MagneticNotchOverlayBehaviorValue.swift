@@ -16,18 +16,15 @@ extension MagneticNotchOverlayBehavior {
         let translationBlocks: [(Translation) -> Void]
         let binding: Binding<Notch>?
         let disabledNotches: [Notch]
-        let contentAdjustmentMode: ContentAdjustmentMode
 
         init(dimensions: @escaping (Notch) -> NotchDimension,
              translationBlocks: [(Translation) -> Void],
              binding: Binding<Notch>?,
-             disabledNotches: [Notch],
-             contentAdjustmentMode: ContentAdjustmentMode) {
+             disabledNotches: [Notch]) {
             self.dimensions = dimensions
             self.translationBlocks = translationBlocks
             self.binding = binding
             self.disabledNotches = disabledNotches
-            self.contentAdjustmentMode = contentAdjustmentMode
         }
 
         init(dimensions: @escaping (Notch) -> NotchDimension) {
@@ -35,7 +32,6 @@ extension MagneticNotchOverlayBehavior {
             self.translationBlocks = []
             self.binding = nil
             self.disabledNotches = []
-            self.contentAdjustmentMode = .none
         }
 
         // MARK: - Public
@@ -45,8 +41,7 @@ extension MagneticNotchOverlayBehavior {
                 dimensions: dimensions,
                 translationBlocks: translationBlocks + [block],
                 binding: binding,
-                disabledNotches: disabledNotches,
-                contentAdjustmentMode: contentAdjustmentMode
+                disabledNotches: disabledNotches
             )
         }
 
@@ -55,8 +50,7 @@ extension MagneticNotchOverlayBehavior {
                 dimensions: dimensions,
                 translationBlocks: translationBlocks,
                 binding: binding,
-                disabledNotches: disabledNotches,
-                contentAdjustmentMode: contentAdjustmentMode
+                disabledNotches: disabledNotches
             )
         }
 
@@ -65,18 +59,7 @@ extension MagneticNotchOverlayBehavior {
                 dimensions: dimensions,
                 translationBlocks: translationBlocks,
                 binding: binding,
-                disabledNotches: isDisabled ? disabledNotches + [notch] : disabledNotches,
-                contentAdjustmentMode: contentAdjustmentMode
-            )
-        }
-
-        func contentAdjustmentMode(_ contentAdjustmentMode: ContentAdjustmentMode) -> Self {
-            Value(
-                dimensions: dimensions,
-                translationBlocks: translationBlocks,
-                binding: binding,
-                disabledNotches: disabledNotches,
-                contentAdjustmentMode: contentAdjustmentMode
+                disabledNotches: isDisabled ? disabledNotches + [notch] : disabledNotches
             )
         }
     }
