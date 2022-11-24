@@ -48,13 +48,9 @@ platform :ios do
 
         podspec = ENV["PODSPEC"]
         version_bump_podspec(path: podspec, version_number: target_version)
-        increment_build_number
-        increment_version_number(
-            version_number: target_version
-        )
         git_add
         git_commit(
-            path: ["Tests/Info.plist", "Source/Info.plist", "DynamicOverlay.podspec", "DynamicOverlay.xcodeproj/project.pbxproj", "TestHostApplication/Info.plist"],
+            path: ["DynamicOverlay.podspec"],
             message: "Bump to #{target_version}"
         )
         ensure_git_status_clean
