@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DynamicOverlayTests"
-               BuildableName = "DynamicOverlayTests"
-               BlueprintName = "DynamicOverlayTests"
-               ReferencedContainer = "container:..">
+               BlueprintIdentifier = "E797058E292F817F0047839F"
+               BuildableName = "DynamicOverlay_ExampleTests.xctest"
+               BlueprintName = "DynamicOverlay_ExampleTests"
+               ReferencedContainer = "container:DynamicOverlay_Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
