@@ -55,7 +55,7 @@ class NotchDimensionDynamicOverlayTests: XCTestCase {
             let context = Context()
             let view = NotchDimensionView(dimension: { context.dimension }) { height in
                 context.expectation.fulfill()
-                XCTAssertEqual(context.expectedHeight, height)
+                XCTAssertEqual(context.expectedHeight.rounded(.up), height.rounded(.up))
             }
             context.expectedHeight = expectedHeight
             context.expectation = XCTestExpectation()

@@ -13,7 +13,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/applidium/OverlayContainer.git", from: "3.5.1")
+        .package(url: "https://github.com/applidium/OverlayContainer.git", from: "3.5.2")
     ],
     targets: [
         .target(
