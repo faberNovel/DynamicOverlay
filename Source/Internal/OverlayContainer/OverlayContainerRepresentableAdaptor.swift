@@ -22,6 +22,8 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
     let content: Content
     let background: Background
 
+    private let style: OverlayContainerViewController.OverlayStyle = .expandableHeight
+
     // MARK: - UIViewControllerRepresentable
 
     func makeCoordinator() -> OverlayContainerCoordinator {
@@ -32,6 +34,7 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
         let backgroundController = UIHostingController(rootView: background)
         backgroundController.view.backgroundColor = .clear
         return OverlayContainerCoordinator(
+            style: style,
             layout: containerState.layout,
             passiveContainer: passiveContainer,
             background: backgroundController,
@@ -40,7 +43,7 @@ struct OverlayContainerRepresentableAdaptor<Content: View, Background: View> {
     }
 
     func makeUIViewController(context: Context) -> OverlayContainerViewController {
-        let controller = OverlayContainerViewController(style: .expandableHeight)
+        let controller = OverlayContainerViewController(style: style)
         controller.delegate = context.coordinator
         return controller
     }

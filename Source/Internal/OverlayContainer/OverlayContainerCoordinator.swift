@@ -44,15 +44,17 @@ class OverlayContainerCoordinator {
     typealias State = OverlayContainerState
 
     private var state: State
+    private let style: OverlayContainerViewController.OverlayStyle
     private let passiveContainer: OverlayContainerPassiveContainer
 
     private var animationController: DynamicOverlayContainerAnimationController {
-        DynamicOverlayContainerAnimationController()
+        DynamicOverlayContainerAnimationController(style: style)
     }
 
     // MARK: - Life Cycle
 
-    init(layout: OverlayContainerLayout,
+    init(style: OverlayContainerViewController.OverlayStyle,
+         layout: OverlayContainerLayout,
          passiveContainer: OverlayContainerPassiveContainer,
          background: UIViewController,
          content: UIViewController) {
@@ -60,6 +62,7 @@ class OverlayContainerCoordinator {
         self.passiveContainer = passiveContainer
         self.background = background
         self.content = content
+        self.style = style
     }
 
     // MARK: - Public

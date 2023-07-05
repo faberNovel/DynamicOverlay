@@ -26,6 +26,19 @@ struct DynamicOverlayContainerAnimationController: OverlayAnimatedTransitioning 
     private var damping: CGFloat = Constant.defaultDamping
     private var response: CGFloat = Constant.defaultResponse
 
+    // MARK: - Life Cycle
+
+    public init(style: OverlayContainerViewController.OverlayStyle) {
+        switch style {
+        case .expandableHeight, .rigid:
+            // (gz) 2019-06-15 We also nullify the damping value when using rigid styles
+            // to avoid the panel to be lifted above the bottom of the screen.
+            damping = Constant.defaultRigidDamping
+        case .flexibleHeight:
+            damping = Constant.defaultDamping
+        }
+    }
+
     // MARK: - Public
 
     public func animation(using context: OverlayContainerTransitionCoordinatorContext) -> Animation? {
